@@ -12,11 +12,11 @@ let next = html
   )
   .replace(
     /<meta name="author" content=".*?" \/>/,
-    '<meta name="author" content="Nova" />',
+    '<meta name="author" content="Paxton Warin" />',
   )
   .replace(
     /<link rel="icon" href=".*?" type="image\/svg\+xml" \/>/,
-    `<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>" />`,
+    `<link rel="icon" href="/favicon.ico" type="image/x-icon" />`
   )
   .replace(
     /<meta property="og:title" content=".*?" \/>/,
