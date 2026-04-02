@@ -6,15 +6,15 @@
   "scripts": {
     "dev": "concurrently -k -n server,frontend \"npm run dev:server\" \"npm run dev:frontend\"",
     "dev:server": "tsx watch src/server.ts",
-    "dev:frontend": "npm --dir frontend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
     "install:all": "node scripts/install-all.mjs",
-    "build": "npm --dir frontend run build",
+    "build": "npm --prefix frontend run build",
     "start": "tsx src/server.ts",
-    "lint": "npm --dir frontend run lint"
+    "lint": "npm --prefix frontend run lint"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "See github",
   "type": "module",
   "dependencies": {
     "@mercuryworkshop/bare-mux": "2.1.7",
