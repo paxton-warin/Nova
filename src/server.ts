@@ -715,12 +715,6 @@ const defaultTabs: BrowserTab[] = [
 createSchema();
 seedMasterAdmin();
 
-app.use((req, res, next) => {
-  res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
-  res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
-  next();
-});
-
 app.use(express.json({ limit: "2mb" }));
 app.use(
   session({
@@ -2585,7 +2579,7 @@ server.on("upgrade", (req, socket, head) => {
 });
 
 server.listen(env.PORT, "0.0.0.0", () => {
-  console.log(`Nova backend listening on http://localhost:${env.PORT}`);
+  console.log(`Nova backend listening on http://0.0.0.0:${env.PORT}`);
   void refreshAllProxyLatencies();
   setInterval(() => void refreshAllProxyLatencies(), PROXY_LATENCY_TTL_MS);
   setInterval(() => {
