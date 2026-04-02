@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Nova Browser fullstack app",
   "main": "src/server.ts",
-  "packageManager": "pnpm@10.33.0",
   "scripts": {
     "dev": "concurrently -k -n server,frontend \"corepack pnpm run dev:server\" \"corepack pnpm run dev:frontend\"",
     "dev:server": "tsx watch src/server.ts",
