@@ -2,6 +2,10 @@
 
 Nova Browser is a full-stack browser-style web app with a React/Vite frontend and an Express/SQLite backend. It includes multi-tab browsing, internal pages, ticketing, notifications, admin tooling, sync/merge flows, proxy routing, and configurable games/apps catalogs.
 
+## License
+
+This work is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License](https://creativecommons.org/licenses/by-nc/4.0/).
+
 ## Stack
 
 - Frontend: `React`, `Vite`, `TypeScript`, `Tailwind`, `Radix UI`
