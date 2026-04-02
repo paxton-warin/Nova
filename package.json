@@ -1,0 +1,51 @@
+{
+  "name": "nova-browser",
+  "version": "1.0.0",
+  "description": "Nova Browser fullstack app",
+  "main": "src/server.ts",
+  "packageManager": "pnpm@10.33.0",
+  "scripts": {
+    "dev": "concurrently -k -n server,frontend \"corepack pnpm run dev:server\" \"corepack pnpm run dev:frontend\"",
+    "dev:server": "tsx watch src/server.ts",
+    "dev:frontend": "corepack pnpm --dir frontend run dev",
+    "install:all": "node scripts/install-all.mjs",
+    "build": "corepack pnpm --dir frontend run build",
+    "start": "tsx src/server.ts",
+    "lint": "corepack pnpm --dir frontend run lint"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@mercuryworkshop/bare-mux": "2.1.7",
+    "@mercuryworkshop/libcurl-transport": "1.5.2",
+    "@mercuryworkshop/scramjet": "https://github.com/MercuryWorkshop/scramjet/releases/download/latest/mercuryworkshop-scramjet-2.0.0-alpha.tgz",
+    "@mercuryworkshop/wisp-js": "^0.4.1",
+    "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^12.8.0",
+    "better-sqlite3-session-store": "^0.1.0",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "https-proxy-agent": "^8.0.0",
+    "multer": "^2.1.1",
+    "nanoid": "^5.1.7",
+    "otpauth": "^9.5.0",
+    "qrcode": "^1.5.4",
+    "socks-proxy-agent": "^9.0.0",
+    "ws": "^8.20.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/express": "^5.0.6",
+    "@types/express-session": "^1.18.2",
+    "@types/multer": "^2.1.0",
+    "@types/node": "^25.5.0",
+    "@types/qrcode": "^1.5.6",
+    "concurrently": "^9.2.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "locations": [
+    {
+      "id": "us",
+      "label": "United States",
+      "emoji": "🇺🇸",
+      "proxies": []
+    },
+    {
+      "id": "uk",
+      "label": "United Kingdom",
+      "emoji": "🇬🇧",
+      "proxies": []
+    },
+    {
+      "id": "de",
+      "label": "Germany",
+      "emoji": "🇩🇪",
+      "proxies": []
+    },
+    {
+      "id": "nl",
+      "label": "Netherlands",
+      "emoji": "🇳🇱",
+      "proxies": []
+    },
+    {
+      "id": "jp",
+      "label": "Japan",
+      "emoji": "🇯🇵",
+      "proxies": []
+    },
+    {
+      "id": "sp",
+      "label": "Singapore",
+      "emoji": "🇸🇬",
+      "proxies": []
+    }
+  ]
+}

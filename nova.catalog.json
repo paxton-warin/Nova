@@ -1,0 +1,3124 @@
+{
+  "appsGames": [
+      {
+        "id": "fancade",
+        "title": "Fancade",
+        "url": "https://play.fancade.com",
+        "icon": "/api/favicon?url=https%3A%2F%2Fplay.fancade.com",
+        "description": "Play and build mini-games.",
+        "category": "game"
+      },
+      {
+        "id": "amazon-luna",
+        "title": "Amazon Luna",
+        "url": "https://luna.amazon.com/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fluna.amazon.com%2F",
+        "description": "Cloud gaming in browser.",
+        "category": "game"
+      },
+      {
+        "id": "gartic-phone",
+        "title": "Gartic Phone",
+        "url": "https://garticphone.com",
+        "icon": "/api/favicon?url=https%3A%2F%2Fgarticphone.com",
+        "description": "Drawing and guessing party game.",
+        "category": "game"
+      },
+      {
+        "id": "newgrounds",
+        "title": "Newgrounds",
+        "url": "https://newgrounds.com/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fnewgrounds.com%2F",
+        "description": "Classic portal for games.",
+        "category": "game"
+      },
+      {
+        "id": "pranx",
+        "title": "Pranx",
+        "url": "https://pranx.com/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fpranx.com%2F",
+        "description": "Fake desktop prank simulator.",
+        "category": "game"
+      },
+      {
+        "id": "steam",
+        "title": "Steam",
+        "url": "https://steampowered.com/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fsteampowered.com%2F",
+        "description": "PC game store front.",
+        "category": "game"
+      },
+      {
+        "id": "swordbattle-io",
+        "title": "Swordbattle.io",
+        "url": "https://swordbattle.io/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fswordbattle.io%2F",
+        "description": "Multiplayer .io strategy game.",
+        "category": "game"
+      },
+      {
+        "id": "stabfish-io",
+        "title": "Stabfish.io",
+        "url": "https://stabfish.io/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fstabfish.io%2F",
+        "description": "Fast-paced multiplayer .io game.",
+        "category": "game"
+      },
+      {
+        "id": "dynast-io",
+        "title": "Dynast.io",
+        "url": "https://dynast.io",
+        "icon": "/api/favicon?url=https%3A%2F%2Fdynast.io",
+        "description": "Survive, craft, and build online.",
+        "category": "game"
+      },
+      {
+        "id": "twisted-cooking-mama",
+        "title": "Twisted Cooking Mama",
+        "url": "https://twisted-cooking-mama.game-files.crazygames.com/ruffle/twisted-cooking-mama/1/twistedcookingmama.html?v=1.273",
+        "icon": "/api/favicon?url=https%3A%2F%2Ftwisted-cooking-mama.game-files.crazygames.com%2Fruffle%2Ftwisted-cooking-mama%2F1%2Ftwistedcookingmama.html%3Fv%3D1.273",
+        "description": "Absurd parody cooking game.",
+        "category": "game"
+      },
+      {
+        "id": "marbles-garden",
+        "title": "Marbles Garden",
+        "url": "https://www.coolmathgames.com/0-marbles-garden/play",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.coolmathgames.com%2F0-marbles-garden%2Fplay",
+        "description": "Aim-and-match marble puzzler.",
+        "category": "game"
+      },
+      {
+        "id": "fancy-pants-adventure",
+        "title": "Fancy Pants Adventure",
+        "url": "https://games.crazygames.com/en_US/fancy-pants-adventure-world/index.html?v=1.273",
+        "icon": "/api/favicon?url=https%3A%2F%2Fgames.crazygames.com%2Fen_US%2Ffancy-pants-adventure-world%2Findex.html%3Fv%3D1.273",
+        "description": "Fast stickman platform adventure.",
+        "category": "game"
+      },
+      {
+        "id": "rooftop-snipers-2",
+        "title": "Rooftop Snipers 2",
+        "url": "https://h5cdn.github.io/s6/rooftop-snipers-2/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fh5cdn.github.io%2Fs6%2Frooftop-snipers-2%2F",
+        "description": "Chaotic rooftop duel shooter.",
+        "category": "game"
+      },
+      {
+        "id": "stickman-archero-fight",
+        "title": "Stickman Archero Fight",
+        "url": "https://html5.gamedistribution.com/rvvASMiM/3f4c166817ad4fd4b5b05d9adba22fcd/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fhtml5.gamedistribution.com%2FrvvASMiM%2F3f4c166817ad4fd4b5b05d9adba22fcd%2Findex.html",
+        "description": "Stickman arena action game.",
+        "category": "game"
+      },
+      {
+        "id": "earn-to-die-2012-part-2",
+        "title": "Earn to Die 2012 Part 2",
+        "url": "https://games-online.io/game/EarnToDie/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fgames-online.io%2Fgame%2FEarnToDie%2Findex.html",
+        "description": "Drive through zombie hordes.",
+        "category": "game"
+      },
+      {
+        "id": "lostgamer",
+        "title": "Lostgamer",
+        "url": "https://lostgamer.io",
+        "icon": "/api/favicon?url=https%3A%2F%2Flostgamer.io",
+        "description": "Guess locations from game worlds.",
+        "category": "game"
+      },
+      {
+        "id": "thisissand",
+        "title": "Thisissand",
+        "url": "https://thisissand.com/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fthisissand.com%2F",
+        "description": "Relaxing sand art creator.",
+        "category": "game"
+      },
+      {
+        "id": "digdig-io",
+        "title": "digdig.io",
+        "url": "https://digdig.io/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fdigdig.io%2F",
+        "description": "Fast-paced multiplayer .io game.",
+        "category": "game"
+      },
+      {
+        "id": "big-tower-tiny-square",
+        "title": "Big Tower Tiny Square",
+        "url": "https://www.coolmathgames.com/0-big-tower-tiny-square/play",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.coolmathgames.com%2F0-big-tower-tiny-square%2Fplay",
+        "description": "Precision platformer with tough jumps.",
+        "category": "game"
+      },
+      {
+        "id": "the-impossible-quiz",
+        "title": "The Impossible Quiz",
+        "url": "https://the-impossible-quiz.game-files.crazygames.com/ruffle/theimpossiblequiz.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fthe-impossible-quiz.game-files.crazygames.com%2Fruffle%2Ftheimpossiblequiz.html",
+        "description": "Trick questions and chaos.",
+        "category": "game"
+      },
+      {
+        "id": "helix-jump",
+        "title": "Helix Jump",
+        "url": "https://helix-jump.game-files.crazygames.com/helix-jump/1/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fhelix-jump.game-files.crazygames.com%2Fhelix-jump%2F1%2Findex.html",
+        "description": "Bounce through twisting towers.",
+        "category": "game"
+      },
+      {
+        "id": "skribbl",
+        "title": "skribbl",
+        "url": "https://skribbl.io/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fskribbl.io%2F",
+        "description": "Online drawing and guessing game.",
+        "category": "game"
+      },
+      {
+        "id": "wings",
+        "title": "Wings!",
+        "url": "https://wings.io/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwings.io%2F",
+        "description": "Dogfight planes in browser.",
+        "category": "game"
+      },
+      {
+        "id": "stomped-io",
+        "title": "Stomped.io",
+        "url": "https://stomped.io",
+        "icon": "/api/favicon?url=https%3A%2F%2Fstomped.io",
+        "description": "Arena stomping survival game.",
+        "category": "game"
+      },
+      {
+        "id": "age-of-war",
+        "title": "Age of War",
+        "url": "https://age-of-war.game-files.crazygames.com/ruffle/ageofwar.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fage-of-war.game-files.crazygames.com%2Fruffle%2Fageofwar.html",
+        "description": "Evolve through battle ages.",
+        "category": "game"
+      },
+      {
+        "id": "brain-test",
+        "title": "Brain Test",
+        "url": "https://0322484b-7a58-4454-9667-f805afffded5.poki-gdn.com/2e6b68d3-0f43-4b84-9c14-ab59f94e566c/index.html?country=US&ccpaApplies=0&url_referrer=https%3A%2F%2Fpoki.com%2F&tag=pg-v3.132.1&site_id=3&iso_lang=en&poki_url=https%3A%2F%2Fpoki.com%2Fen%2Fg%2Fbrain-test-tricky-puzzles&gdhoist=yes&nonPersonalized=n&familyFriendly=n&categories=7%2C16%2C37%2C72%2C96%2C400%2C832%2C843%2C1140%2C1150%2C1159&special_condition=landing&game_id=0322484b-7a58-4454-9667-f805afffded5&game_version_id=2e6b68d3-0f43-4b84-9c14-ab59f94e566c",
+        "icon": "/api/favicon?url=https%3A%2F%2F0322484b-7a58-4454-9667-f805afffded5.poki-gdn.com%2F2e6b68d3-0f43-4b84-9c14-ab59f94e566c%2Findex.html%3Fcountry%3DUS%26ccpaApplies%3D0%26url_referrer%3Dhttps%253A%252F%252Fpoki.com%252F%26tag%3Dpg-v3.132.1%26site_id%3D3%26iso_lang%3Den%26poki_url%3Dhttps%253A%252F%252Fpoki.com%252Fen%252Fg%252Fbrain-test-tricky-puzzles%26gdhoist%3Dyes%26nonPersonalized%3Dn%26familyFriendly%3Dn%26categories%3D7%252C16%252C37%252C72%252C96%252C400%252C832%252C843%252C1140%252C1150%252C1159%26special_condition%3Dlanding%26game_id%3D0322484b-7a58-4454-9667-f805afffded5%26game_version_id%3D2e6b68d3-0f43-4b84-9c14-ab59f94e566c",
+        "description": "Tricky brain teaser puzzles.",
+        "category": "game"
+      },
+      {
+        "id": "gladihoppers",
+        "title": "Gladihoppers",
+        "url": "https://bonbang.github.io/store99/gladihoppers/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fbonbang.github.io%2Fstore99%2Fgladihoppers%2Findex.html",
+        "description": "Wobbly pixel gladiator duels.",
+        "category": "game"
+      },
+      {
+        "id": "snow-rider-3d",
+        "title": "Snow Rider 3D",
+        "url": "https://html5.gamedistribution.com/rvvASMiM/3b79a8537ebc414fb4f9672a9b8c68c8/index.html?gd_zone_config=eyJwYXJlbnRVUkwiOiJodHRwczovL3Nub3dyaWRlcjNkLmNvbS8iLCJwYXJlbnREb21haW4iOiJzbm93cmlkZXIzZC5jb20iLCJ0b3BEb21haW4iOiJzbm93cmlkZXIzZC5jb20iLCJoYXNJbXByZXNzaW9uIjpmYWxzZSwibG9hZGVyRW5hYmxlZCI6dHJ1ZSwiaG9zdCI6Imh0bWw1LmdhbWVkaXN0cmlidXRpb24uY29tIiwidmVyc2lvbiI6IjEuNS4xNiJ9",
+        "icon": "/api/favicon?url=https%3A%2F%2Fhtml5.gamedistribution.com%2FrvvASMiM%2F3b79a8537ebc414fb4f9672a9b8c68c8%2Findex.html%3Fgd_zone_config%3DeyJwYXJlbnRVUkwiOiJodHRwczovL3Nub3dyaWRlcjNkLmNvbS8iLCJwYXJlbnREb21haW4iOiJzbm93cmlkZXIzZC5jb20iLCJ0b3BEb21haW4iOiJzbm93cmlkZXIzZC5jb20iLCJoYXNJbXByZXNzaW9uIjpmYWxzZSwibG9hZGVyRW5hYmxlZCI6dHJ1ZSwiaG9zdCI6Imh0bWw1LmdhbWVkaXN0cmlidXRpb24uY29tIiwidmVyc2lvbiI6IjEuNS4xNiJ9",
+        "description": "Sled downhill and dodge obstacles.",
+        "category": "game"
+      },
+      {
+        "id": "3-slices",
+        "title": "3 Slices",
+        "url": "https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%2F3-slices.xml",
+        "icon": "/api/favicon?url=https%3A%2F%2Fimages-opensocial.googleusercontent.com%2Fgadgets%2Fifr%3Furl%3Dhttps%3A%2F%2Fs3.amazonaws.com%2Fproduction-assetsbucket-8ljvyr1xczmb%2F1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%252F3-slices.xml",
+        "description": "Slice shapes to win.",
+        "category": "game"
+      },
+      {
+        "id": "buckshot-roulette",
+        "title": "Buckshot Roulette",
+        "url": "https://buckshotroulette.online/game/v11/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fbuckshotroulette.online%2Fgame%2Fv11%2F",
+        "description": "Tense shotgun chance game.",
+        "category": "game"
+      },
+      {
+        "id": "starblast",
+        "title": "Starblast",
+        "url": "https://starblast.io",
+        "icon": "/api/favicon?url=https%3A%2F%2Fstarblast.io",
+        "description": "Space dogfights and upgrades.",
+        "category": "game"
+      },
+      {
+        "id": "csgo-parkour",
+        "title": "CSGO Parkour",
+        "url": "https://yandex.com/games/app/203069?flags={%22adv_sticky_banner_disabled%22:true}",
+        "icon": "/api/favicon?url=https%3A%2F%2Fyandex.com%2Fgames%2Fapp%2F203069%3Fflags%3D%7B%2522adv_sticky_banner_disabled%2522%3Atrue%7D",
+        "description": "FPS-style obstacle course game.",
+        "category": "game"
+      },
+      {
+        "id": "parkour-block-3d",
+        "title": "Parkour Block 3D",
+        "url": "https://html5.gamedistribution.com/1461d40bb77f48e6be72489959a1ac04/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fhtml5.gamedistribution.com%2F1461d40bb77f48e6be72489959a1ac04%2F",
+        "description": "Minecraft-style parkour challenge.",
+        "category": "game"
+      },
+      {
+        "id": "jelly-mario",
+        "title": "Jelly Mario",
+        "url": "https://jellymar.io",
+        "icon": "/api/favicon?url=https%3A%2F%2Fjellymar.io",
+        "description": "Mario with wobbly physics.",
+        "category": "game"
+      },
+      {
+        "id": "tyran-io",
+        "title": "Tyran.io",
+        "url": "https://tyran.io",
+        "icon": "/api/favicon?url=https%3A%2F%2Ftyran.io",
+        "description": "Multiplayer dinosaur survival game.",
+        "category": "game"
+      },
+      {
+        "id": "arras-io",
+        "title": "Arras.io",
+        "url": "https://arras.io/",
+        "icon": "/api/favicon?url=https%3A%2F%2Farras.io%2F",
+        "description": "Fast-paced multiplayer .io game.",
+        "category": "game"
+      },
+      {
+        "id": "mk48-io",
+        "title": "mk48.io",
+        "url": "https://mk48.io/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fmk48.io%2F",
+        "description": "Fast-paced multiplayer .io game.",
+        "category": "game"
+      },
+      {
+        "id": "bandit-rip",
+        "title": "Bandit.RIP",
+        "url": "https://bandit.rip/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fbandit.rip%2F",
+        "description": "Western-themed battle royale.",
+        "category": "game"
+      },
+      {
+        "id": "addicting-games",
+        "title": "Addicting Games",
+        "url": "https://www.addictinggames.com/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.addictinggames.com%2F",
+        "description": "Huge casual games portal.",
+        "category": "game"
+      },
+      {
+        "id": "deeeep-io",
+        "title": "Deeeep.io",
+        "url": "https://beta.deeeep.io",
+        "icon": "/api/favicon?url=https%3A%2F%2Fbeta.deeeep.io",
+        "description": "Fast-paced multiplayer .io game.",
+        "category": "game"
+      },
+      {
+        "id": "ev-io",
+        "title": "ev.io",
+        "url": "https://ev.io",
+        "icon": "/api/favicon?url=https%3A%2F%2Fev.io",
+        "description": "Multiplayer .io shooter.",
+        "category": "game"
+      },
+      {
+        "id": "brain-test-2",
+        "title": "Brain Test 2",
+        "url": "https://games.poki.com/458768/df221093-aae9-4c0d-b458-efb16ae8e3ab",
+        "icon": "/api/favicon?url=https%3A%2F%2Fgames.poki.com%2F458768%2Fdf221093-aae9-4c0d-b458-efb16ae8e3ab",
+        "description": "More trick puzzle levels.",
+        "category": "game"
+      },
+      {
+        "id": "brain-test-3",
+        "title": "Brain Test 3",
+        "url": "https://games.poki.com/458768/1f3ae540-a95f-4f20-a000-29512612e341",
+        "icon": "/api/favicon?url=https%3A%2F%2Fgames.poki.com%2F458768%2F1f3ae540-a95f-4f20-a000-29512612e341",
+        "description": "Story-driven puzzle challenge.",
+        "category": "game"
+      },
+      {
+        "id": "donitz-itch-io",
+        "title": "Donitz - itch.io",
+        "url": "https://donitz.itch.io/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fdonitz.itch.io%2F",
+        "description": "Indie games and experiments.",
+        "category": "game"
+      },
+      {
+        "id": "territorial-io",
+        "title": "Territorial.io",
+        "url": "https://territorial.io",
+        "icon": "/api/favicon?url=https%3A%2F%2Fterritorial.io",
+        "description": "Multiplayer .io strategy game.",
+        "category": "game"
+      },
+      {
+        "id": "stickman-hook",
+        "title": "Stickman Hook",
+        "url": "/e/stickman-hook/index.html",
+        "icon": "/api/favicon?url=%2Fe%2Fstickman-hook%2Findex.html",
+        "description": "Swing through levels on hooks.",
+        "category": "game"
+      },
+      {
+        "id": "tube-jumpers",
+        "title": "Tube Jumpers",
+        "url": "https://unblocked76.github.io/tube-jumpers/",
+        "icon": "/api/favicon?url=https%3A%2F%2Funblocked76.github.io%2Ftube-jumpers%2F",
+        "description": "Floppy multiplayer water duels.",
+        "category": "game"
+      },
+      {
+        "id": "tunnel-rush",
+        "title": "Tunnel Rush",
+        "url": "https://5dd2e8e4-015f-11ea-ad56-9cb6d0d995f7.poki-gdn.com/5627efae-e960-407d-82a5-3da708eb4e68/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2F5dd2e8e4-015f-11ea-ad56-9cb6d0d995f7.poki-gdn.com%2F5627efae-e960-407d-82a5-3da708eb4e68%2Findex.html",
+        "description": "Fast reflex tunnel dodging.",
+        "category": "game"
+      },
+      {
+        "id": "tunnel-rush-2",
+        "title": "Tunnel Rush 2",
+        "url": "https://a7e6d137-c3c1-46e6-a3db-04c2d33c98a8.poki-gdn.com/71e6bddd-9b0e-4621-a11a-9503086f69d5/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fa7e6d137-c3c1-46e6-a3db-04c2d33c98a8.poki-gdn.com%2F71e6bddd-9b0e-4621-a11a-9503086f69d5%2Findex.html",
+        "description": "Harder neon tunnel runner.",
+        "category": "game"
+      },
+      {
+        "id": "rainbow-obby",
+        "title": "Rainbow Obby",
+        "url": "https://785a4295-96c4-43e5-b237-fb07fc3ef44d.poki-gdn.com/f1d39f75-7a25-41de-86cf-ba00804737b5/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2F785a4295-96c4-43e5-b237-fb07fc3ef44d.poki-gdn.com%2Ff1d39f75-7a25-41de-86cf-ba00804737b5%2Findex.html",
+        "description": "Colorful obstacle platform course.",
+        "category": "game"
+      },
+      {
+        "id": "candy-jump",
+        "title": "Candy Jump",
+        "url": "https://candyjump.games235.com/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fcandyjump.games235.com%2F",
+        "description": "Bounce past candy obstacles.",
+        "category": "game"
+      },
+      {
+        "id": "google-feud",
+        "title": "Google Feud",
+        "url": "https://googlefeud.com/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fgooglefeud.com%2F",
+        "description": "Autocomplete guessing trivia game.",
+        "category": "game"
+      },
+      {
+        "id": "minecraft-classic",
+        "title": "Minecraft Classic",
+        "url": "https://classic.minecraft.net",
+        "icon": "/api/favicon?url=https%3A%2F%2Fclassic.minecraft.net",
+        "description": "Original Minecraft in browser.",
+        "category": "game"
+      },
+      {
+        "id": "learn-to-fly-3",
+        "title": "Learn to Fly 3",
+        "url": "https://www.silvergames.com/en/learn-to-fly-3/iframe",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.silvergames.com%2Fen%2Flearn-to-fly-3%2Fiframe",
+        "description": "Launch your penguin into space.",
+        "category": "game"
+      },
+      {
+        "id": "neal-fun",
+        "title": "Neal.Fun",
+        "url": "https://neal.fun",
+        "icon": "/api/favicon?url=https%3A%2F%2Fneal.fun",
+        "description": "Interactive web games and toys.",
+        "category": "game"
+      },
+      {
+        "id": "yohoho-io",
+        "title": "YoHoHo.io",
+        "url": "https://yohoho.io/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fyohoho.io%2F",
+        "description": "Fast-paced multiplayer .io game.",
+        "category": "game"
+      },
+      {
+        "id": "antwar-io",
+        "title": "AntWar.io",
+        "url": "https://antwar.io/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fantwar.io%2F",
+        "description": "Multiplayer .io strategy game.",
+        "category": "game"
+      },
+      {
+        "id": "tetr-io",
+        "title": "Tetr.io",
+        "url": "https://tetr.io/",
+        "icon": "/api/favicon?url=https%3A%2F%2Ftetr.io%2F",
+        "description": "Modern competitive Tetris.",
+        "category": "game"
+      },
+      {
+        "id": "time-shooter-2",
+        "title": "Time Shooter 2",
+        "url": "https://html5.gamedistribution.com/62a72f2da7cb4b609579a47653546e6a/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fhtml5.gamedistribution.com%2F62a72f2da7cb4b609579a47653546e6a%2F",
+        "description": "Superhot-style time shooter.",
+        "category": "game"
+      },
+      {
+        "id": "merge-fruit",
+        "title": "Merge Fruit",
+        "url": "https://html5.gamedistribution.com/2dee9d404697435aa76111eb4015e1d5/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fhtml5.gamedistribution.com%2F2dee9d404697435aa76111eb4015e1d5%2F",
+        "description": "Merge matching fruit pieces.",
+        "category": "game"
+      },
+      {
+        "id": "there-is-no-game",
+        "title": "There Is No Game",
+        "url": "https://5dd2d607-015f-11ea-ad56-9cb6d0d995f7.poki-gdn.com/38959ae1-110b-49ab-86ae-df425fd7862a/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2F5dd2d607-015f-11ea-ad56-9cb6d0d995f7.poki-gdn.com%2F38959ae1-110b-49ab-86ae-df425fd7862a%2Findex.html",
+        "description": "Meta puzzle comedy adventure.",
+        "category": "game"
+      },
+      {
+        "id": "jetpack-joyride",
+        "title": "Jetpack Joyride",
+        "url": "/e/jetpack-joyride/index.html",
+        "icon": "/api/favicon?url=%2Fe%2Fjetpack-joyride%2Findex.html",
+        "description": "Endless runner with gadgets.",
+        "category": "game"
+      },
+      {
+        "id": "feedvid",
+        "title": "FeedVid",
+        "url": "https://v6p9d9t4.ssl.hwcdn.net/html/4941980-683813/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fv6p9d9t4.ssl.hwcdn.net%2Fhtml%2F4941980-683813%2Findex.html",
+        "description": "Odd fake social feed game.",
+        "category": "game"
+      },
+      {
+        "id": "florr-io",
+        "title": "florr.io",
+        "url": "https://florr.io",
+        "icon": "/api/favicon?url=https%3A%2F%2Fflorr.io",
+        "description": "Fast-paced multiplayer .io game.",
+        "category": "game"
+      },
+      {
+        "id": "rocket-bot-royale",
+        "title": "Rocket Bot Royale",
+        "url": "https://rocketbotroyale2.winterpixel.io/",
+        "icon": "/api/favicon?url=https%3A%2F%2Frocketbotroyale2.winterpixel.io%2F",
+        "description": "Tank combat on collapsing ground.",
+        "category": "game"
+      },
+      {
+        "id": "happy-wheels",
+        "title": "Happy Wheels",
+        "url": "https://files.crazygames.com/ruffle/happywheels.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Ffiles.crazygames.com%2Fruffle%2Fhappywheels.html",
+        "description": "Physics chaos and gore.",
+        "category": "game"
+      },
+      {
+        "id": "papa-s-burgeria",
+        "title": "Papa's Burgeria",
+        "url": "https://www.coolmathgames.com/0-papas-burgeria/play",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.coolmathgames.com%2F0-papas-burgeria%2Fplay",
+        "description": "Restaurant time-management game.",
+        "category": "game"
+      },
+      {
+        "id": "papa-s-cheeseria",
+        "title": "Papa's Cheeseria",
+        "url": "https://www.coolmathgames.com/0-papas-cheeseria/play",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.coolmathgames.com%2F0-papas-cheeseria%2Fplay",
+        "description": "Restaurant time-management game.",
+        "category": "game"
+      },
+      {
+        "id": "papa-s-pancakeria",
+        "title": "Papa's Pancakeria",
+        "url": "https://www.coolmathgames.com/0-papas-pancakeria/play",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.coolmathgames.com%2F0-papas-pancakeria%2Fplay",
+        "description": "Restaurant time-management game.",
+        "category": "game"
+      },
+      {
+        "id": "papa-s-wingeria",
+        "title": "Papa's Wingeria",
+        "url": "https://www.coolmathgames.com/0-papas-wingeria/play",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.coolmathgames.com%2F0-papas-wingeria%2Fplay",
+        "description": "Restaurant time-management game.",
+        "category": "game"
+      },
+      {
+        "id": "riddle-school-1",
+        "title": "Riddle School 1",
+        "url": "https://uploads.ungrounded.net/ruffle_wrapper/ruffleembed.html?v=1.0.67&browsermode=default&props=%7B%22ruffle%22%3A%22%2Fruffle_wrapper%2Flib%2Fruffle.js%3F1695474658%22%2C%22public_path%22%3A%22%2Fruffle_wrapper%2Flib%2F%22%2C%22swf%22%3A%22https%3A%2F%2Fuploads.ungrounded.net%2F314000%2F314680_Riddle_School.swf%3F1148577264%22%2C%22vars%22%3A%7B%22NewgroundsAPI_PublisherID%22%3A1%2C%22NewgroundsAPI_SandboxID%22%3A%2265103f0745c96%22%2C%22NewgroundsAPI_SessionID%22%3A%22%22%2C%22NewgroundsAPI_UserName%22%3A%22%26lt%3Bdeleted%26gt%3B%22%2C%22NewgroundsAPI_UserID%22%3A0%2C%22ng_username%22%3A%22%26lt%3Bdeleted%26gt%3B%22%7D%2C%22width%22%3A550%2C%22height%22%3A400%2C%22icon%22%3A%22https%3A%2F%2Fpicon.ngfiles.com%2F314000%2Fflash_314680_card.webp%3Ff1607914286%22%2C%22warnOnUnsupportedContent%22%3Afalse%7D",
+        "icon": "/api/favicon?url=https%3A%2F%2Fuploads.ungrounded.net%2Fruffle_wrapper%2Fruffleembed.html%3Fv%3D1.0.67%26browsermode%3Ddefault%26props%3D%257B%2522ruffle%2522%253A%2522%252Fruffle_wrapper%252Flib%252Fruffle.js%253F1695474658%2522%252C%2522public_path%2522%253A%2522%252Fruffle_wrapper%252Flib%252F%2522%252C%2522swf%2522%253A%2522https%253A%252F%252Fuploads.ungrounded.net%252F314000%252F314680_Riddle_School.swf%253F1148577264%2522%252C%2522vars%2522%253A%257B%2522NewgroundsAPI_PublisherID%2522%253A1%252C%2522NewgroundsAPI_SandboxID%2522%253A%252265103f0745c96%2522%252C%2522NewgroundsAPI_SessionID%2522%253A%2522%2522%252C%2522NewgroundsAPI_UserName%2522%253A%2522%2526lt%253Bdeleted%2526gt%253B%2522%252C%2522NewgroundsAPI_UserID%2522%253A0%252C%2522ng_username%2522%253A%2522%2526lt%253Bdeleted%2526gt%253B%2522%257D%252C%2522width%2522%253A550%252C%2522height%2522%253A400%252C%2522icon%2522%253A%2522https%253A%252F%252Fpicon.ngfiles.com%252F314000%252Fflash_314680_card.webp%253Ff1607914286%2522%252C%2522warnOnUnsupportedContent%2522%253Afalse%257D",
+        "description": "Escape school point-and-click.",
+        "category": "game"
+      },
+      {
+        "id": "powerline-io",
+        "title": "Powerline.IO",
+        "url": "https://powerline.io",
+        "icon": "/api/favicon?url=https%3A%2F%2Fpowerline.io",
+        "description": "Fast-paced multiplayer .io game.",
+        "category": "game"
+      },
+      {
+        "id": "papa-s-scooperia",
+        "title": "Papa's Scooperia",
+        "url": "https://files.crazygames.com/ruffle/papasscooperia.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Ffiles.crazygames.com%2Fruffle%2Fpapasscooperia.html",
+        "description": "Restaurant time-management game.",
+        "category": "game"
+      },
+      {
+        "id": "papa-s-sushiria",
+        "title": "Papa's Sushiria",
+        "url": "https://files.crazygames.com/ruffle/papassushiria.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Ffiles.crazygames.com%2Fruffle%2Fpapassushiria.html",
+        "description": "Restaurant time-management game.",
+        "category": "game"
+      },
+      {
+        "id": "burrito-bison",
+        "title": "Burrito Bison",
+        "url": "https://f.silvergames.com/awayfl/index.html?swf=burrito-bison.swf",
+        "icon": "/api/favicon?url=https%3A%2F%2Ff.silvergames.com%2Fawayfl%2Findex.html%3Fswf%3Dburrito-bison.swf",
+        "description": "Launch and smash enemies.",
+        "category": "game"
+      },
+      {
+        "id": "fireboy-and-watergirl-2-in-the-light-temple",
+        "title": "Fireboy And Watergirl 2 In The Light Temple",
+        "url": "https://www.coolmathgames.com/sites/default/files/public_games/40210/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.coolmathgames.com%2Fsites%2Fdefault%2Ffiles%2Fpublic_games%2F40210%2F",
+        "description": "Co-op elemental puzzle platformer.",
+        "category": "game"
+      },
+      {
+        "id": "fireboy-and-watergirl-4-in-the-crystal-temple",
+        "title": "Fireboy And Watergirl 4 In The Crystal Temple",
+        "url": "https://www.coolmathgames.com/sites/default/files/public_games/40212/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.coolmathgames.com%2Fsites%2Fdefault%2Ffiles%2Fpublic_games%2F40212%2F",
+        "description": "Co-op elemental puzzle platformer.",
+        "category": "game"
+      },
+      {
+        "id": "fireboy-and-watergirl-5-elements",
+        "title": "Fireboy And Watergirl 5: Elements",
+        "url": "https://www.coolmathgames.com/sites/default/files/public_games/40218",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.coolmathgames.com%2Fsites%2Fdefault%2Ffiles%2Fpublic_games%2F40218",
+        "description": "Co-op elemental puzzle platformer.",
+        "category": "game"
+      },
+      {
+        "id": "fireboy-and-watergirl-6-fairy-tales",
+        "title": "Fireboy And Watergirl 6: Fairy Tales",
+        "url": "https://html5.gamedistribution.com/rvvASMiM/be3cff113c4e4f069b7614851825ffe9/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fhtml5.gamedistribution.com%2FrvvASMiM%2Fbe3cff113c4e4f069b7614851825ffe9%2Findex.html",
+        "description": "Co-op elemental puzzle platformer.",
+        "category": "game"
+      },
+      {
+        "id": "fireboy-and-watergirl-in-the-forest-temple",
+        "title": "Fireboy And Watergirl In The Forest Temple",
+        "url": "https://www.coolmathgames.com/sites/default/files/public_games/40034/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.coolmathgames.com%2Fsites%2Fdefault%2Ffiles%2Fpublic_games%2F40034%2F",
+        "description": "Co-op elemental puzzle platformer.",
+        "category": "game"
+      },
+      {
+        "id": "gunspin",
+        "title": "Gunspin",
+        "url": "https://html5.gamedistribution.com/rvvASMiM/917cce8c44c44638a8cdc2a1794b65c8/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fhtml5.gamedistribution.com%2FrvvASMiM%2F917cce8c44c44638a8cdc2a1794b65c8%2Findex.html",
+        "description": "Shoot to launch your gun.",
+        "category": "game"
+      },
+      {
+        "id": "thelast-royale",
+        "title": "Thelast Royale",
+        "url": "https://thelast.io",
+        "icon": "/api/favicon?url=https%3A%2F%2Fthelast.io",
+        "description": "Top-down survival royale shooter.",
+        "category": "game"
+      },
+      {
+        "id": "tiny-fishing",
+        "title": "Tiny Fishing",
+        "url": "https://www.dob5.com/d/file/games/tiny-fishing/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.dob5.com%2Fd%2Ffile%2Fgames%2Ftiny-fishing%2F",
+        "description": "Catch fish and upgrade gear.",
+        "category": "game"
+      },
+      {
+        "id": "johnny-upgrade",
+        "title": "Johnny Upgrade",
+        "url": "https://lagged.com/api/play2/johnny-upgrade3/",
+        "icon": "/api/favicon?url=https%3A%2F%2Flagged.com%2Fapi%2Fplay2%2Fjohnny-upgrade3%2F",
+        "description": "Upgrade stats to beat the clock.",
+        "category": "game"
+      },
+      {
+        "id": "bloxd-io",
+        "title": "bloxd.io",
+        "url": "https://bloxd.io",
+        "icon": "/api/favicon?url=https%3A%2F%2Fbloxd.io",
+        "description": "Fast-paced multiplayer .io game.",
+        "category": "game"
+      },
+      {
+        "id": "duck-life-1",
+        "title": "Duck Life 1",
+        "url": "https://www.hoodamath.com/mobile/games/duck-life/game.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.hoodamath.com%2Fmobile%2Fgames%2Fduck-life%2Fgame.html",
+        "description": "Train your duck to race.",
+        "category": "game"
+      },
+      {
+        "id": "duck-life-2",
+        "title": "Duck Life 2",
+        "url": "https://www.hoodamath.com/mobile/games/duck-life-2-world-champion/game.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.hoodamath.com%2Fmobile%2Fgames%2Fduck-life-2-world-champion%2Fgame.html",
+        "description": "Train your duck to race.",
+        "category": "game"
+      },
+      {
+        "id": "duck-life-3",
+        "title": "Duck Life 3",
+        "url": "https://www.hoodamath.com/mobile/games/duck-life-3-evolution/game.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.hoodamath.com%2Fmobile%2Fgames%2Fduck-life-3-evolution%2Fgame.html",
+        "description": "Train your duck to race.",
+        "category": "game"
+      },
+      {
+        "id": "duck-life-4",
+        "title": "Duck Life 4",
+        "url": "/e/ducklife4/index.html",
+        "icon": "/api/favicon?url=%2Fe%2Fducklife4%2Findex.html",
+        "description": "Train your duck to race.",
+        "category": "game"
+      },
+      {
+        "id": "papa-s-freezeria",
+        "title": "Papa's Freezeria",
+        "url": "https://www.coolmathgames.com/0-papas-freezeria/play",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.coolmathgames.com%2F0-papas-freezeria%2Fplay",
+        "description": "Restaurant time-management game.",
+        "category": "game"
+      },
+      {
+        "id": "evades",
+        "title": "Evades",
+        "url": "https://evades.io",
+        "icon": "/api/favicon?url=https%3A%2F%2Fevades.io",
+        "description": "Co-op bullet-hell survival.",
+        "category": "game"
+      },
+      {
+        "id": "bullet-force-multiplayer",
+        "title": "Bullet Force Multiplayer",
+        "url": "https://www.crazygames.com/game/bullet-force-multiplayer",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.crazygames.com%2Fgame%2Fbullet-force-multiplayer",
+        "description": "Online FPS with custom loadouts.",
+        "category": "game"
+      },
+      {
+        "id": "crazy-games",
+        "title": "Crazy Games",
+        "url": "https://www.crazygames.com/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.crazygames.com%2F",
+        "description": "Large browser game portal.",
+        "category": "game"
+      },
+      {
+        "id": "cubes-2048",
+        "title": "Cubes 2048",
+        "url": "https://www.crazygames.com/game/cubes-2048-io",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.crazygames.com%2Fgame%2Fcubes-2048-io",
+        "description": "Snake-style 2048 merging game.",
+        "category": "game"
+      },
+      {
+        "id": "doom",
+        "title": "DOOM",
+        "url": "https://archive.org/details/doom-play",
+        "icon": "/api/favicon?url=https%3A%2F%2Farchive.org%2Fdetails%2Fdoom-play",
+        "description": "Classic demon-blasting shooter.",
+        "category": "game"
+      },
+      {
+        "id": "fnaf-2",
+        "title": "FNAF 2",
+        "url": "https://sussygamedeveloper.github.io/FNAF2/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fsussygamedeveloper.github.io%2FFNAF2%2F",
+        "description": "Survive another animatronic night.",
+        "category": "game"
+      },
+      {
+        "id": "fnaf-3",
+        "title": "FNAF 3",
+        "url": "https://sussygamedeveloper.github.io/fnaf3/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fsussygamedeveloper.github.io%2Ffnaf3%2F",
+        "description": "Springtrap horror survival.",
+        "category": "game"
+      },
+      {
+        "id": "fnaf-web",
+        "title": "FNAF Web",
+        "url": "https://wellsousaaa.github.io/Five-Nights-at-Freddys-Web/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwellsousaaa.github.io%2FFive-Nights-at-Freddys-Web%2F",
+        "description": "Browser Five Nights remake.",
+        "category": "game"
+      },
+      {
+        "id": "riddle-school-4",
+        "title": "Riddle School 4",
+        "url": "https://riddle-school-4.game-files.crazygames.com/ruffle/riddleschool4.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Friddle-school-4.game-files.crazygames.com%2Fruffle%2Friddleschool4.html",
+        "description": "Weird school escape sequel.",
+        "category": "game"
+      },
+      {
+        "id": "riddle-school-5",
+        "title": "Riddle School 5",
+        "url": "https://riddle-school-5.game-files.crazygames.com/ruffle/riddleschool5.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Friddle-school-5.game-files.crazygames.com%2Fruffle%2Friddleschool5.html",
+        "description": "Final alien school escape.",
+        "category": "game"
+      },
+      {
+        "id": "gba-emulator",
+        "title": "GBA Emulator",
+        "url": "https://ds.44670.org/gba/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fds.44670.org%2Fgba%2F",
+        "description": "Play GBA ROMs online.",
+        "category": "game"
+      },
+      {
+        "id": "itch-io",
+        "title": "Itch.io",
+        "url": "https://itch.io",
+        "icon": "/api/favicon?url=https%3A%2F%2Fitch.io",
+        "description": "Indie games storefront.",
+        "category": "game"
+      },
+      {
+        "id": "n-gon",
+        "title": "N-Gon",
+        "url": "https://landgreen.github.io/sidescroller/",
+        "icon": "/api/favicon?url=https%3A%2F%2Flandgreen.github.io%2Fsidescroller%2F",
+        "description": "Physics-based combat platformer.",
+        "category": "game"
+      },
+      {
+        "id": "nintendo-ds-emulator",
+        "title": "Nintendo DS Emulator",
+        "url": "https://ds.44670.org/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fds.44670.org%2F",
+        "description": "Play DS games online.",
+        "category": "game"
+      },
+      {
+        "id": "nintendo-64-emulator",
+        "title": "Nintendo 64 Emulator",
+        "url": "https://www.neilb.net/n64wasm/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.neilb.net%2Fn64wasm%2F",
+        "description": "Play N64 games online.",
+        "category": "game"
+      },
+      {
+        "id": "playstation-2-emulator",
+        "title": "Playstation 2 Emulator",
+        "url": "https://playjs.purei.org/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fplayjs.purei.org%2F",
+        "description": "Browser PS2 emulator.",
+        "category": "game"
+      },
+      {
+        "id": "run-3",
+        "title": "Run 3",
+        "url": "https://www.coolmathgames.com/0-run-3/play",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.coolmathgames.com%2F0-run-3%2Fplay",
+        "description": "Endless tunnel runner in space.",
+        "category": "game"
+      },
+      {
+        "id": "subway-surfers-san-francisco",
+        "title": "Subway Surfers: San Francisco",
+        "url": "https://raw.githack.com/3kh0/3kh0-assets/main/subway-surfers/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fraw.githack.com%2F3kh0%2F3kh0-assets%2Fmain%2Fsubway-surfers%2Findex.html",
+        "description": "Endless runner with trains.",
+        "category": "game"
+      },
+      {
+        "id": "survivor-io",
+        "title": "Survivor.io",
+        "url": "https://html5.gamedistribution.com/rvvASMiM/f1c451e586c04b4c8cba01b0c50d9090/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fhtml5.gamedistribution.com%2FrvvASMiM%2Ff1c451e586c04b4c8cba01b0c50d9090%2Findex.html",
+        "description": "Multiplayer .io strategy game.",
+        "category": "game"
+      },
+      {
+        "id": "web-retro",
+        "title": "Web Retro",
+        "url": "/e/index.html",
+        "icon": "/api/favicon?url=%2Fe%2Findex.html",
+        "description": "Retro console emulator hub.",
+        "category": "game"
+      },
+      {
+        "id": "slope",
+        "title": "Slope",
+        "url": "https://watchdocumentaries.com/wp-content/uploads/games/slope/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwatchdocumentaries.com%2Fwp-content%2Fuploads%2Fgames%2Fslope%2F",
+        "description": "Roll fast down neon slopes.",
+        "category": "game"
+      },
+      {
+        "id": "fortnite-geforce-now",
+        "title": "Fortnite (Geforce NOW)",
+        "url": "https://play.geforcenow.com/mall/#/deeplink?game-id=46bfab06-d864-465d-9e56-2d9e45cdee0a",
+        "icon": "/api/favicon?url=https%3A%2F%2Fplay.geforcenow.com%2Fmall%2F%23%2Fdeeplink%3Fgame-id%3D46bfab06-d864-465d-9e56-2d9e45cdee0a",
+        "description": "Cloud-streamed Fortnite session.",
+        "category": "game"
+      },
+      {
+        "id": "bomb-party",
+        "title": "Bomb Party",
+        "url": "https://jklm.fun",
+        "icon": "/api/favicon?url=https%3A%2F%2Fjklm.fun",
+        "description": "Fast word chain party game.",
+        "category": "game"
+      },
+      {
+        "id": "1",
+        "title": "1",
+        "url": "/e/1/1/index.html",
+        "icon": "/api/favicon?url=%2Fe%2F1%2F1%2Findex.html",
+        "description": "Minimal local browser game.",
+        "category": "game"
+      },
+      {
+        "id": "1v1-lol",
+        "title": "1v1.LOL",
+        "url": "https://1v1.lol",
+        "icon": "/api/favicon?url=https%3A%2F%2F1v1.lol",
+        "description": "Build-and-shoot battle game.",
+        "category": "game"
+      },
+      {
+        "id": "2d-rocket-league",
+        "title": "2D Rocket League",
+        "url": "https://v6p9d9t4.ssl.hwcdn.net/html/3325334/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fv6p9d9t4.ssl.hwcdn.net%2Fhtml%2F3325334%2Findex.html",
+        "description": "Soccer cars in 2D.",
+        "category": "game"
+      },
+      {
+        "id": "3d-dino-game",
+        "title": "3D Dino Game",
+        "url": "https://lagged.com/api/play2/t-rex-3d2/",
+        "icon": "/api/favicon?url=https%3A%2F%2Flagged.com%2Fapi%2Fplay2%2Ft-rex-3d2%2F",
+        "description": "Chrome dino in 3D.",
+        "category": "game"
+      },
+      {
+        "id": "60-sec-burger-run",
+        "title": "60 Sec. Burger Run",
+        "url": "https://www.coolmathgames.com/0-60-second-burger-run/play",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.coolmathgames.com%2F0-60-second-burger-run%2Fplay",
+        "description": "Speedy burger platform challenge.",
+        "category": "game"
+      },
+      {
+        "id": "8-ball-pool",
+        "title": "8 Ball Pool",
+        "url": "https://8ball-pool.io",
+        "icon": "/api/favicon?url=https%3A%2F%2F8ball-pool.io",
+        "description": "Online pool matches.",
+        "category": "game"
+      },
+      {
+        "id": "a-dark-room",
+        "title": "A Dark Room",
+        "url": "https://adarkroom.doublespeakgames.com",
+        "icon": "/api/favicon?url=https%3A%2F%2Fadarkroom.doublespeakgames.com",
+        "description": "Minimal text survival game.",
+        "category": "game"
+      },
+      {
+        "id": "ace-attorney",
+        "title": "Ace Attorney",
+        "url": "https://f.kbhgames.com/r/gba/?r=ace-attorney",
+        "icon": "/api/favicon?url=https%3A%2F%2Ff.kbhgames.com%2Fr%2Fgba%2F%3Fr%3Dace-attorney",
+        "description": "Courtroom mystery adventure.",
+        "category": "game"
+      },
+      {
+        "id": "ac-wild-world",
+        "title": "AC - Wild World",
+        "url": "https://static.arcadespot.com/retroemulator.php?system=nds&game=2017/10/animal-crossing-wild-world1.zip",
+        "icon": "/api/favicon?url=https%3A%2F%2Fstatic.arcadespot.com%2Fretroemulator.php%3Fsystem%3Dnds%26game%3D2017%2F10%2Fanimal-crossing-wild-world1.zip",
+        "description": "Animal Crossing DS classic.",
+        "category": "game"
+      },
+      {
+        "id": "adventure-capitalist",
+        "title": "Adventure Capitalist",
+        "url": "https://than1089.github.io/adventure-capitalist/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fthan1089.github.io%2Fadventure-capitalist%2F",
+        "description": "Idle business money sim.",
+        "category": "game"
+      },
+      {
+        "id": "agar-io",
+        "title": "Agar.io",
+        "url": "https://agar.io",
+        "icon": "/api/favicon?url=https%3A%2F%2Fagar.io",
+        "description": "Fast-paced multiplayer .io game.",
+        "category": "game"
+      },
+      {
+        "id": "among-us-scratch",
+        "title": "Among Us (Scratch)",
+        "url": "https://turbowarp.org/523967150/fullscreen",
+        "icon": "/api/favicon?url=https%3A%2F%2Fturbowarp.org%2F523967150%2Ffullscreen",
+        "description": "Scratch remake of social deduction.",
+        "category": "game"
+      },
+      {
+        "id": "apex-legends",
+        "title": "Apex Legends",
+        "url": "https://play.geforcenow.com/games?game-id=cb2b1b5f-54ba-45fd-9839-96bbfe1376cd&lang=en_US&asset-id=01_c6efce00-e91e-402a-8b72-f4971f89c528",
+        "icon": "/api/favicon?url=https%3A%2F%2Fplay.geforcenow.com%2Fgames%3Fgame-id%3Dcb2b1b5f-54ba-45fd-9839-96bbfe1376cd%26lang%3Den_US%26asset-id%3D01_c6efce00-e91e-402a-8b72-f4971f89c528",
+        "description": "Cloud-streamed hero battle royale.",
+        "category": "game"
+      },
+      {
+        "id": "basket-random",
+        "title": "Basket Random",
+        "url": "https://html5.gamedistribution.com/rvvASMiM/bf1268dccb5d43e7970bb3edaa54afc8/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fhtml5.gamedistribution.com%2FrvvASMiM%2Fbf1268dccb5d43e7970bb3edaa54afc8%2Findex.html",
+        "description": "Goofy two-player basketball.",
+        "category": "game"
+      },
+      {
+        "id": "basketball-stars",
+        "title": "Basketball Stars",
+        "url": "https://html5.gamedistribution.com/69d78d071f704fa183d75b4114ae40ec/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fhtml5.gamedistribution.com%2F69d78d071f704fa183d75b4114ae40ec%2F",
+        "description": "Arcade basketball showdowns.",
+        "category": "game"
+      },
+      {
+        "id": "basketball-bros",
+        "title": "Basketball Bros",
+        "url": "https://www.basketbros.io/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.basketbros.io%2F",
+        "description": "Fast cartoon basketball duels.",
+        "category": "game"
+      },
+      {
+        "id": "basketball-legends",
+        "title": "Basketball Legends",
+        "url": "https://www.basketballlegends.fun/gamedata/basketball-legends-2020",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.basketballlegends.fun%2Fgamedata%2Fbasketball-legends-2020",
+        "description": "Arcade hoops with stars.",
+        "category": "game"
+      },
+      {
+        "id": "biggie-cheese-fight",
+        "title": "Biggie Cheese Fight",
+        "url": "https://scratch.mit.edu/projects/163771748/fullscreen",
+        "icon": "/api/favicon?url=https%3A%2F%2Fscratch.mit.edu%2Fprojects%2F163771748%2Ffullscreen",
+        "description": "Meme battle game.",
+        "category": "game"
+      },
+      {
+        "id": "bitlife",
+        "title": "Bitlife",
+        "url": "https://xlegends.github.io/bitlife/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fxlegends.github.io%2Fbitlife%2F",
+        "description": "Life simulator with choices.",
+        "category": "game"
+      },
+      {
+        "id": "btd-4",
+        "title": "BTD 4",
+        "url": "https://en.gameslol.net/data/bloons-td-4/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fen.gameslol.net%2Fdata%2Fbloons-td-4%2Findex.html",
+        "description": "Classic tower defense monkeys.",
+        "category": "game"
+      },
+      {
+        "id": "buildnow-gg",
+        "title": "BuildNow.GG",
+        "url": "https://games.crazygames.com/en_US/buildnow-gg/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fgames.crazygames.com%2Fen_US%2Fbuildnow-gg%2Findex.html",
+        "description": "Build fights and shooters.",
+        "category": "game"
+      },
+      {
+        "id": "cat-ninja",
+        "title": "Cat Ninja",
+        "url": "https://4iapq88o5f3gc1dij3it0mp5jojnm3jr-a-sites-opensocial.googleusercontent.com/gadgets/ifr?url=https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%252Fcat-ninja.xml",
+        "icon": "/api/favicon?url=https%3A%2F%2F4iapq88o5f3gc1dij3it0mp5jojnm3jr-a-sites-opensocial.googleusercontent.com%2Fgadgets%2Fifr%3Furl%3Dhttps%3A%2F%2Fs3.amazonaws.com%2Fproduction-assetsbucket-8ljvyr1xczmb%2F1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%25252Fcat-ninja.xml",
+        "description": "Precision platforming as a ninja cat.",
+        "category": "game"
+      },
+      {
+        "id": "candy-box",
+        "title": "Candy Box",
+        "url": "https://candybox2.net",
+        "icon": "/api/favicon?url=https%3A%2F%2Fcandybox2.net",
+        "description": "Text-based candy adventure.",
+        "category": "game"
+      },
+      {
+        "id": "celeste-pico-8",
+        "title": "Celeste PICO-8",
+        "url": "https://exok.com/minigames/celeste.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fexok.com%2Fminigames%2Fceleste.html",
+        "description": "Tiny precision platformer.",
+        "category": "game"
+      },
+      {
+        "id": "clicker-heros",
+        "title": "Clicker Heros",
+        "url": "https://www.clickerheroes.com/play.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.clickerheroes.com%2Fplay.html",
+        "description": "Idle monster clicking game.",
+        "category": "game"
+      },
+      {
+        "id": "chess-com",
+        "title": "Chess.com",
+        "url": "https://chess.com",
+        "icon": "/api/favicon?url=https%3A%2F%2Fchess.com",
+        "description": "Play chess online.",
+        "category": "game"
+      },
+      {
+        "id": "cluster-rush",
+        "title": "Cluster Rush",
+        "url": "/e/2/Cluster-Rush/index.html",
+        "icon": "/api/favicon?url=%2Fe%2F2%2FCluster-Rush%2Findex.html",
+        "description": "Jump across speeding trucks.",
+        "category": "game"
+      },
+      {
+        "id": "cookie-clicker",
+        "title": "Cookie Clicker",
+        "url": "https://orteil.dashnet.org/cookieclicker/",
+        "icon": "/api/favicon?url=https%3A%2F%2Forteil.dashnet.org%2Fcookieclicker%2F",
+        "description": "Bake cookies and expand endlessly.",
+        "category": "game"
+      },
+      {
+        "id": "crossy-road",
+        "title": "Crossy Road",
+        "url": "https://5dd2e1e3-015f-11ea-ad56-9cb6d0d995f7.poki-gdn.com/169dc11d-e718-4b36-9e60-d5ed5bc07a31/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2F5dd2e1e3-015f-11ea-ad56-9cb6d0d995f7.poki-gdn.com%2F169dc11d-e718-4b36-9e60-d5ed5bc07a31%2Findex.html",
+        "description": "Hop across roads and rivers.",
+        "category": "game"
+      },
+      {
+        "id": "deepest-sword",
+        "title": "Deepest Sword",
+        "url": "https://v6p9d9t4.ssl.hwcdn.net/html/4017918/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fv6p9d9t4.ssl.hwcdn.net%2Fhtml%2F4017918%2Findex.html",
+        "description": "Climb with an awkward blade.",
+        "category": "game"
+      },
+      {
+        "id": "diep-io",
+        "title": "Diep.io",
+        "url": "https://diep.io/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fdiep.io%2F",
+        "description": "Tank battles and upgrades.",
+        "category": "game"
+      },
+      {
+        "id": "doge-miner",
+        "title": "Doge Miner",
+        "url": "/e/1/DogeMiner/index.html",
+        "icon": "/api/favicon?url=%2Fe%2F1%2FDogeMiner%2Findex.html",
+        "description": "Mine dogecoin on the moon.",
+        "category": "game"
+      },
+      {
+        "id": "doom-1",
+        "title": "Doom 1",
+        "url": "https://browncha023.github.io/GBA/launcher.html#dm",
+        "icon": "/api/favicon?url=https%3A%2F%2Fbrowncha023.github.io%2FGBA%2Flauncher.html%23dm",
+        "description": "Classic DOOM episode one.",
+        "category": "game"
+      },
+      {
+        "id": "doom-2",
+        "title": "Doom 2",
+        "url": "https://browncha023.github.io/GBA/launcher.html#dm2",
+        "icon": "/api/favicon?url=https%3A%2F%2Fbrowncha023.github.io%2FGBA%2Flauncher.html%23dm2",
+        "description": "Classic DOOM sequel.",
+        "category": "game"
+      },
+      {
+        "id": "dreader",
+        "title": "Dreader",
+        "url": "https://donitz.itch.io/dreader",
+        "icon": "/api/favicon?url=https%3A%2F%2Fdonitz.itch.io%2Fdreader",
+        "description": "Short retro horror shooter.",
+        "category": "game"
+      },
+      {
+        "id": "drift-boss",
+        "title": "Drift Boss",
+        "url": "https://watchdocumentaries.com/wp-content/uploads/games/drift-boss/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwatchdocumentaries.com%2Fwp-content%2Fuploads%2Fgames%2Fdrift-boss%2F",
+        "description": "One-button drifting challenge.",
+        "category": "game"
+      },
+      {
+        "id": "drift-hunters",
+        "title": "Drift Hunters",
+        "url": "https://webglmath.github.io/drift-hunters/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwebglmath.github.io%2Fdrift-hunters%2F",
+        "description": "Free-roam drift simulator.",
+        "category": "game"
+      },
+      {
+        "id": "drive-mad",
+        "title": "Drive Mad",
+        "url": "https://raw.githack.com/3kh0/3kh0-assets/main/drive-mad/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fraw.githack.com%2F3kh0%2F3kh0-assets%2Fmain%2Fdrive-mad%2Findex.html",
+        "description": "Physics car obstacle game.",
+        "category": "game"
+      },
+      {
+        "id": "fallout-2",
+        "title": "Fallout 2",
+        "url": "https://jonasz-o.itch.io/fallout2remake3d",
+        "icon": "/api/favicon?url=https%3A%2F%2Fjonasz-o.itch.io%2Ffallout2remake3d",
+        "description": "Fan 3D Fallout remake.",
+        "category": "game"
+      },
+      {
+        "id": "fnaf-2-scratch",
+        "title": "FNAF 2 (Scratch)",
+        "url": "https://scratch.mit.edu/projects/469219637/embed/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fscratch.mit.edu%2Fprojects%2F469219637%2Fembed%2F",
+        "description": "Scratch version of FNAF 2.",
+        "category": "game"
+      },
+      {
+        "id": "friday-night-funkin",
+        "title": "Friday Night Funkin'",
+        "url": "https://w8.snokido.com/games/html5/friday-night-funkin/0281/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fw8.snokido.com%2Fgames%2Fhtml5%2Ffriday-night-funkin%2F0281%2Findex.html",
+        "description": "Rhythm rap battle game.",
+        "category": "game"
+      },
+      {
+        "id": "fnf-lofi-mod",
+        "title": "FNF - Lofi Mod",
+        "url": "https://fnf.kdata1.com/lofi-funkin/2/",
+        "icon": "/api/favicon?url=https%3A%2F%2Ffnf.kdata1.com%2Flofi-funkin%2F2%2F",
+        "description": "Lo-fi Friday Night Funkin' mod.",
+        "category": "game"
+      },
+      {
+        "id": "fnf-vs-snorlax",
+        "title": "FNF VS. Snorlax",
+        "url": "https://fnf.kdata1.com/snorlax/1/",
+        "icon": "/api/favicon?url=https%3A%2F%2Ffnf.kdata1.com%2Fsnorlax%2F1%2F",
+        "description": "Pokémon-themed FNF mod.",
+        "category": "game"
+      },
+      {
+        "id": "justfall-lol",
+        "title": "JustFall.LOL",
+        "url": "https://justfall.lol",
+        "icon": "/api/favicon?url=https%3A%2F%2Fjustfall.lol",
+        "description": "Penguin race party game.",
+        "category": "game"
+      },
+      {
+        "id": "kirby-mirror-gba",
+        "title": "Kirby Mirror (GBA)",
+        "url": "https://www.retrogames.onl/gba/kirby-mirror-gba.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.retrogames.onl%2Fgba%2Fkirby-mirror-gba.html",
+        "description": "Kirby platform adventure.",
+        "category": "game"
+      },
+      {
+        "id": "krunker",
+        "title": "Krunker",
+        "url": "https://krunker.io",
+        "icon": "/api/favicon?url=https%3A%2F%2Fkrunker.io",
+        "description": "Fast browser FPS action.",
+        "category": "game"
+      },
+      {
+        "id": "g-switch",
+        "title": "G-Switch",
+        "url": "https://5dd24442-015f-11ea-ad56-9cb6d0d995f7.poki-gdn.com/4f2c69b4-3edc-4cd7-a078-efd3d1ea9fb5/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2F5dd24442-015f-11ea-ad56-9cb6d0d995f7.poki-gdn.com%2F4f2c69b4-3edc-4cd7-a078-efd3d1ea9fb5%2Findex.html",
+        "description": "Gravity-flipping runner challenge.",
+        "category": "game"
+      },
+      {
+        "id": "g-switch-2",
+        "title": "G-Switch 2",
+        "url": "https://5dd27095-015f-11ea-ad56-9cb6d0d995f7.poki-gdn.com/e0e70ee4-fdd4-4de8-931d-fde7d1cb408b/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2F5dd27095-015f-11ea-ad56-9cb6d0d995f7.poki-gdn.com%2Fe0e70ee4-fdd4-4de8-931d-fde7d1cb408b%2Findex.html",
+        "description": "Gravity-flipping runner challenge.",
+        "category": "game"
+      },
+      {
+        "id": "g-switch-3",
+        "title": "G-Switch 3",
+        "url": "https://5dd2b395-015f-11ea-ad56-9cb6d0d995f7.poki-gdn.com/120fdec6-7eeb-470f-a43c-9bcdace0dacb/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2F5dd2b395-015f-11ea-ad56-9cb6d0d995f7.poki-gdn.com%2F120fdec6-7eeb-470f-a43c-9bcdace0dacb%2Findex.html",
+        "description": "Gravity-flipping runner challenge.",
+        "category": "game"
+      },
+      {
+        "id": "golden-eye-007",
+        "title": "Golden Eye 007",
+        "url": "https://f.kbhgames.com/r/n64/game.php?file=007-golden-eye.zip",
+        "icon": "/api/favicon?url=https%3A%2F%2Ff.kbhgames.com%2Fr%2Fn64%2Fgame.php%3Ffile%3D007-golden-eye.zip",
+        "description": "Classic N64 spy shooter.",
+        "category": "game"
+      },
+      {
+        "id": "gba-games-2",
+        "title": "GBA Games 2",
+        "url": "https://cattn.github.io/gba/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fcattn.github.io%2Fgba%2F",
+        "description": "More browser GBA games.",
+        "category": "game"
+      },
+      {
+        "id": "geforce-now",
+        "title": "Geforce NOW",
+        "url": "https://play.geforcenow.com",
+        "icon": "/api/favicon?url=https%3A%2F%2Fplay.geforcenow.com",
+        "description": "Cloud gaming launcher.",
+        "category": "game"
+      },
+      {
+        "id": "haunted-school-1",
+        "title": "Haunted School 1",
+        "url": "https://games.crazygames.com/en_US/haunted-school---horror-game/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fgames.crazygames.com%2Fen_US%2Fhaunted-school---horror-game%2Findex.html",
+        "description": "School horror escape game.",
+        "category": "game"
+      },
+      {
+        "id": "hexarena",
+        "title": "HexArena",
+        "url": "https://hexarena.io/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fhexarena.io%2F",
+        "description": "Arena combat challenge.",
+        "category": "game"
+      },
+      {
+        "id": "hole-io",
+        "title": "Hole.IO",
+        "url": "https://hole-io.com/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fhole-io.com%2F",
+        "description": "Fast-paced multiplayer .io game.",
+        "category": "game"
+      },
+      {
+        "id": "idle-breakout",
+        "title": "Idle Breakout",
+        "url": "/e/1/idle-breakout/index.html",
+        "icon": "/api/favicon?url=%2Fe%2F1%2Fidle-breakout%2Findex.html",
+        "description": "Idle spin on Breakout.",
+        "category": "game"
+      },
+      {
+        "id": "isleward",
+        "title": "Isleward",
+        "url": "https://play.isleward.com",
+        "icon": "/api/favicon?url=https%3A%2F%2Fplay.isleward.com",
+        "description": "Pixel MMO adventure.",
+        "category": "game"
+      },
+      {
+        "id": "interactive-buddy",
+        "title": "Interactive Buddy",
+        "url": "https://f.silvergames.com/ruffle/player.php?id=204",
+        "icon": "/api/favicon?url=https%3A%2F%2Ff.silvergames.com%2Fruffle%2Fplayer.php%3Fid%3D204",
+        "description": "Physics stress-relief sandbox.",
+        "category": "game"
+      },
+      {
+        "id": "ngu-idle",
+        "title": "NGU Idle",
+        "url": "https://cache.armorgames.com/files/games/ngu-idle-18444/index.html?v=1559319416",
+        "icon": "/api/favicon?url=https%3A%2F%2Fcache.armorgames.com%2Ffiles%2Fgames%2Fngu-idle-18444%2Findex.html%3Fv%3D1559319416",
+        "description": "Very deep idle RPG.",
+        "category": "game"
+      },
+      {
+        "id": "jacksmith",
+        "title": "Jacksmith",
+        "url": "https://www.coolmathgames.com/0-jacksmith/play",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.coolmathgames.com%2F0-jacksmith%2Fplay",
+        "description": "Forge weapons for battle.",
+        "category": "game"
+      },
+      {
+        "id": "sandtrix",
+        "title": "Sandtrix",
+        "url": "https://files.crazygames.com/sandtrix/16/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Ffiles.crazygames.com%2Fsandtrix%2F16%2Findex.html",
+        "description": "Tetris with falling sand.",
+        "category": "game"
+      },
+      {
+        "id": "learn-to-fly-idle",
+        "title": "Learn To Fly Idle",
+        "url": "https://www.gameslol.net/data/waflash/index.php?g=635",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.gameslol.net%2Fdata%2Fwaflash%2Findex.php%3Fg%3D635",
+        "description": "Idle penguin launch management.",
+        "category": "game"
+      },
+      {
+        "id": "lordz-io",
+        "title": "Lordz.io",
+        "url": "https://lordz.io/",
+        "icon": "/api/favicon?url=https%3A%2F%2Flordz.io%2F",
+        "description": "Multiplayer .io strategy game.",
+        "category": "game"
+      },
+      {
+        "id": "masked-io",
+        "title": "Masked IO",
+        "url": "https://unblocked-games.s3.amazonaws.com/games/masked-io/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Funblocked-games.s3.amazonaws.com%2Fgames%2Fmasked-io%2Findex.html",
+        "description": "Arcade masked shooter.",
+        "category": "game"
+      },
+      {
+        "id": "mario-kart-64",
+        "title": "Mario Kart 64",
+        "url": "https://static.arcadespot.com/retroemulator.php?system=n64&game=2017/06/mario-kart-64.zip",
+        "icon": "/api/favicon?url=https%3A%2F%2Fstatic.arcadespot.com%2Fretroemulator.php%3Fsystem%3Dn64%26game%3D2017%2F06%2Fmario-kart-64.zip",
+        "description": "Kart racing N64 classic.",
+        "category": "game"
+      },
+      {
+        "id": "mobs-inc",
+        "title": "Mobs Inc",
+        "url": "https://overboy.itch.io/mobs-inc",
+        "icon": "/api/favicon?url=https%3A%2F%2Foverboy.itch.io%2Fmobs-inc",
+        "description": "Office dodge-and-survive action.",
+        "category": "game"
+      },
+      {
+        "id": "monkey-mart",
+        "title": "Monkey Mart",
+        "url": "/e/2/monkey-mart/index.html",
+        "icon": "/api/favicon?url=%2Fe%2F2%2Fmonkey-mart%2Findex.html",
+        "description": "Run your monkey supermarket.",
+        "category": "game"
+      },
+      {
+        "id": "moomoo-io",
+        "title": "MooMoo.io",
+        "url": "https://moomoo.io",
+        "icon": "/api/favicon?url=https%3A%2F%2Fmoomoo.io",
+        "description": "Multiplayer .io strategy game.",
+        "category": "game"
+      },
+      {
+        "id": "mortal-kombat-4",
+        "title": "Mortal Kombat 4",
+        "url": "https://f.kbhgames.com/r/n64/game.php?file=Mortal-Kombat-4-U.zip",
+        "icon": "/api/favicon?url=https%3A%2F%2Ff.kbhgames.com%2Fr%2Fn64%2Fgame.php%3Ffile%3DMortal-Kombat-4-U.zip",
+        "description": "Classic arcade fighting game.",
+        "category": "game"
+      },
+      {
+        "id": "mr-mine",
+        "title": "Mr. Mine",
+        "url": "https://www.coolmathgames.com/0-mr-mine/play",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.coolmathgames.com%2F0-mr-mine%2Fplay",
+        "description": "Mining idle progression game.",
+        "category": "game"
+      },
+      {
+        "id": "moto-x3m",
+        "title": "Moto X3M",
+        "url": "https://html5.gamedistribution.com/rvvASMiM/5b0abd4c0faa4f5eb190a9a16d5a1b4c/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fhtml5.gamedistribution.com%2FrvvASMiM%2F5b0abd4c0faa4f5eb190a9a16d5a1b4c%2Findex.html",
+        "description": "Bike stunt obstacle racer.",
+        "category": "game"
+      },
+      {
+        "id": "mx3m-pool-party",
+        "title": "MX3M: Pool Party",
+        "url": "https://h0jokl1egt0fd4oc8qv3j0tltl9jbqhn-a-sites-opensocial.googleusercontent.com/gadgets/ifr?url=https://649025137-174029463385024710.preview.editmysite.com/uploads/b/139890129-767696982876512205/files/mx3mpp.xml",
+        "icon": "/api/favicon?url=https%3A%2F%2Fh0jokl1egt0fd4oc8qv3j0tltl9jbqhn-a-sites-opensocial.googleusercontent.com%2Fgadgets%2Fifr%3Furl%3Dhttps%3A%2F%2F649025137-174029463385024710.preview.editmysite.com%2Fuploads%2Fb%2F139890129-767696982876512205%2Ffiles%2Fmx3mpp.xml",
+        "description": "Summer-themed Moto X3M levels.",
+        "category": "game"
+      },
+      {
+        "id": "mx3m-spooky-land",
+        "title": "MX3M: Spooky Land",
+        "url": "https://html5.gamedistribution.com/rvvASMiM/b8a342904608470a9f3382337aca3558/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fhtml5.gamedistribution.com%2FrvvASMiM%2Fb8a342904608470a9f3382337aca3558%2Findex.html",
+        "description": "Halloween bike stunt levels.",
+        "category": "game"
+      },
+      {
+        "id": "mx3m-winter",
+        "title": "MX3M: Winter",
+        "url": "https://www-sites-opensocial.googleusercontent.com/gadgets/ifr?url=https://sites.google.com/site/s017q3e/moto-x3m-4-winter.xml",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww-sites-opensocial.googleusercontent.com%2Fgadgets%2Fifr%3Furl%3Dhttps%3A%2F%2Fsites.google.com%2Fsite%2Fs017q3e%2Fmoto-x3m-4-winter.xml",
+        "description": "Snowy Moto X3M tracks.",
+        "category": "game"
+      },
+      {
+        "id": "saul-run",
+        "title": "Saul Run",
+        "url": "https://complex-ify.itch.io/saul-goodman",
+        "icon": "/api/favicon?url=https%3A%2F%2Fcomplex-ify.itch.io%2Fsaul-goodman",
+        "description": "Meme endless running game.",
+        "category": "game"
+      },
+      {
+        "id": "ninja-cat-exploit",
+        "title": "Ninja Cat Exploit",
+        "url": "https://html5.gamedistribution.com/rvvASMiM/903ba9346b9d437e9c7e81d672cead44/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fhtml5.gamedistribution.com%2FrvvASMiM%2F903ba9346b9d437e9c7e81d672cead44%2Findex.html",
+        "description": "Cat platform challenge game.",
+        "category": "game"
+      },
+      {
+        "id": "ovo",
+        "title": "OvO",
+        "url": "https://8rlfg0ch3417et18dp8lvps6uo7c3b2c-a-sites-opensocial.googleusercontent.com/gadgets/ifr?url=https://427396048-642845047394716217.preview.editmysite.com/uploads/b/139890129-761103484729797659/files/ovo.xml",
+        "icon": "/api/favicon?url=https%3A%2F%2F8rlfg0ch3417et18dp8lvps6uo7c3b2c-a-sites-opensocial.googleusercontent.com%2Fgadgets%2Fifr%3Furl%3Dhttps%3A%2F%2F427396048-642845047394716217.preview.editmysite.com%2Fuploads%2Fb%2F139890129-761103484729797659%2Ffiles%2Fovo.xml",
+        "description": "Fast parkour platformer.",
+        "category": "game"
+      },
+      {
+        "id": "online-racing-game",
+        "title": "Online Racing Game!",
+        "url": "https://jchabin.github.io/cars/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fjchabin.github.io%2Fcars%2F",
+        "description": "Quick browser racing game.",
+        "category": "game"
+      },
+      {
+        "id": "online-soccer-m",
+        "title": "Online Soccer M.",
+        "url": "https://www.onlinesoccermanager.com/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.onlinesoccermanager.com%2F",
+        "description": "Simple online soccer matches.",
+        "category": "game"
+      },
+      {
+        "id": "papa-s-bakeria",
+        "title": "Papa's Bakeria",
+        "url": "https://f.silvergames.com/emu/waffle/?id=5458",
+        "icon": "/api/favicon?url=https%3A%2F%2Ff.silvergames.com%2Femu%2Fwaffle%2F%3Fid%3D5458",
+        "description": "Restaurant time-management game.",
+        "category": "game"
+      },
+      {
+        "id": "papa-s-cupcakeria",
+        "title": "Papa's Cupcakeria",
+        "url": "https://f.silvergames.com/emu/waffle/?id=3246",
+        "icon": "/api/favicon?url=https%3A%2F%2Ff.silvergames.com%2Femu%2Fwaffle%2F%3Fid%3D3246",
+        "description": "Restaurant time-management game.",
+        "category": "game"
+      },
+      {
+        "id": "papa-louie-1",
+        "title": "Papa Louie 1",
+        "url": "https://f.silvergames.com/ruffle/player.php?id=1373",
+        "icon": "/api/favicon?url=https%3A%2F%2Ff.silvergames.com%2Fruffle%2Fplayer.php%3Fid%3D1373",
+        "description": "Platformer with food enemies.",
+        "category": "game"
+      },
+      {
+        "id": "papa-louie-2",
+        "title": "Papa Louie 2",
+        "url": "https://f.silvergames.com/emu/waffle/?id=3042",
+        "icon": "/api/favicon?url=https%3A%2F%2Ff.silvergames.com%2Femu%2Fwaffle%2F%3Fid%3D3042",
+        "description": "Rescue friends in platform levels.",
+        "category": "game"
+      },
+      {
+        "id": "papa-louie-3",
+        "title": "Papa Louie 3",
+        "url": "https://f.silvergames.com/emu/waffle/?id=4693",
+        "icon": "/api/favicon?url=https%3A%2F%2Ff.silvergames.com%2Femu%2Fwaffle%2F%3Fid%3D4693",
+        "description": "Platforming restaurant rescue sequel.",
+        "category": "game"
+      },
+      {
+        "id": "papa-s-pizzeria",
+        "title": "Papa's Pizzeria",
+        "url": "https://f.silvergames.com/ruffle/player.php?id=1360",
+        "icon": "/api/favicon?url=https%3A%2F%2Ff.silvergames.com%2Fruffle%2Fplayer.php%3Fid%3D1360",
+        "description": "Restaurant time-management game.",
+        "category": "game"
+      },
+      {
+        "id": "paper-mario-64",
+        "title": "Paper Mario 64",
+        "url": "https://f.kbhgames.com/r/n64/game.php?file=Paper%20Mario%20(USA).zip",
+        "icon": "/api/favicon?url=https%3A%2F%2Ff.kbhgames.com%2Fr%2Fn64%2Fgame.php%3Ffile%3DPaper%2520Mario%2520%28USA%29.zip",
+        "description": "Classic paper RPG adventure.",
+        "category": "game"
+      },
+      {
+        "id": "paper-io",
+        "title": "Paper.io",
+        "url": "https://paper-io.com/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fpaper-io.com%2F",
+        "description": "Capture land and survive.",
+        "category": "game"
+      },
+      {
+        "id": "pixel-shooter",
+        "title": "Pixel Shooter",
+        "url": "https://94bfktj403i6m18as4vkvtreqd0ohci4-a-sites-opensocial.googleusercontent.com/gadgets/ifr?url=https://274019683-173520394482650759.preview.editmysite.com/uploads/b/139890129-131715539788281629/files/ps.xml",
+        "icon": "/api/favicon?url=https%3A%2F%2F94bfktj403i6m18as4vkvtreqd0ohci4-a-sites-opensocial.googleusercontent.com%2Fgadgets%2Fifr%3Furl%3Dhttps%3A%2F%2F274019683-173520394482650759.preview.editmysite.com%2Fuploads%2Fb%2F139890129-131715539788281629%2Ffiles%2Fps.xml",
+        "description": "Blocky online shooter.",
+        "category": "game"
+      },
+      {
+        "id": "pizza-tower",
+        "title": "Pizza Tower",
+        "url": "https://gamaverse.com/c/e/g/pizza-tower-1678640389/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fgamaverse.com%2Fc%2Fe%2Fg%2Fpizza-tower-1678640389%2Findex.html",
+        "description": "Wild Wario-style platformer.",
+        "category": "game"
+      },
+      {
+        "id": "pokemon-heart-gold",
+        "title": "Pokemon Heart Gold",
+        "url": "https://static.arcadespot.com/retroemulator.php?system=nds&game=2017/10/pokemon-heartgold-version1.zip",
+        "icon": "/api/favicon?url=https%3A%2F%2Fstatic.arcadespot.com%2Fretroemulator.php%3Fsystem%3Dnds%26game%3D2017%2F10%2Fpokemon-heartgold-version1.zip",
+        "description": "Nintendo DS Pokémon adventure.",
+        "category": "game"
+      },
+      {
+        "id": "pokemon-showdown",
+        "title": "Pokemon Showdown",
+        "url": "https://play.pokemonshowdown.com",
+        "icon": "/api/favicon?url=https%3A%2F%2Fplay.pokemonshowdown.com",
+        "description": "Competitive Pokémon battles.",
+        "category": "game"
+      },
+      {
+        "id": "google-baseball",
+        "title": "Google Baseball",
+        "url": "https://www.google.com/logos/2019/july4th19/r6/july4th19.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.google.com%2Flogos%2F2019%2Fjuly4th19%2Fr6%2Fjuly4th19.html",
+        "description": "Simple Google doodle baseball.",
+        "category": "game"
+      },
+      {
+        "id": "deal-or-no-deal",
+        "title": "Deal or No Deal",
+        "url": "https://f.kbhgames.com/RS/game.php?r=//f.kbhgames.com/2018/swf/dondeal2.swf&w=640&h=480&warnsupport=true",
+        "icon": "/api/favicon?url=https%3A%2F%2Ff.kbhgames.com%2FRS%2Fgame.php%3Fr%3D%2F%2Ff.kbhgames.com%2F2018%2Fswf%2Fdondeal2.swf%26w%3D640%26h%3D480%26warnsupport%3Dtrue",
+        "description": "TV briefcase chance game.",
+        "category": "game"
+      },
+      {
+        "id": "deadshot",
+        "title": "Deadshot",
+        "url": "https://deadshot.io",
+        "icon": "/api/favicon?url=https%3A%2F%2Fdeadshot.io",
+        "description": "Competitive online FPS.",
+        "category": "game"
+      },
+      {
+        "id": "rainbow-tower",
+        "title": "Rainbow Tower",
+        "url": "https://www.mathplayground.com/mobile_rainbow_tower/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.mathplayground.com%2Fmobile_rainbow_tower%2Findex.html",
+        "description": "Climb a colorful tower.",
+        "category": "game"
+      },
+      {
+        "id": "doodle-jump",
+        "title": "Doodle Jump",
+        "url": "https://doodlejump.pro/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fdoodlejump.pro%2F",
+        "description": "Bounce endlessly upward.",
+        "category": "game"
+      },
+      {
+        "id": "madalin-stunt-cars-multiplayer",
+        "title": "Madalin Stunt Cars Multiplayer",
+        "url": "https://games.crazygames.com/en_US/madalin-cars-multiplayer/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fgames.crazygames.com%2Fen_US%2Fmadalin-cars-multiplayer%2Findex.html",
+        "description": "Open-world multiplayer stunt driving.",
+        "category": "game"
+      },
+      {
+        "id": "madalin-stunt-cars-2",
+        "title": "Madalin Stunt Cars 2",
+        "url": "https://games.crazygames.com/en_US/madalin-stunt-cars-2/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fgames.crazygames.com%2Fen_US%2Fmadalin-stunt-cars-2%2Findex.html",
+        "description": "Stunt racing sandbox sequel.",
+        "category": "game"
+      },
+      {
+        "id": "madalin-stunt-cars-3",
+        "title": "Madalin Stunt Cars 3",
+        "url": "https://games.crazygames.com/en_US/madalin-stunt-cars-3/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fgames.crazygames.com%2Fen_US%2Fmadalin-stunt-cars-3%2Findex.html",
+        "description": "More cars and stunt maps.",
+        "category": "game"
+      },
+      {
+        "id": "pm-light-platinum",
+        "title": "PM: Light Platinum",
+        "url": "https://browncha023.github.io/GBA/launcher.html#pokemonlp",
+        "icon": "/api/favicon?url=https%3A%2F%2Fbrowncha023.github.io%2FGBA%2Flauncher.html%23pokemonlp",
+        "description": "Fan-made Pokémon RPG.",
+        "category": "game"
+      },
+      {
+        "id": "precision-client",
+        "title": "Precision Client",
+        "url": "https://glcdn.githack.com/3kh0/3kh0-assets/-/raw/main/precision-client/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fglcdn.githack.com%2F3kh0%2F3kh0-assets%2F-%2Fraw%2Fmain%2Fprecision-client%2Findex.html",
+        "description": "Custom browser game client.",
+        "category": "game"
+      },
+      {
+        "id": "rainbow-six-siege",
+        "title": "Rainbow Six Siege",
+        "url": "https://play.geforcenow.com/games?game-id=1dd07d47-6601-42f7-80e9-e4d8db08ea1b&lang=en_US&asset-id=01_44417-48c3d8e642e2",
+        "icon": "/api/favicon?url=https%3A%2F%2Fplay.geforcenow.com%2Fgames%3Fgame-id%3D1dd07d47-6601-42f7-80e9-e4d8db08ea1b%26lang%3Den_US%26asset-id%3D01_44417-48c3d8e642e2",
+        "description": "Cloud-streamed tactical shooter.",
+        "category": "game"
+      },
+      {
+        "id": "red-ball-1",
+        "title": "Red Ball 1",
+        "url": "https://www.algebrashelper.com/redball",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.algebrashelper.com%2Fredball",
+        "description": "Roll through simple levels.",
+        "category": "game"
+      },
+      {
+        "id": "red-ball-2",
+        "title": "Red Ball 2",
+        "url": "https://www.algebrashelper.com/redball-2",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.algebrashelper.com%2Fredball-2",
+        "description": "More rolling platform puzzles.",
+        "category": "game"
+      },
+      {
+        "id": "red-ball-4",
+        "title": "Red Ball 4",
+        "url": "https://www.algebrashelper.com/redball-4",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.algebrashelper.com%2Fredball-4",
+        "description": "Ball platforming against squares.",
+        "category": "game"
+      },
+      {
+        "id": "red-ball-4-vol-2",
+        "title": "Red Ball 4 Vol. 2",
+        "url": "https://www.algebrashelper.com/read-ball-4v2",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.algebrashelper.com%2Fread-ball-4v2",
+        "description": "Red Ball sequel chapter.",
+        "category": "game"
+      },
+      {
+        "id": "red-ball-4-vol-3",
+        "title": "Red Ball 4 Vol. 3",
+        "url": "https://www.algebrashelper.com/red-ball-4v3",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.algebrashelper.com%2Fred-ball-4v3",
+        "description": "Another Red Ball chapter.",
+        "category": "game"
+      },
+      {
+        "id": "riddle-school-2",
+        "title": "Riddle School 2",
+        "url": "https://f.silvergames.com/ruffle/player.php?id=8564",
+        "icon": "/api/favicon?url=https%3A%2F%2Ff.silvergames.com%2Fruffle%2Fplayer.php%3Fid%3D8564",
+        "description": "Classroom escape sequel.",
+        "category": "game"
+      },
+      {
+        "id": "riddle-school-3",
+        "title": "Riddle School 3",
+        "url": "https://riddle-school-3.game-files.crazygames.com/ruffle/riddleschool3.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Friddle-school-3.game-files.crazygames.com%2Fruffle%2Friddleschool3.html",
+        "description": "Another point-and-click escape.",
+        "category": "game"
+      },
+      {
+        "id": "rocket-pult",
+        "title": "Rocket Pult",
+        "url": "https://v6p9d9t4.ssl.hwcdn.net/html/565140/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fv6p9d9t4.ssl.hwcdn.net%2Fhtml%2F565140%2Findex.html",
+        "description": "Catapult and launch farther.",
+        "category": "game"
+      },
+      {
+        "id": "rooftop-snipers",
+        "title": "Rooftop Snipers",
+        "url": "https://html5.gamedistribution.com/rvvASMiM/c3a70ae98547407a92ebedca8b79fdfa/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fhtml5.gamedistribution.com%2FrvvASMiM%2Fc3a70ae98547407a92ebedca8b79fdfa%2Findex.html",
+        "description": "Chaotic rooftop duels.",
+        "category": "game"
+      },
+      {
+        "id": "sand-spiel",
+        "title": "Sand Spiel",
+        "url": "https://sandspiel.club/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fsandspiel.club%2F",
+        "description": "Relaxing falling sand sandbox.",
+        "category": "game"
+      },
+      {
+        "id": "sandboxels",
+        "title": "Sandboxels",
+        "url": "https://v6p9d9t4.ssl.hwcdn.net/html/5808591/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fv6p9d9t4.ssl.hwcdn.net%2Fhtml%2F5808591%2Findex.html",
+        "description": "Element mixing sandbox.",
+        "category": "game"
+      },
+      {
+        "id": "shapez-io",
+        "title": "Shapez.IO",
+        "url": "https://shapez.io",
+        "icon": "/api/favicon?url=https%3A%2F%2Fshapez.io",
+        "description": "Factory game about shapes.",
+        "category": "game"
+      },
+      {
+        "id": "shell-shockers",
+        "title": "Shell Shockers",
+        "url": "https://shellshock.io/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fshellshock.io%2F",
+        "description": "Egg-themed online FPS.",
+        "category": "game"
+      },
+      {
+        "id": "slither-io",
+        "title": "Slither.io",
+        "url": "https://slither.io/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fslither.io%2F",
+        "description": "Fast-paced multiplayer .io game.",
+        "category": "game"
+      },
+      {
+        "id": "smash-bros-64",
+        "title": "Smash Bros 64",
+        "url": "https://emulatorgames.online/games/n64/super-smash-bros",
+        "icon": "/api/favicon?url=https%3A%2F%2Femulatorgames.online%2Fgames%2Fn64%2Fsuper-smash-bros",
+        "description": "Nintendo crossover fighter.",
+        "category": "game"
+      },
+      {
+        "id": "smash-karts",
+        "title": "Smash Karts",
+        "url": "https://smashkarts.io/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fsmashkarts.io%2F",
+        "description": "Kart combat with weapons.",
+        "category": "game"
+      },
+      {
+        "id": "snowball-io",
+        "title": "Snowball.io",
+        "url": "https://games.crazygames.com/en_US/snowball-io/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fgames.crazygames.com%2Fen_US%2Fsnowball-io%2Findex.html",
+        "description": "Push rivals off the map.",
+        "category": "game"
+      },
+      {
+        "id": "space-plan",
+        "title": "Space Plan",
+        "url": "https://jhollands.co.uk/spaceplan/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fjhollands.co.uk%2Fspaceplan%2F",
+        "description": "Space-themed incremental clicker.",
+        "category": "game"
+      },
+      {
+        "id": "stumble-guys",
+        "title": "Stumble Guys",
+        "url": "https://www.stumbleguys.com/play",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.stumbleguys.com%2Fplay",
+        "description": "Party obstacle knockout game.",
+        "category": "game"
+      },
+      {
+        "id": "stumble-guys-clone",
+        "title": "Stumble Guys Clone",
+        "url": "https://stumble-guys.io/stumble-guys.embed",
+        "icon": "/api/favicon?url=https%3A%2F%2Fstumble-guys.io%2Fstumble-guys.embed",
+        "description": "Fall Guys-style clone.",
+        "category": "game"
+      },
+      {
+        "id": "sugar-sugar-html5",
+        "title": "Sugar Sugar HTML5",
+        "url": "https://66564262-37c6-4095-a731-535342e4bbe4.poki-gdn.com/5bd6e8c6-381d-4de5-9823-96662d29afaf/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2F66564262-37c6-4095-a731-535342e4bbe4.poki-gdn.com%2F5bd6e8c6-381d-4de5-9823-96662d29afaf%2Findex.html",
+        "description": "Draw lines for sugar flow.",
+        "category": "game"
+      },
+      {
+        "id": "super-mario-63",
+        "title": "Super Mario 63",
+        "url": "https://www.numuki.com/gameframe/super-mario-63",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.numuki.com%2Fgameframe%2Fsuper-mario-63",
+        "description": "Fan-made Mario flash platformer.",
+        "category": "game"
+      },
+      {
+        "id": "super-mario-64",
+        "title": "Super Mario 64",
+        "url": "https://f.kbhgames.com/r/n64/game.php?file=32112_super-mario-64-usa.zip",
+        "icon": "/api/favicon?url=https%3A%2F%2Ff.kbhgames.com%2Fr%2Fn64%2Fgame.php%3Ffile%3D32112_super-mario-64-usa.zip",
+        "description": "Classic 3D Mario platformer.",
+        "category": "game"
+      },
+      {
+        "id": "super-smash-flash",
+        "title": "Super Smash Flash",
+        "url": "https://f.kbhgames.com/RS/game.php?r=//f.kbhgames.com/2018/swf/smashflash.swf&w=1521&h=753",
+        "icon": "/api/favicon?url=https%3A%2F%2Ff.kbhgames.com%2FRS%2Fgame.php%3Fr%3D%2F%2Ff.kbhgames.com%2F2018%2Fswf%2Fsmashflash.swf%26w%3D1521%26h%3D753",
+        "description": "Flash-style platform fighter.",
+        "category": "game"
+      },
+      {
+        "id": "supply-chain-idle",
+        "title": "Supply Chain Idle",
+        "url": "https://chat.kongregate.com/gamez/0027/1653/live/index.html?kongregate_game_version=1554392772",
+        "icon": "/api/favicon?url=https%3A%2F%2Fchat.kongregate.com%2Fgamez%2F0027%2F1653%2Flive%2Findex.html%3Fkongregate_game_version%3D1554392772",
+        "description": "Factory and logistics idle game.",
+        "category": "game"
+      },
+      {
+        "id": "taming-io",
+        "title": "Taming.io",
+        "url": "https://taming.io/",
+        "icon": "/api/favicon?url=https%3A%2F%2Ftaming.io%2F",
+        "description": "Multiplayer .io strategy game.",
+        "category": "game"
+      },
+      {
+        "id": "temple-of-boom",
+        "title": "Temple of Boom",
+        "url": "https://temple-of-boom.github.io/file/",
+        "icon": "/api/favicon?url=https%3A%2F%2Ftemple-of-boom.github.io%2Ffile%2F",
+        "description": "Pixel arena shooter chaos.",
+        "category": "game"
+      },
+      {
+        "id": "tanuki-sunset",
+        "title": "Tanuki Sunset",
+        "url": "https://watchdocumentaries.com/wp-content/uploads/games/tanuki-sunset",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwatchdocumentaries.com%2Fwp-content%2Fuploads%2Fgames%2Ftanuki-sunset",
+        "description": "Stylish downhill longboarding.",
+        "category": "game"
+      },
+      {
+        "id": "the-simpsons",
+        "title": "The Simpsons",
+        "url": "https://static.arcadespot.com/retroemulator.php?system=nds&game=2017/11/the-simpsons-game.zip",
+        "icon": "/api/favicon?url=https%3A%2F%2Fstatic.arcadespot.com%2Fretroemulator.php%3Fsystem%3Dnds%26game%3D2017%2F11%2Fthe-simpsons-game.zip",
+        "description": "Arcade Simpsons beat 'em up.",
+        "category": "game"
+      },
+      {
+        "id": "temple-run-2",
+        "title": "Temple Run 2",
+        "url": "https://watchdocumentaries.com/wp-content/uploads/games/temple-run-2/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwatchdocumentaries.com%2Fwp-content%2Fuploads%2Fgames%2Ftemple-run-2%2F",
+        "description": "Endless temple escape runner.",
+        "category": "game"
+      },
+      {
+        "id": "twitch-tetris",
+        "title": "Twitch Tetris",
+        "url": "https://www.rossipotti.de/ausgabe28/tetris/controls.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.rossipotti.de%2Fausgabe28%2Ftetris%2Fcontrols.html",
+        "description": "Multiplayer-style browser Tetris.",
+        "category": "game"
+      },
+      {
+        "id": "voxiom-io",
+        "title": "Voxiom.io",
+        "url": "https://voxiom.io/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fvoxiom.io%2F",
+        "description": "Multiplayer .io shooter.",
+        "category": "game"
+      },
+      {
+        "id": "zombs-io",
+        "title": "Zombs.io",
+        "url": "https://zombs.io/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fzombs.io%2F",
+        "description": "Multiplayer .io strategy game.",
+        "category": "game"
+      },
+      {
+        "id": "zombs-royale",
+        "title": "Zombs Royale",
+        "url": "https://zombsroyale.io",
+        "icon": "/api/favicon?url=https%3A%2F%2Fzombsroyale.io",
+        "description": "Battle royale action game.",
+        "category": "game"
+      },
+      {
+        "id": "gba-games",
+        "title": "GBA Games",
+        "url": "https://real-sgs.vercel.app/Tools/GBA-Emulator",
+        "icon": "/api/favicon?url=https%3A%2F%2Freal-sgs.vercel.app%2FTools%2FGBA-Emulator",
+        "description": "Game Boy Advance classics online.",
+        "category": "game"
+      },
+      {
+        "id": "retro-bowl",
+        "title": "Retro Bowl",
+        "url": "/e/2/retro/index.html",
+        "icon": "/api/favicon?url=%2Fe%2F2%2Fretro%2Findex.html",
+        "description": "Retro-style football management.",
+        "category": "game"
+      },
+      {
+        "id": "roblox-now-gg",
+        "title": "Roblox (Now.GG)",
+        "url": "https://now.gg/iframe/snippet?app_pkg=com.roblox.client&partner=interstellar",
+        "icon": "/api/favicon?url=https%3A%2F%2Fnow.gg%2Fiframe%2Fsnippet%3Fapp_pkg%3Dcom.roblox.client%26partner%3Dinterstellar",
+        "description": "Cloud Roblox in browser.",
+        "category": "game"
+      },
+      {
+        "id": "madden-nfl-24",
+        "title": "Madden NFL 24",
+        "url": "https://now.gg/iframe/snippet?app_pkg=com.ea.gp.maddennfl21mobile&partner=interstellar",
+        "icon": "/api/favicon?url=https%3A%2F%2Fnow.gg%2Fiframe%2Fsnippet%3Fapp_pkg%3Dcom.ea.gp.maddennfl21mobile%26partner%3Dinterstellar",
+        "description": "Cloud-streamed football sim.",
+        "category": "game"
+      },
+      {
+        "id": "android",
+        "title": "Android",
+        "url": "https://now.gg/iframe/snippet?app_pkg=com.uncube.launcher3&partner=interstellar",
+        "icon": "/api/favicon?url=https%3A%2F%2Fnow.gg%2Fiframe%2Fsnippet%3Fapp_pkg%3Dcom.uncube.launcher3%26partner%3Dinterstellar",
+        "description": "Cloud Android game hub.",
+        "category": "game"
+      },
+      {
+        "id": "genshin-impact",
+        "title": "Genshin Impact",
+        "url": "https://now.gg/iframe/snippet?app_pkg=com.miHoYo.GenshinImpact&partner=interstellar",
+        "icon": "/api/favicon?url=https%3A%2F%2Fnow.gg%2Fiframe%2Fsnippet%3Fapp_pkg%3Dcom.miHoYo.GenshinImpact%26partner%3Dinterstellar",
+        "description": "Cloud anime action RPG.",
+        "category": "game"
+      },
+      {
+        "id": "fortnite-now-gg",
+        "title": "Fortnite (Now.GG)",
+        "url": "https://now.gg/iframe/snippet?app_pkg=com.epicgames.fortnite&partner=interstellar",
+        "icon": "/api/favicon?url=https%3A%2F%2Fnow.gg%2Fiframe%2Fsnippet%3Fapp_pkg%3Dcom.epicgames.fortnite%26partner%3Dinterstellar",
+        "description": "Fortnite through cloud streaming.",
+        "category": "game"
+      },
+      {
+        "id": "ea-sports-fc-mobile-24-soccer",
+        "title": "EA SPORTS FC™ MOBILE 24 SOCCER",
+        "url": "https://now.gg/iframe/snippet?app_pkg=com.ea.gp.fifamobile&partner=interstellar",
+        "icon": "/api/favicon?url=https%3A%2F%2Fnow.gg%2Fiframe%2Fsnippet%3Fapp_pkg%3Dcom.ea.gp.fifamobile%26partner%3Dinterstellar",
+        "description": "Mobile football in browser.",
+        "category": "game"
+      },
+      {
+        "id": "ea-sports-ufc-mobile-2",
+        "title": "EA SPORTS™ UFC® Mobile 2",
+        "url": "https://now.gg/iframe/snippet?app_pkg=com.ea.gp.easportsufc2&partner=interstellar",
+        "icon": "/api/favicon?url=https%3A%2F%2Fnow.gg%2Fiframe%2Fsnippet%3Fapp_pkg%3Dcom.ea.gp.easportsufc2%26partner%3Dinterstellar",
+        "description": "Mobile MMA fighting action.",
+        "category": "game"
+      },
+      {
+        "id": "melon-playground",
+        "title": "Melon Playground",
+        "url": "https://now.gg/iframe/snippet?app_pkg=com.studio27.MelonPlayground&partner=interstellar",
+        "icon": "/api/favicon?url=https%3A%2F%2Fnow.gg%2Fiframe%2Fsnippet%3Fapp_pkg%3Dcom.studio27.MelonPlayground%26partner%3Dinterstellar",
+        "description": "Sandbox ragdoll experimentation.",
+        "category": "game"
+      },
+      {
+        "id": "solar-smash",
+        "title": "Solar Smash",
+        "url": "https://now.gg/iframe/snippet?app_pkg=com.paradyme.solarsmash&partner=interstellar",
+        "icon": "/api/favicon?url=https%3A%2F%2Fnow.gg%2Fiframe%2Fsnippet%3Fapp_pkg%3Dcom.paradyme.solarsmash%26partner%3Dinterstellar",
+        "description": "Destroy planets for fun.",
+        "category": "game"
+      },
+      {
+        "id": "bloons-td-battles-2",
+        "title": "Bloons TD Battles 2",
+        "url": "https://now.gg/iframe/snippet?app_pkg=com.ninjakiwi.bloonstdbattles2&partner=interstellar",
+        "icon": "/api/favicon?url=https%3A%2F%2Fnow.gg%2Fiframe%2Fsnippet%3Fapp_pkg%3Dcom.ninjakiwi.bloonstdbattles2%26partner%3Dinterstellar",
+        "description": "Competitive bloon tower defense.",
+        "category": "game"
+      },
+      {
+        "id": "bloons-td-battles",
+        "title": "Bloons TD Battles",
+        "url": "https://now.gg/iframe/snippet?app_pkg=com.ninjakiwi.bloonstdbattles&partner=interstellar",
+        "icon": "/api/favicon?url=https%3A%2F%2Fnow.gg%2Fiframe%2Fsnippet%3Fapp_pkg%3Dcom.ninjakiwi.bloonstdbattles%26partner%3Dinterstellar",
+        "description": "Head-to-head bloon defense.",
+        "category": "game"
+      },
+      {
+        "id": "cookie-run-kingdom",
+        "title": "Cookie Run Kingdom",
+        "url": "https://now.gg/iframe/snippet?app_pkg=com.devsisters.ck&partner=interstellar",
+        "icon": "/api/favicon?url=https%3A%2F%2Fnow.gg%2Fiframe%2Fsnippet%3Fapp_pkg%3Dcom.devsisters.ck%26partner%3Dinterstellar",
+        "description": "Cookie RPG kingdom builder.",
+        "category": "game"
+      },
+      {
+        "id": "character-ai",
+        "title": "Character AI",
+        "url": "https://now.gg/iframe/snippet?app_pkg=ai.character.app&partner=interstellar",
+        "icon": "/api/favicon?url=https%3A%2F%2Fnow.gg%2Fiframe%2Fsnippet%3Fapp_pkg%3Dai.character.app%26partner%3Dinterstellar",
+        "description": "Talk with AI characters.",
+        "category": "game"
+      },
+      {
+        "id": "aptoide",
+        "title": "Aptoide",
+        "url": "https://now.gg/iframe/snippet?app_pkg=com.aptoide.partners.nowgg.store&partner=interstellar",
+        "icon": "/api/favicon?url=https%3A%2F%2Fnow.gg%2Fiframe%2Fsnippet%3Fapp_pkg%3Dcom.aptoide.partners.nowgg.store%26partner%3Dinterstellar",
+        "description": "Cloud Android app store.",
+        "category": "game"
+      },
+      {
+        "id": "akinator",
+        "title": "Akinator",
+        "url": "https://now.gg/iframe/snippet?app_pkg=com.digidust.elokence.akinator.freemium&partner=interstellar",
+        "icon": "/api/favicon?url=https%3A%2F%2Fnow.gg%2Fiframe%2Fsnippet%3Fapp_pkg%3Dcom.digidust.elokence.akinator.freemium%26partner%3Dinterstellar",
+        "description": "AI genie guessing game.",
+        "category": "game"
+      },
+      {
+        "id": "worldbox",
+        "title": "WorldBox",
+        "url": "https://now.gg/iframe/snippet?app_pkg=com.mkarpenko.worldbox&partner=interstellar",
+        "icon": "/api/favicon?url=https%3A%2F%2Fnow.gg%2Fiframe%2Fsnippet%3Fapp_pkg%3Dcom.mkarpenko.worldbox%26partner%3Dinterstellar",
+        "description": "God simulator sandbox.",
+        "category": "game"
+      },
+      {
+        "id": "toca-life-world",
+        "title": "Toca Life World",
+        "url": "https://now.gg/iframe/snippet?app_pkg=com.tocaboca.tocalifeworld&partner=interstellar",
+        "icon": "/api/favicon?url=https%3A%2F%2Fnow.gg%2Fiframe%2Fsnippet%3Fapp_pkg%3Dcom.tocaboca.tocalifeworld%26partner%3Dinterstellar",
+        "description": "Open-ended kids roleplay world.",
+        "category": "game"
+      },
+      {
+        "id": "toca-hair-salon-4",
+        "title": "Toca Hair Salon 4",
+        "url": "https://now.gg/iframe/snippet?app_pkg=com.tocaboca.tocahairsalon4&partner=interstellar",
+        "icon": "/api/favicon?url=https%3A%2F%2Fnow.gg%2Fiframe%2Fsnippet%3Fapp_pkg%3Dcom.tocaboca.tocahairsalon4%26partner%3Dinterstellar",
+        "description": "Creative hairstyle sandbox.",
+        "category": "game"
+      },
+      {
+        "id": "toca-kitchen-2",
+        "title": "Toca Kitchen 2",
+        "url": "https://now.gg/iframe/snippet?app_pkg=com.tocaboca.tocakitchen2&partner=interstellar",
+        "icon": "/api/favicon?url=https%3A%2F%2Fnow.gg%2Fiframe%2Fsnippet%3Fapp_pkg%3Dcom.tocaboca.tocakitchen2%26partner%3Dinterstellar",
+        "description": "Messy cooking sandbox.",
+        "category": "game"
+      },
+      {
+        "id": "free-fire",
+        "title": "Free Fire",
+        "url": "https://now.gg/iframe/snippet?app_pkg=com.dts.freefireth&partner=interstellar",
+        "icon": "/api/favicon?url=https%3A%2F%2Fnow.gg%2Fiframe%2Fsnippet%3Fapp_pkg%3Dcom.dts.freefireth%26partner%3Dinterstellar",
+        "description": "Battle royale mobile shooter.",
+        "category": "game"
+      },
+      {
+        "id": "stumble-guys-android",
+        "title": "Stumble Guys (Android)",
+        "url": "https://now.gg/iframe/snippet?app_pkg=com.kitkagames.fallbuddies&partner=interstellar",
+        "icon": "/api/favicon?url=https%3A%2F%2Fnow.gg%2Fiframe%2Fsnippet%3Fapp_pkg%3Dcom.kitkagames.fallbuddies%26partner%3Dinterstellar",
+        "description": "Mobile obstacle party game.",
+        "category": "game"
+      },
+      {
+        "id": "now-gg",
+        "title": "Now.GG",
+        "url": "https://now.gg",
+        "icon": "/api/favicon?url=https%3A%2F%2Fnow.gg",
+        "description": "Cloud mobile games portal.",
+        "category": "game"
+      },
+      {
+        "id": "roblox-nowgg-me-working",
+        "title": "Roblox (NowGG.me) [Working]",
+        "url": "https://nowgg.me/apps/roblox-corporation/5349/roblox.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fnowgg.me%2Fapps%2Froblox-corporation%2F5349%2Froblox.html",
+        "description": "Alternate cloud Roblox access.",
+        "category": "game"
+      },
+      {
+        "id": "now-gg-nowgg-me-working",
+        "title": "Now.GG (NowGG.me) [Working]",
+        "url": "https://nowgg.me",
+        "icon": "/api/favicon?url=https%3A%2F%2Fnowgg.me",
+        "description": "Backup Now.GG gateway.",
+        "category": "game"
+      },
+      {
+        "id": "parappa-the-rapper",
+        "title": "Parappa the Rapper",
+        "url": "https://retrogamesonline.io/parappa-the-rapper.embed",
+        "icon": "/api/favicon?url=https%3A%2F%2Fretrogamesonline.io%2Fparappa-the-rapper.embed",
+        "description": "Classic rhythm rap game.",
+        "category": "game"
+      },
+      {
+        "id": "half-life",
+        "title": "Half-Life",
+        "url": "https://x8bitrain.github.io/webXash/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fx8bitrain.github.io%2FwebXash%2F",
+        "description": "Classic sci-fi FPS.",
+        "category": "game"
+      },
+      {
+        "id": "kiomet",
+        "title": "Kiomet",
+        "url": "https://kiomet.com",
+        "icon": "/api/favicon?url=https%3A%2F%2Fkiomet.com",
+        "description": "Minimal strategy conquest game.",
+        "category": "game"
+      },
+      {
+        "id": "tribals-io",
+        "title": "Tribals.io",
+        "url": "https://tribals.io/",
+        "icon": "/api/favicon?url=https%3A%2F%2Ftribals.io%2F",
+        "description": "Multiplayer .io strategy game.",
+        "category": "game"
+      },
+      {
+        "id": "counter-strike-1-6",
+        "title": "Counter Strike 1.6",
+        "url": "https://play-cs.com/en/servers",
+        "icon": "/api/favicon?url=https%3A%2F%2Fplay-cs.com%2Fen%2Fservers",
+        "description": "Classic tactical shooter.",
+        "category": "game"
+      },
+      {
+        "id": "narrow-one",
+        "title": "Narrow One",
+        "url": "https://narrow.one",
+        "icon": "/api/favicon?url=https%3A%2F%2Fnarrow.one",
+        "description": "Bow combat team shooter.",
+        "category": "game"
+      },
+      {
+        "id": "kirka",
+        "title": "Kirka",
+        "url": "https://kirka.io",
+        "icon": "/api/favicon?url=https%3A%2F%2Fkirka.io",
+        "description": "Blocky online FPS.",
+        "category": "game"
+      },
+      {
+        "id": "cryzen",
+        "title": "Cryzen",
+        "url": "https://cryzen.io",
+        "icon": "/api/favicon?url=https%3A%2F%2Fcryzen.io",
+        "description": "Competitive browser shooter.",
+        "category": "game"
+      },
+      {
+        "id": "hordes",
+        "title": "Hordes",
+        "url": "https://hordes.io",
+        "icon": "/api/favicon?url=https%3A%2F%2Fhordes.io",
+        "description": "Co-op survival against zombies.",
+        "category": "game"
+      },
+      {
+        "id": "venge",
+        "title": "Venge",
+        "url": "https://venge.io",
+        "icon": "/api/favicon?url=https%3A%2F%2Fvenge.io",
+        "description": "Fast hero arena shooter.",
+        "category": "game"
+      },
+      {
+        "id": "minecraft-1-5-2-eaglercraft",
+        "title": "Minecraft 1.5.2 (Eaglercraft)",
+        "url": "/e/2/eag15/index.html",
+        "icon": "/api/favicon?url=%2Fe%2F2%2Feag15%2Findex.html",
+        "description": "Browser Minecraft 1.5.2.",
+        "category": "game"
+      },
+      {
+        "id": "minecraft-1-8-eaglercraft",
+        "title": "Minecraft 1.8 (Eaglercraft)",
+        "url": "/e/2/eag18/offline.html",
+        "icon": "/api/favicon?url=%2Fe%2F2%2Feag18%2Foffline.html",
+        "description": "Browser Minecraft 1.8.",
+        "category": "game"
+      },
+      {
+        "id": "minecraft-1-8-eagler-wasm",
+        "title": "Minecraft 1.8 (Eagler WASM)",
+        "url": "/e/2/eag18/wasm.html",
+        "icon": "/api/favicon?url=%2Fe%2F2%2Feag18%2Fwasm.html",
+        "description": "WASM-powered browser Minecraft.",
+        "category": "game"
+      },
+      {
+        "id": "getaway-s",
+        "title": "Getaway S.",
+        "url": "https://www.twoplayergames.org/embed/getaway-shootout",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.twoplayergames.org%2Fembed%2Fgetaway-shootout",
+        "description": "Arcade driving escape game.",
+        "category": "game"
+      },
+      {
+        "id": "2048",
+        "title": "2048",
+        "url": "/e/1/2048/index.html",
+        "icon": "/api/favicon?url=%2Fe%2F1%2F2048%2Findex.html",
+        "description": "Slide tiles to 2048.",
+        "category": "game"
+      },
+      {
+        "id": "2048-multitasking",
+        "title": "2048 Multitasking",
+        "url": "/e/1/2048-multitask/index.html",
+        "icon": "/api/favicon?url=%2Fe%2F1%2F2048-multitask%2Findex.html",
+        "description": "Play several 2048 boards.",
+        "category": "game"
+      },
+      {
+        "id": "vex-7",
+        "title": "Vex 7",
+        "url": "/e/1/vex7/index.html",
+        "icon": "/api/favicon?url=%2Fe%2F1%2Fvex7%2Findex.html",
+        "description": "Tough parkour platformer.",
+        "category": "game"
+      },
+      {
+        "id": "vex-6",
+        "title": "Vex 6",
+        "url": "/e/1/vex6/index.html",
+        "icon": "/api/favicon?url=%2Fe%2F1%2Fvex6%2Findex.html",
+        "description": "Fast stickman obstacle course.",
+        "category": "game"
+      },
+      {
+        "id": "vex-5",
+        "title": "Vex 5",
+        "url": "/e/1/vex5/index.html",
+        "icon": "/api/favicon?url=%2Fe%2F1%2Fvex5%2Findex.html",
+        "description": "Precision platforming challenge.",
+        "category": "game"
+      },
+      {
+        "id": "vex-3",
+        "title": "Vex 3",
+        "url": "/e/1/vex3/index.html",
+        "icon": "/api/favicon?url=%2Fe%2F1%2Fvex3%2Findex.html",
+        "description": "Classic Vex parkour platformer.",
+        "category": "game"
+      },
+      {
+        "id": "vex-4",
+        "title": "Vex 4",
+        "url": "/e/1/vex4/index.html",
+        "icon": "/api/favicon?url=%2Fe%2F1%2Fvex4%2Findex.html",
+        "description": "More spikes and checkpoints.",
+        "category": "game"
+      },
+      {
+        "id": "windows-96",
+        "title": "Windows 96",
+        "url": "https://windows96.net",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwindows96.net",
+        "description": "Fake retro desktop world.",
+        "category": "game"
+      },
+      {
+        "id": "the-impossible-quiz-book-2",
+        "title": "The Impossible Quiz: Book 2",
+        "url": "https://f.silvergames.com/ruffle/player.php?id=3742",
+        "icon": "/api/favicon?url=https%3A%2F%2Ff.silvergames.com%2Fruffle%2Fplayer.php%3Fid%3D3742",
+        "description": "More absurd quiz puzzles.",
+        "category": "game"
+      },
+      {
+        "id": "wrassling",
+        "title": "Wrassling",
+        "url": "https://games.poki.com/458768/wrassling",
+        "icon": "/api/favicon?url=https%3A%2F%2Fgames.poki.com%2F458768%2Fwrassling",
+        "description": "Wild one-button wrestling.",
+        "category": "game"
+      },
+      {
+        "id": "google-snake-modded",
+        "title": "Google Snake Modded",
+        "url": "https://googlesnakemods.com/v/current/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fgooglesnakemods.com%2Fv%2Fcurrent%2F",
+        "description": "Snake with extra modes.",
+        "category": "game"
+      },
+      {
+        "id": "idle-startup-tycoon",
+        "title": "Idle Startup Tycoon",
+        "url": "https://www.mortgagecalculator.org/money-games/idle-startup-tycoon/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.mortgagecalculator.org%2Fmoney-games%2Fidle-startup-tycoon%2F",
+        "description": "Build a startup empire.",
+        "category": "game"
+      },
+      {
+        "id": "two-player-games",
+        "title": "Two Player Games",
+        "url": "https://www.twoplayergames.org/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.twoplayergames.org%2F",
+        "description": "Mini-games for two people.",
+        "category": "game"
+      },
+      {
+        "id": "five-nights-at-winston-s",
+        "title": "Five Nights at Winston's",
+        "url": "https://g.deev.is/fnaw/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fg.deev.is%2Ffnaw%2F",
+        "description": "Fan-made animatronic horror.",
+        "category": "game"
+      },
+      {
+        "id": "goomy-clicker-2",
+        "title": "Goomy Clicker 2",
+        "url": "https://idle-js-games.github.io/goomyClicker2/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fidle-js-games.github.io%2FgoomyClicker2%2F",
+        "description": "Pokémon-themed idle clicker.",
+        "category": "game"
+      },
+      {
+        "id": "space-company",
+        "title": "Space Company",
+        "url": "/e/1/space-company/index.html",
+        "icon": "/api/favicon?url=%2Fe%2F1%2Fspace-company%2Findex.html",
+        "description": "Incremental space industry sim.",
+        "category": "game"
+      },
+      {
+        "id": "mario-kart-ds",
+        "title": "Mario Kart DS",
+        "url": "https://seraph.reveriestudios.online/games/mariokartds/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fseraph.reveriestudios.online%2Fgames%2Fmariokartds%2Findex.html",
+        "description": "Nintendo DS kart racing.",
+        "category": "game"
+      },
+      {
+        "id": "cooking-mama",
+        "title": "Cooking Mama",
+        "url": "https://seraph.reveriestudios.online/games/cookingmama/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fseraph.reveriestudios.online%2Fgames%2Fcookingmama%2Findex.html",
+        "description": "Classic cooking mini-games.",
+        "category": "game"
+      },
+      {
+        "id": "wordle",
+        "title": "Wordle",
+        "url": "https://www.nytimes.com/games/wordle/index.html",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.nytimes.com%2Fgames%2Fwordle%2Findex.html",
+        "description": "Guess the hidden word.",
+        "category": "game"
+      },
+      {
+        "id": "wordle-unlimited",
+        "title": "Wordle Unlimited",
+        "url": "https://wordleunlimited.org/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwordleunlimited.org%2F",
+        "description": "Unlimited daily-style word puzzles.",
+        "category": "game"
+      },
+      {
+        "id": "wordly",
+        "title": "Wordly",
+        "url": "https://wordly.org/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwordly.org%2F",
+        "description": "Quick word guessing game.",
+        "category": "game"
+      },
+      {
+        "id": "connections",
+        "title": "Connections",
+        "url": "https://www.nytimes.com/games/connections",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.nytimes.com%2Fgames%2Fconnections",
+        "description": "Group words by theme.",
+        "category": "game"
+      },
+      {
+        "id": "connections-unlimited",
+        "title": "Connections Unlimited",
+        "url": "https://1games.io/game/connections-game/",
+        "icon": "/api/favicon?url=https%3A%2F%2F1games.io%2Fgame%2Fconnections-game%2F",
+        "description": "Unlimited category word puzzles.",
+        "category": "game"
+      },
+      {
+        "id": "globle",
+        "title": "Globle",
+        "url": "https://globle.org/?",
+        "icon": "/api/favicon?url=https%3A%2F%2Fgloble.org%2F%3F",
+        "description": "Guess the mystery country.",
+        "category": "game"
+      },
+      {
+        "id": "particle-clicker",
+        "title": "Particle Clicker",
+        "url": "/e/1/particle-clicker/index.html",
+        "icon": "/api/favicon?url=%2Fe%2F1%2Fparticle-clicker%2Findex.html",
+        "description": "Particle physics clicker game.",
+        "category": "game"
+      },
+      {
+        "id": "shipcraft-io",
+        "title": "ShipCraft.io",
+        "url": "https://shipcraft.io/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fshipcraft.io%2F",
+        "description": "Build and battle ships.",
+        "category": "game"
+      },
+      {
+        "id": "super-mario-bros",
+        "title": "Super Mario Bros.",
+        "url": "https://emulator-games.pages.dev/nes/Super Mario Bros.",
+        "icon": "/api/favicon?url=https%3A%2F%2Femulator-games.pages.dev%2Fnes%2FSuper%20Mario%20Bros.",
+        "description": "Original Mario platform classic.",
+        "category": "game"
+      },
+      {
+        "id": "super-mario-bros-2",
+        "title": "Super Mario Bros. 2",
+        "url": "https://emulator-games.pages.dev/nes/Super Mario Bros. 2",
+        "icon": "/api/favicon?url=https%3A%2F%2Femulator-games.pages.dev%2Fnes%2FSuper%20Mario%20Bros.%202",
+        "description": "Mario with unique worlds.",
+        "category": "game"
+      },
+      {
+        "id": "super-mario-bros-3",
+        "title": "Super Mario Bros. 3",
+        "url": "https://emulator-games.pages.dev/nes/Super Mario Bros. 3",
+        "icon": "/api/favicon?url=https%3A%2F%2Femulator-games.pages.dev%2Fnes%2FSuper%20Mario%20Bros.%203",
+        "description": "Beloved classic Mario sequel.",
+        "category": "game"
+      },
+      {
+        "id": "amazon",
+        "title": "Amazon",
+        "url": "https://amazon.com/",
+        "icon": "/api/favicon?url=https%3A%2F%2Famazon.com%2F",
+        "description": "Online shopping and delivery.",
+        "category": "app"
+      },
+      {
+        "id": "buzzfeed-quizzes",
+        "title": "BuzzFeed Quizzes",
+        "url": "https://www.buzzfeed.com/quizzes",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.buzzfeed.com%2Fquizzes",
+        "description": "Fun quizzes and lists.",
+        "category": "app"
+      },
+      {
+        "id": "guilded",
+        "title": "Guilded",
+        "url": "https://www.guilded.gg/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.guilded.gg%2F",
+        "description": "Gaming communities and chat.",
+        "category": "app"
+      },
+      {
+        "id": "temu",
+        "title": "Temu",
+        "url": "https://www.temu.com/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.temu.com%2F",
+        "description": "Discount shopping marketplace.",
+        "category": "app"
+      },
+      {
+        "id": "scratch",
+        "title": "Scratch",
+        "url": "https://scratch.mit.edu",
+        "icon": "/api/favicon?url=https%3A%2F%2Fscratch.mit.edu",
+        "description": "Create and share projects.",
+        "category": "app"
+      },
+      {
+        "id": "cool-math-games",
+        "title": "Cool Math Games",
+        "url": "https://www.coolmathgames.com/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.coolmathgames.com%2F",
+        "description": "Casual browser games.",
+        "category": "app"
+      },
+      {
+        "id": "discord",
+        "title": "Discord",
+        "url": "https://discord.com",
+        "icon": "/api/favicon?url=https%3A%2F%2Fdiscord.com",
+        "description": "Voice, chat, and servers.",
+        "category": "app"
+      },
+      {
+        "id": "espn",
+        "title": "ESPN",
+        "url": "https://www.espn.com/watch/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.espn.com%2Fwatch%2F",
+        "description": "Sports streams and scores.",
+        "category": "app"
+      },
+      {
+        "id": "fifa-rosters",
+        "title": "Fifa Rosters",
+        "url": "https://fifarosters.com/",
+        "icon": "/api/favicon?url=https%3A%2F%2Ffifarosters.com%2F",
+        "description": "Football squad and player data.",
+        "category": "app"
+      },
+      {
+        "id": "firefox-web-browser",
+        "title": "Firefox Web Browser",
+        "url": "https://replit.com/@cooleddie001/Firefox-Legacy?v=1",
+        "icon": "/api/favicon?url=https%3A%2F%2Freplit.com%2F%40cooleddie001%2FFirefox-Legacy%3Fv%3D1",
+        "description": "Browser running in the cloud.",
+        "category": "app"
+      },
+      {
+        "id": "flix-hq",
+        "title": "Flix HQ",
+        "url": "https://flixhq.to",
+        "icon": "/api/favicon?url=https%3A%2F%2Fflixhq.to",
+        "description": "Streaming movie and TV site.",
+        "category": "app"
+      },
+      {
+        "id": "github",
+        "title": "Github",
+        "url": "https://github.com",
+        "icon": "/api/favicon?url=https%3A%2F%2Fgithub.com",
+        "description": "Code hosting and collaboration.",
+        "category": "app"
+      },
+      {
+        "id": "google",
+        "title": "Google",
+        "url": "https://google.com",
+        "icon": "/api/favicon?url=https%3A%2F%2Fgoogle.com",
+        "description": "Search the web quickly.",
+        "category": "app"
+      },
+      {
+        "id": "hbo-max",
+        "title": "HBO MAX",
+        "url": "https://www.hbomax.com/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.hbomax.com%2F",
+        "description": "Movies and shows streaming.",
+        "category": "app"
+      },
+      {
+        "id": "messenger",
+        "title": "Messenger",
+        "url": "https://messenger.com/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fmessenger.com%2F",
+        "description": "Meta messaging in browser.",
+        "category": "app"
+      },
+      {
+        "id": "mlb",
+        "title": "MLB",
+        "url": "https://mlb.com",
+        "icon": "/api/favicon?url=https%3A%2F%2Fmlb.com",
+        "description": "Baseball news and streams.",
+        "category": "app"
+      },
+      {
+        "id": "nfl",
+        "title": "NFL",
+        "url": "https://nfl.com",
+        "icon": "/api/favicon?url=https%3A%2F%2Fnfl.com",
+        "description": "Football news and videos.",
+        "category": "app"
+      },
+      {
+        "id": "nba",
+        "title": "NBA",
+        "url": "https://nba.com",
+        "icon": "/api/favicon?url=https%3A%2F%2Fnba.com",
+        "description": "Basketball news and scores.",
+        "category": "app"
+      },
+      {
+        "id": "paramount-plus",
+        "title": "Paramount Plus",
+        "url": "https://paramountplus.com",
+        "icon": "/api/favicon?url=https%3A%2F%2Fparamountplus.com",
+        "description": "TV and movie streaming.",
+        "category": "app"
+      },
+      {
+        "id": "pinterest",
+        "title": "Pinterest",
+        "url": "https://pinterest.com",
+        "icon": "/api/favicon?url=https%3A%2F%2Fpinterest.com",
+        "description": "Save and browse ideas.",
+        "category": "app"
+      },
+      {
+        "id": "pixlr",
+        "title": "Pixlr",
+        "url": "https://pixlr.com/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fpixlr.com%2F",
+        "description": "Quick online photo editor.",
+        "category": "app"
+      },
+      {
+        "id": "poki",
+        "title": "Poki",
+        "url": "https://poki.com",
+        "icon": "/api/favicon?url=https%3A%2F%2Fpoki.com",
+        "description": "Instant browser games.",
+        "category": "app"
+      },
+      {
+        "id": "premier-league",
+        "title": "Premier League",
+        "url": "https://premierleague.com",
+        "icon": "/api/favicon?url=https%3A%2F%2Fpremierleague.com",
+        "description": "Soccer news and fixtures.",
+        "category": "app"
+      },
+      {
+        "id": "soundcloud",
+        "title": "Soundcloud",
+        "url": "https://soundcloud.com",
+        "icon": "/api/favicon?url=https%3A%2F%2Fsoundcloud.com",
+        "description": "Stream music and mixes.",
+        "category": "app"
+      },
+      {
+        "id": "spotify",
+        "title": "Spotify",
+        "url": "https://open.spotify.com",
+        "icon": "/api/favicon?url=https%3A%2F%2Fopen.spotify.com",
+        "description": "Stream music and podcasts.",
+        "category": "app"
+      },
+      {
+        "id": "telegram",
+        "title": "Telegram",
+        "url": "https://web.telegram.org/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fweb.telegram.org%2F",
+        "description": "Fast cloud messaging.",
+        "category": "app"
+      },
+      {
+        "id": "tiktok",
+        "title": "Tiktok",
+        "url": "https://tiktok.com",
+        "icon": "/api/favicon?url=https%3A%2F%2Ftiktok.com",
+        "description": "Short-form video feed.",
+        "category": "app"
+      },
+      {
+        "id": "free-media-heck-yeah",
+        "title": "Free Media Heck Yeah",
+        "url": "https://fmhy.pages.dev",
+        "icon": "/api/favicon?url=https%3A%2F%2Ffmhy.pages.dev",
+        "description": "Big index of free media.",
+        "category": "app"
+      },
+      {
+        "id": "canva",
+        "title": "Canva",
+        "url": "https://canva.com",
+        "icon": "/api/favicon?url=https%3A%2F%2Fcanva.com",
+        "description": "Design graphics in browser.",
+        "category": "app"
+      },
+      {
+        "id": "wikipedia",
+        "title": "Wikipedia",
+        "url": "https://en.wikipedia.org",
+        "icon": "/api/favicon?url=https%3A%2F%2Fen.wikipedia.org",
+        "description": "Free online encyclopedia.",
+        "category": "app"
+      },
+      {
+        "id": "goal",
+        "title": "GOAL",
+        "url": "https://goal.com",
+        "icon": "/api/favicon?url=https%3A%2F%2Fgoal.com",
+        "description": "Soccer news and scores.",
+        "category": "app"
+      },
+      {
+        "id": "trello",
+        "title": "Trello",
+        "url": "https://trello.com",
+        "icon": "/api/favicon?url=https%3A%2F%2Ftrello.com",
+        "description": "Boards for task tracking.",
+        "category": "app"
+      },
+      {
+        "id": "gidd-io-games",
+        "title": "Gidd.io Games",
+        "url": "https://gidd.io",
+        "icon": "/api/favicon?url=https%3A%2F%2Fgidd.io",
+        "description": "Browser games collection.",
+        "category": "app"
+      },
+      {
+        "id": "tumblr",
+        "title": "Tumblr",
+        "url": "https://tumblr.com/",
+        "icon": "/api/favicon?url=https%3A%2F%2Ftumblr.com%2F",
+        "description": "Blogs, fandoms, and posts.",
+        "category": "app"
+      },
+      {
+        "id": "twitch",
+        "title": "Twitch",
+        "url": "https://twitch.tv",
+        "icon": "/api/favicon?url=https%3A%2F%2Ftwitch.tv",
+        "description": "Live streams and gaming.",
+        "category": "app"
+      },
+      {
+        "id": "twitter",
+        "title": "Twitter",
+        "url": "https://twitter.com",
+        "icon": "/api/favicon?url=https%3A%2F%2Ftwitter.com",
+        "description": "Short posts and live updates.",
+        "category": "app"
+      },
+      {
+        "id": "vs-code",
+        "title": "VS Code",
+        "url": "https://vscode.dev",
+        "icon": "/api/favicon?url=https%3A%2F%2Fvscode.dev",
+        "description": "Browser-based code editor.",
+        "category": "app"
+      },
+      {
+        "id": "y8-games",
+        "title": "Y8 Games",
+        "url": "https://y8.com/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fy8.com%2F",
+        "description": "Arcade and browser games.",
+        "category": "app"
+      },
+      {
+        "id": "youtube",
+        "title": "YouTube",
+        "url": "https://youtube.com",
+        "icon": "/api/favicon?url=https%3A%2F%2Fyoutube.com",
+        "description": "Videos, creators, and streams.",
+        "category": "app"
+      },
+      {
+        "id": "youtube-alternative-invidious",
+        "title": "YouTube Alternative (Invidious)",
+        "url": "https://vid.puffyan.us/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fvid.puffyan.us%2F",
+        "description": "Lightweight YouTube front end.",
+        "category": "app"
+      },
+      {
+        "id": "whatsapp",
+        "title": "Whatsapp",
+        "url": "https://web.whatsapp.com/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fweb.whatsapp.com%2F",
+        "description": "Encrypted messaging on web.",
+        "category": "app"
+      },
+      {
+        "id": "wattpad",
+        "title": "Wattpad",
+        "url": "https://www.wattpad.com/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.wattpad.com%2F",
+        "description": "Read and write stories.",
+        "category": "app"
+      },
+      {
+        "id": "discord-login",
+        "title": "Discord - Login",
+        "url": "https://discord.com/login",
+        "icon": "/api/favicon?url=https%3A%2F%2Fdiscord.com%2Flogin",
+        "description": "Direct Discord sign-in page.",
+        "category": "app"
+      },
+      {
+        "id": "hd-today",
+        "title": "HD Today",
+        "url": "https://hdtoday.tv",
+        "icon": "/api/favicon?url=https%3A%2F%2Fhdtoday.tv",
+        "description": "Watch movies and shows.",
+        "category": "app"
+      },
+      {
+        "id": "vercel",
+        "title": "Vercel",
+        "url": "https://vercel.com",
+        "icon": "/api/favicon?url=https%3A%2F%2Fvercel.com",
+        "description": "Deploy sites and apps.",
+        "category": "app"
+      },
+      {
+        "id": "google-gemini",
+        "title": "Google Gemini",
+        "url": "https://gemini.google.com",
+        "icon": "/api/favicon?url=https%3A%2F%2Fgemini.google.com",
+        "description": "Google AI chat assistant.",
+        "category": "app"
+      },
+      {
+        "id": "google-mail-gmail",
+        "title": "Google Mail (Gmail)",
+        "url": "https://mail.google.com/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fmail.google.com%2F",
+        "description": "Google email inbox.",
+        "category": "app"
+      },
+      {
+        "id": "outlook",
+        "title": "Outlook",
+        "url": "https://outlook.live.com/",
+        "icon": "/api/favicon?url=https%3A%2F%2Foutlook.live.com%2F",
+        "description": "Microsoft email and calendar.",
+        "category": "app"
+      },
+      {
+        "id": "snapchat",
+        "title": "Snapchat",
+        "url": "https://web.snapchat.com/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fweb.snapchat.com%2F",
+        "description": "Social messaging and stories.",
+        "category": "app"
+      },
+      {
+        "id": "w3schools",
+        "title": "W3Schools",
+        "url": "https://www.w3schools.com",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.w3schools.com",
+        "description": "Coding tutorials and references.",
+        "category": "app"
+      },
+      {
+        "id": "instagram",
+        "title": "Instagram",
+        "url": "https://www.instagram.com/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.instagram.com%2F",
+        "description": "Photos, reels, and messages.",
+        "category": "app"
+      },
+      {
+        "id": "proton-mail",
+        "title": "Proton Mail",
+        "url": "https://mail.proton.me/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fmail.proton.me%2F",
+        "description": "Private encrypted email.",
+        "category": "app"
+      },
+      {
+        "id": "spacehey",
+        "title": "SpaceHey",
+        "url": "https://www.spacehey.com",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.spacehey.com",
+        "description": "Retro-style social network.",
+        "category": "app"
+      },
+      {
+        "id": "fmovies-to",
+        "title": "FMovies.to",
+        "url": "https://fmovies24.to/",
+        "icon": "/api/favicon?url=https%3A%2F%2Ffmovies24.to%2F",
+        "description": "Movie and show streaming.",
+        "category": "app"
+      },
+      {
+        "id": "emovies-si",
+        "title": "EMovies.si",
+        "url": "https://emovies.si",
+        "icon": "/api/favicon?url=https%3A%2F%2Femovies.si",
+        "description": "Streaming movie library.",
+        "category": "app"
+      },
+      {
+        "id": "movie-web",
+        "title": "Movie Web",
+        "url": "https://movie-web-me.vercel.app/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fmovie-web-me.vercel.app%2F",
+        "description": "Movie Web mirror site.",
+        "category": "app"
+      },
+      {
+        "id": "sudo-flix-lol-movie-web-clone",
+        "title": "Sudo-Flix.Lol (Movie Web Clone)",
+        "url": "https://sudo-flix.lol/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fsudo-flix.lol%2F",
+        "description": "Movie Web style clone.",
+        "category": "app"
+      },
+      {
+        "id": "gptzero-me",
+        "title": "GPTZero.me",
+        "url": "https://gptzero.me/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fgptzero.me%2F",
+        "description": "AI writing detector.",
+        "category": "app"
+      },
+      {
+        "id": "zerogpt-com",
+        "title": "ZeroGPT.com",
+        "url": "https://www.zerogpt.com/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.zerogpt.com%2F",
+        "description": "Check text for AI use.",
+        "category": "app"
+      },
+      {
+        "id": "chatgpt",
+        "title": "ChatGPT",
+        "url": "https://chat.openai.com",
+        "icon": "/api/favicon?url=https%3A%2F%2Fchat.openai.com",
+        "description": "OpenAI chat assistant.",
+        "category": "app"
+      },
+      {
+        "id": "copyleaks-com",
+        "title": "CopyLeaks.com",
+        "url": "https://copyleaks.com/ai-content-detector",
+        "icon": "/api/favicon?url=https%3A%2F%2Fcopyleaks.com%2Fai-content-detector",
+        "description": "AI and plagiarism detector.",
+        "category": "app"
+      },
+      {
+        "id": "writer-com",
+        "title": "Writer.com",
+        "url": "https://writer.com/ai-content-detector/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwriter.com%2Fai-content-detector%2F",
+        "description": "AI detector and writing tools.",
+        "category": "app"
+      },
+      {
+        "id": "quillbot-com-ai-detector",
+        "title": "Quillbot.com AI Detector",
+        "url": "https://quillbot.com/ai-content-detector",
+        "icon": "/api/favicon?url=https%3A%2F%2Fquillbot.com%2Fai-content-detector",
+        "description": "Check text for AI traits.",
+        "category": "app"
+      },
+      {
+        "id": "kome-ai-youtube-transcript",
+        "title": "Kome.ai YouTube Transcript",
+        "url": "https://kome.ai/tools/youtube-transcript-generator",
+        "icon": "/api/favicon?url=https%3A%2F%2Fkome.ai%2Ftools%2Fyoutube-transcript-generator",
+        "description": "Generate YouTube transcripts.",
+        "category": "app"
+      },
+      {
+        "id": "notegpt-io-youtube-transcript",
+        "title": "NoteGPT.io YouTube Transcript",
+        "url": "https://notegpt.io/youtube-transcript-generator",
+        "icon": "/api/favicon?url=https%3A%2F%2Fnotegpt.io%2Fyoutube-transcript-generator",
+        "description": "Transcript and note generator.",
+        "category": "app"
+      },
+      {
+        "id": "grammarly-plagiarism-checker",
+        "title": "Grammarly Plagiarism Checker",
+        "url": "https://www.grammarly.com/plagiarism-checker",
+        "icon": "/api/favicon?url=https%3A%2F%2Fwww.grammarly.com%2Fplagiarism-checker",
+        "description": "Check writing for plagiarism.",
+        "category": "app"
+      },
+      {
+        "id": "plagiarism-detector",
+        "title": "Plagiarism Detector",
+        "url": "https://plagiarismdetector.net/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fplagiarismdetector.net%2F",
+        "description": "Scan text for copied content.",
+        "category": "app"
+      },
+      {
+        "id": "blooket-cheats",
+        "title": "Blooket Cheats",
+        "url": "https://github.com/005konz/Blooket-Cheats",
+        "icon": "/api/favicon?url=https%3A%2F%2Fgithub.com%2F005konz%2FBlooket-Cheats",
+        "description": "Scripts and tools collection.",
+        "category": "app"
+      },
+      {
+        "id": "edpuzzle-cheats",
+        "title": "Edpuzzle Cheats",
+        "url": "https://github.com/ading2210/edpuzzle-answers",
+        "icon": "/api/favicon?url=https%3A%2F%2Fgithub.com%2Fading2210%2Fedpuzzle-answers",
+        "description": "Tools for Edpuzzle tasks.",
+        "category": "app"
+      },
+      {
+        "id": "deepai-org",
+        "title": "DeepAI.org",
+        "url": "https://deepai.org/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fdeepai.org%2F",
+        "description": "AI tools and generators.",
+        "category": "app"
+      },
+      {
+        "id": "freedomgpt",
+        "title": "FreedomGPT",
+        "url": "https://chat.freedomgpt.com/",
+        "icon": "/api/favicon?url=https%3A%2F%2Fchat.freedomgpt.com%2F",
+        "description": "Alternative AI chatbot.",
+        "category": "app"
+      },
+      {
+        "id": "talkai-info",
+        "title": "TalkAI.info",
+        "url": "https://talkai.info/chat/",
+        "icon": "/api/favicon?url=https%3A%2F%2Ftalkai.info%2Fchat%2F",
+        "description": "Free AI chat site.",
+        "category": "app"
+      }
+    ]
+}

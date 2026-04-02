@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 14% 10%;
+    --foreground: 210 20% 92%;
+
+    --card: 220 13% 14%;
+    --card-foreground: 210 20% 92%;
+
+    --popover: 220 13% 12%;
+    --popover-foreground: 210 20% 92%;
+
+    --primary: 172 66% 50%;
+    --primary-foreground: 220 14% 8%;
+
+    --secondary: 220 13% 18%;
+    --secondary-foreground: 210 20% 85%;
+
+    --muted: 220 12% 16%;
+    --muted-foreground: 215 15% 55%;
+
+    --accent: 172 66% 50%;
+    --accent-foreground: 220 14% 8%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 12% 20%;
+    --input: 220 12% 20%;
+    --ring: 172 66% 50%;
+
+    --radius: 0.5rem;
+
+    --chrome: 220 13% 11%;
+    --chrome-hover: 220 13% 16%;
+    --tab-active: 220 13% 15%;
+    --tab-inactive: 220 13% 11%;
+    --url-bar: 220 13% 14%;
+    --surface-overlay: 220 13% 16%;
+
+    --sidebar-background: 220 13% 11%;
+    --sidebar-foreground: 210 20% 85%;
+    --sidebar-primary: 172 66% 50%;
+    --sidebar-primary-foreground: 220 14% 8%;
+    --sidebar-accent: 220 13% 18%;
+    --sidebar-accent-foreground: 210 20% 85%;
+    --sidebar-border: 220 12% 20%;
+    --sidebar-ring: 172 66% 50%;
+  }
+
+  :root[data-theme-mode="light"] {
+    --background: 210 20% 98%;
+    --foreground: 222 35% 14%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 35% 14%;
+    --popover: 210 20% 98%;
+    --popover-foreground: 222 35% 14%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 25% 94%;
+    --secondary-foreground: 222 35% 20%;
+    --muted: 210 25% 92%;
+    --muted-foreground: 220 12% 42%;
+    --accent-foreground: 0 0% 100%;
+    --border: 214 20% 86%;
+    --input: 214 20% 86%;
+    --chrome: 210 25% 96%;
+    --chrome-hover: 210 25% 92%;
+    --tab-active: 0 0% 100%;
+    --tab-inactive: 210 25% 94%;
+    --url-bar: 0 0% 100%;
+    --surface-overlay: 210 25% 94%;
+    --sidebar-background: 210 25% 96%;
+    --sidebar-foreground: 222 35% 18%;
+    --sidebar-accent: 210 25% 92%;
+    --sidebar-accent-foreground: 222 35% 18%;
+    --sidebar-border: 214 20% 86%;
+  }
+
+  :root[data-theme-mode="dark"] {
+    --background: 220 14% 10%;
+    --foreground: 210 20% 92%;
+    --card: 220 13% 14%;
+    --card-foreground: 210 20% 92%;
+    --popover: 220 13% 12%;
+    --popover-foreground: 210 20% 92%;
+    --secondary: 220 13% 18%;
+    --secondary-foreground: 210 20% 85%;
+    --muted: 220 12% 16%;
+    --muted-foreground: 215 15% 55%;
+    --border: 220 12% 20%;
+    --input: 220 12% 20%;
+    --chrome: 220 13% 11%;
+    --chrome-hover: 220 13% 16%;
+    --tab-active: 220 13% 15%;
+    --tab-inactive: 220 13% 11%;
+    --url-bar: 220 13% 14%;
+    --surface-overlay: 220 13% 16%;
+    --sidebar-background: 220 13% 11%;
+    --sidebar-foreground: 210 20% 85%;
+    --sidebar-accent: 220 13% 18%;
+    --sidebar-accent-foreground: 210 20% 85%;
+    --sidebar-border: 220 12% 20%;
+  }
+
+  :root[data-theme-mode="midnight"] {
+    --background: 224 42% 6%;
+    --foreground: 210 24% 94%;
+    --card: 224 36% 9%;
+    --card-foreground: 210 24% 94%;
+    --popover: 224 36% 8%;
+    --popover-foreground: 210 24% 94%;
+    --secondary: 223 28% 12%;
+    --secondary-foreground: 210 20% 90%;
+    --muted: 223 22% 11%;
+    --muted-foreground: 216 15% 62%;
+    --border: 223 24% 15%;
+    --input: 223 24% 15%;
+    --chrome: 224 42% 7%;
+    --chrome-hover: 223 28% 12%;
+    --tab-active: 223 28% 12%;
+    --tab-inactive: 224 42% 7%;
+    --url-bar: 223 28% 11%;
+    --surface-overlay: 223 28% 12%;
+    --sidebar-background: 224 42% 7%;
+    --sidebar-foreground: 210 24% 94%;
+    --sidebar-accent: 223 28% 12%;
+    --sidebar-accent-foreground: 210 24% 94%;
+    --sidebar-border: 223 24% 15%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    overflow: hidden;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+  }
+}
+
+@layer utilities {
+  .browser-glass {
+    backdrop-filter: blur(20px);
+    background: hsl(var(--chrome) / 0.85);
+  }
+}
+
+/* Tab animations */
+@keyframes tab-open {
+  from { max-width: 0; opacity: 0; transform: scaleX(0.8); }
+  to { max-width: 240px; opacity: 1; transform: scaleX(1); }
+}
+@keyframes tab-close {
+  from { max-width: 240px; opacity: 1; transform: scaleX(1); }
+  to { max-width: 0; opacity: 0; transform: scaleX(0.8); }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(8px) scale(0.98); filter: blur(4px); }
+  to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+@keyframes slide-down {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes panel-in {
+  from { opacity: 0; transform: translateX(12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-tab-open {
+  animation: tab-open 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.animate-tab-close {
+  animation: tab-close 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.animate-fade-up {
+  animation: fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.animate-slide-down {
+  animation: slide-down 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.animate-panel-in {
+  animation: panel-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
