@@ -8,22 +8,22 @@ const frontendDir = path.join(rootDir, "frontend");
 
 const rawArgs = process.argv.slice(2);
 const corepackCommand = process.platform === "win32" ? "corepack.cmd" : "corepack";
-const pnpmArgs = ["pnpm", ...(rawArgs.length > 0 ? rawArgs : ["install"])];
+const npmArgs = ["npm", ...(rawArgs.length > 0 ? rawArgs : ["install"])];
 
 if (rawArgs.includes("--help") || rawArgs.includes("-h")) {
-  console.log(`Usage: pnpm run install:all -- [pnpm install args]
+  console.log(`Usage: npm run install:all -- [npm install args]
 
 Examples:
-  pnpm run install:all
-  pnpm run install:all -- --frozen-lockfile
-  pnpm run install:all -- install --offline
+  npm run install:all
+  npm run install:all -- --frozen-lockfile
+  npm run install:all -- install --offline
 `);
   process.exit(0);
 }
 
 function runInstall(cwd, label) {
   console.log(`\n==> ${label}`);
-  const result = spawnSync(corepackCommand, pnpmArgs, {
+  const result = spawnSync(corepackCommand, npmArgs, {
     cwd,
     stdio: "inherit",
   });

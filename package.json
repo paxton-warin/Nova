@@ -4,13 +4,13 @@
   "description": "Nova Browser fullstack app",
   "main": "src/server.ts",
   "scripts": {
-    "dev": "concurrently -k -n server,frontend \"corepack pnpm run dev:server\" \"corepack pnpm run dev:frontend\"",
+    "dev": "concurrently -k -n server,frontend \"npm run dev:server\" \"npm run dev:frontend\"",
     "dev:server": "tsx watch src/server.ts",
-    "dev:frontend": "corepack pnpm --dir frontend run dev",
+    "dev:frontend": "npm --dir frontend run dev",
     "install:all": "node scripts/install-all.mjs",
-    "build": "corepack pnpm --dir frontend run build",
+    "build": "npm --dir frontend run build",
     "start": "tsx src/server.ts",
-    "lint": "corepack pnpm --dir frontend run lint"
+    "lint": "npm --dir frontend run lint"
   },
   "keywords": [],
   "author": "",
