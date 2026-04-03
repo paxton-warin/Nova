@@ -313,11 +313,12 @@ const themes: ThemePreset[] = [
 ];
 
 const helpTips = [
-  "Use the search field in Settings to jump directly to individual options.",
-  "Custom shortcuts layer on top of Nova defaults, so you can always fall back to the built-in keys.",
-  "Turn on Restore Tabs in Settings to reopen your last session automatically.",
-  "Admins can send site-wide alerts from the admin panel to everyone currently online.",
-  "Enable Inspect in Settings to inject Eruda into proxied pages for debugging.",
+  "Mute a noisy tab from the right-click menu so audio stops without closing the page.",
+  "Change your exit location from Settings when you want browsing traffic to leave from a different region.",
+  "Reopen something you lost from the History panel, then bookmark it if you want it pinned for later.",
+  "Use the search box in Settings to jump straight to options like proxy, Dark Reader, or shortcuts.",
+  "Enable Inspect in Settings to inject Eruda into proxied pages when you need quick devtools.",
+  "Turn on Restore Tabs if you want Nova to bring your previous session back on launch.",
 ];
 
 const defaultCatalog: CatalogConfig = {
@@ -439,7 +440,7 @@ function loadProxyCatalog(): ProxyCatalog {
   }
 }
 
-const proxyRoundRobin = new Map<string, number>();
+const ACTIVE_PROXY_ASSIGNMENT_WINDOW_MS = 30 * 60 * 1000;
 
 function proxyEntryUrl(entry: ProxyPoolEntry): string {
   return entry.url;
@@ -511,6 +512,35 @@ async function refreshAllProxyLatencies() {
   }
 }
 
+function getProxyAssignmentCounts(locationId: string, candidateUrls: string[]) {
+  const counts = new Map<string, number>();
+  for (const url of candidateUrls) {
+    counts.set(url, 0);
+  }
+  if (candidateUrls.length === 0) {
+    return counts;
+  }
+  const placeholders = candidateUrls.map(() => "?").join(", ");
+  const rows = db.prepare(
+    `
+      SELECT assigned_proxy_url, COUNT(*) AS count
+      FROM session_state
+      WHERE proxy_location_id = ?
+        AND assigned_proxy_url IN (${placeholders})
+        AND last_seen_at >= ?
+      GROUP BY assigned_proxy_url
+    `,
+  ).all(
+    locationId,
+    ...candidateUrls,
+    Date.now() - ACTIVE_PROXY_ASSIGNMENT_WINDOW_MS,
+  ) as Array<{ assigned_proxy_url: string; count: number }>;
+  for (const row of rows) {
+    counts.set(row.assigned_proxy_url, row.count);
+  }
+  return counts;
+}
+
 function pickNextProxyUrl(locationId: string): string | null {
   const catalog = loadProxyCatalog();
   const loc = catalog.locations.find((entry) => entry.id === locationId);
@@ -525,19 +555,25 @@ function pickNextProxyUrl(locationId: string): string | null {
   }
   const healthy = loc.proxies.filter((entry) => proxyLatencyCache.get(proxyEntryUrl(entry))?.ok !== false);
   const pool = healthy.length > 0 ? healthy : loc.proxies;
+  const assignmentCounts = getProxyAssignmentCounts(
+    locationId,
+    pool.map((entry) => proxyEntryUrl(entry)),
+  );
   const sorted = [...pool].sort((a, b) => {
+    const ua = proxyEntryUrl(a);
+    const ub = proxyEntryUrl(b);
+    const loadA = assignmentCounts.get(ua) ?? 0;
+    const loadB = assignmentCounts.get(ub) ?? 0;
+    if (loadA !== loadB) return loadA - loadB;
     const pa = typeof a.priority === "number" ? a.priority : 100;
     const pb = typeof b.priority === "number" ? b.priority : 100;
     if (pa !== pb) return pa - pb;
-    const ua = proxyEntryUrl(a);
-    const ub = proxyEntryUrl(b);
     const la = proxyLatencyCache.get(ua)?.ms ?? 99_999;
     const lb = proxyLatencyCache.get(ub)?.ms ?? 99_999;
-    return la - lb;
+    if (la !== lb) return la - lb;
+    return ua.localeCompare(ub);
   });
-  const idx = (proxyRoundRobin.get(locationId) ?? 0) % sorted.length;
-  proxyRoundRobin.set(locationId, idx + 1);
-  return proxyEntryUrl(sorted[idx]!);
+  return proxyEntryUrl(sorted[0]!);
 }
 
 function getProxyLocationRow(locationId: string) {
@@ -723,6 +759,7 @@ const defaultSettings: BrowserSettings = {
     { id: "11", action: "forward", label: "Forward", keys: "Alt+ArrowRight", isDefault: true },
   ],
   proxyLocation: "us",
+  showExitLocationBadge: true,
 };
 
 const defaultTabs: BrowserTab[] = [
@@ -1845,7 +1882,6 @@ app.post("/api/navigation/resolve", (req, res) => {
     actorIsAdmin && parsed.allowAdminBypass && block ? null : block;
   const category = categorizeUrl(normalizedUrl);
   const flagged =
-    category !== "general" ||
     (matchedFilter ? String(matchedFilter.mode ?? "block") === "flag" : false) ||
     Boolean(block);
 
@@ -1876,7 +1912,6 @@ app.post("/api/navigation/resolve", (req, res) => {
       pattern: effectiveBlock.pattern,
       listName: effectiveBlock.list_name ?? null,
       url: normalizedUrl,
-      category,
       flagged,
       adminBypassAllowed: actorIsAdmin,
     });
@@ -1886,7 +1921,6 @@ app.post("/api/navigation/resolve", (req, res) => {
   res.json({
     blocked: false,
     url: normalizedUrl,
-    category,
     flagged,
   });
 });
@@ -3513,14 +3547,18 @@ function matchesBlockedSitePattern(url: string, rawPattern: string) {
       host === patternHost ||
       host.endsWith(`.${patternHost}`) ||
       fullPath === patternHost ||
-      fullPath.startsWith(`${patternHost}/`) ||
-      fullPath.includes(pattern)
+      fullPath.startsWith(`${patternHost}/`)
     );
   }
 
   return (
     (host === patternHost || host.endsWith(`.${patternHost}`)) &&
-    (fullPath === pattern || fullPath.startsWith(`${pattern}/`) || fullPath.startsWith(pattern))
+    (
+      fullPath === pattern ||
+      fullPath.startsWith(`${pattern}/`) ||
+      fullPath.startsWith(`${pattern}?`) ||
+      fullPath.startsWith(`${pattern}#`)
+    )
   );
 }
 
@@ -3604,14 +3642,7 @@ function getBlockForUrl(url: string, userId: string | null) {
 }
 
 function categorizeUrl(url: string) {
-  const host = new URL(url).hostname.toLowerCase();
-
-  if (/(porn|xxx|adult|sex)/i.test(host)) return "porn";
-  if (/(casino|bet|poker|sportsbook)/i.test(host)) return "gambling";
-  if (/(proxy|vpn|unblock)/i.test(host)) return "circumvention";
-  if (/(discord|reddit|instagram|tiktok|x\.com|twitter)/i.test(host)) return "social";
-
-  return "general";
+  return "default";
 }
 
 function normalizeUrl(value: string, searchEngine: string) {

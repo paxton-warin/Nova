@@ -1,7 +1,14 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { ArrowRight, Compass, Keyboard, PaintBucket, Search, Sparkles, User } from "lucide-react";
+import { ArrowRight, Compass, Globe2, Keyboard, Moon, PaintBucket, Search, Shield, Sparkles, User } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
 import {
   buildDefaultKeyboardShortcuts,
@@ -9,13 +16,17 @@ import {
   shortcutPlatformLabel,
   standardBrowserShortcutLabel,
 } from "@/lib/shortcuts";
-import type { BrowserSettings, ThemePreset } from "@/types/browser";
+import type { BrowserSettings, ProxyLocationOption, ThemePreset, TransportConfig } from "@/types/browser";
 
 interface TutorialProps {
   settings: BrowserSettings;
   themePresets: ThemePreset[];
+  proxyLocations: ProxyLocationOption[];
+  transportConfig?: TransportConfig | null;
+  proxyLocationNotice?: string | null;
   onUpdateSettings: (value: Partial<BrowserSettings>) => void;
   onUpdateTheme: (value: Partial<BrowserSettings["theme"]>) => void;
+  onProxyLocationChange: (locationId: string) => void;
   /** Create account without opening the full account panel. */
   onRegister?: (username: string, password: string) => Promise<boolean>;
   /** Sign in without leaving setup; loads your account and jumps to the review step. */
@@ -30,8 +41,12 @@ interface TutorialProps {
 export const Tutorial: React.FC<TutorialProps> = ({
   settings,
   themePresets,
+  proxyLocations,
+  transportConfig,
+  proxyLocationNotice,
   onUpdateSettings,
   onUpdateTheme,
+  onProxyLocationChange,
   onRegister,
   onLoginFromSetup,
   authError,
@@ -60,6 +75,10 @@ export const Tutorial: React.FC<TutorialProps> = ({
   const primaryModifier = primaryModifierLabel();
   const platformLabel = shortcutPlatformLabel();
   const standardShortcutLabel = standardBrowserShortcutLabel();
+  const hasProxyLocations = proxyLocations.length > 0;
+  const activeLocationId = transportConfig?.proxyLocationId ?? settings.proxyLocation;
+  const activeLocation = proxyLocations.find((entry) => entry.id === activeLocationId) ?? null;
+  const selectedLocation = proxyLocations.find((entry) => entry.id === settings.proxyLocation) ?? null;
   const shortcutPresetOptions = [
     {
       id: "primary",
@@ -314,6 +333,112 @@ export const Tutorial: React.FC<TutorialProps> = ({
                 onCheckedChange={(value) => onUpdateSettings({ safeBrowsing: value })}
               />
             </label>
+            <div className="rounded-xl border border-border bg-card/70 p-4 space-y-3">
+              <div className="flex items-start gap-3">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-primary/10">
+                  <Globe2 className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <div className="text-sm font-medium">Exit location</div>
+                  <div className="text-xs text-muted-foreground">
+                    Pick where Nova exits from when browsing through a proxy.
+                  </div>
+                </div>
+              </div>
+              {hasProxyLocations ? (
+                <>
+                  <Select value={settings.proxyLocation} onValueChange={onProxyLocationChange}>
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Choose region" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {proxyLocations.map((loc) => (
+                        <SelectItem key={loc.id} value={loc.id}>
+                          <span className="flex items-center gap-2">
+                            <span aria-hidden>{loc.emoji}</span>
+                            <span>{loc.label}</span>
+                          </span>
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <div className="rounded-lg border border-border bg-background/60 px-3 py-3 text-xs text-muted-foreground">
+                    <div className="font-medium text-foreground">
+                      Active route: {activeLocation?.label ?? selectedLocation?.label ?? settings.proxyLocation}
+                    </div>
+                    <div className="mt-1">
+                      Selected: {selectedLocation?.label ?? settings.proxyLocation}
+                      {activeLocationId !== settings.proxyLocation
+                        ? ` • Fallback: ${activeLocation?.label ?? activeLocationId}`
+                        : ""}
+                    </div>
+                  </div>
+                  {proxyLocationNotice ? (
+                    <div className="rounded-lg border border-emerald-500/35 bg-emerald-500/10 px-3 py-3 text-xs text-emerald-100">
+                      {proxyLocationNotice}
+                    </div>
+                  ) : null}
+                  {transportConfig?.proxyWarning ? (
+                    <div className="rounded-lg border border-amber-500/35 bg-amber-500/10 px-3 py-3 text-xs text-amber-100">
+                      {transportConfig.proxyWarning}
+                    </div>
+                  ) : null}
+                </>
+              ) : (
+                <div className="rounded-lg border border-dashed border-amber-500/40 bg-amber-500/10 px-3 py-3 text-xs text-amber-100">
+                  No exit locations are configured yet.
+                </div>
+              )}
+            </div>
+            <label className="flex items-center justify-between rounded-xl border border-border bg-card/70 px-4 py-3">
+              <div>
+                <div className="text-sm font-medium">Show exit location badge</div>
+                <div className="text-xs text-muted-foreground">Display a tiny URL-bar badge for non-default exit regions.</div>
+              </div>
+              <Switch
+                checked={settings.showExitLocationBadge}
+                onCheckedChange={(value) => onUpdateSettings({ showExitLocationBadge: value })}
+              />
+            </label>
+            <label className="flex items-center justify-between rounded-xl border border-border bg-card/70 px-4 py-3">
+              <div className="flex items-start gap-3">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl bg-primary/10">
+                  <Shield className="h-4 w-4 text-primary" />
+                </div>
+                <div>
+                  <div className="text-sm font-medium">Ad Shield</div>
+                  <div className="text-xs text-muted-foreground">Keep safe browsing protection on from the start.</div>
+                </div>
+              </div>
+              <Switch
+                checked={settings.extensions.adShield}
+                onCheckedChange={(value) =>
+                  onUpdateSettings({
+                    safeBrowsing: value,
+                    extensions: { ...settings.extensions, adShield: value },
+                  })
+                }
+              />
+            </label>
+            <label className="flex items-center justify-between rounded-xl border border-border bg-card/70 px-4 py-3">
+              <div className="flex items-start gap-3">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl bg-primary/10">
+                  <Moon className="h-4 w-4 text-primary" />
+                </div>
+                <div>
+                  <div className="text-sm font-medium">Dark Reader</div>
+                  <div className="text-xs text-muted-foreground">Automatically darken bright pages while browsing.</div>
+                </div>
+              </div>
+              <Switch
+                checked={settings.extensions.darkReader}
+                onCheckedChange={(value) =>
+                  onUpdateSettings({
+                    extensions: { ...settings.extensions, darkReader: value },
+                  })
+                }
+              />
+            </label>
             <label className="flex items-center justify-between rounded-xl border border-border bg-card/70 px-4 py-3">
               <div>
                 <div className="text-sm font-medium">Nova tips</div>
@@ -454,7 +579,10 @@ export const Tutorial: React.FC<TutorialProps> = ({
       setupTotp,
       setupUsername,
       shortcutTest,
+      proxyLocationNotice,
+      proxyLocations,
       themePresets,
+      transportConfig,
       primaryModifier,
       platformLabel,
       searchEngineOptions,

@@ -51,9 +51,11 @@ const SETTING_GROUPS = [
     ],
   },
   {
-    id: "utilities",
-    label: "Utilities",
+    id: "settings-utilities",
+    label: "Settings and utilities",
     fields: [
+      { path: "proxyLocation", label: "Exit location" },
+      { path: "showExitLocationBadge", label: "Exit location badge" },
       { path: "extensions.adShield", label: "Ad Shield" },
       { path: "extensions.darkReader", label: "Dark Reader" },
     ],

@@ -8,9 +8,9 @@ import { TabBar } from "./TabBar";
 import { UrlBar } from "./UrlBar";
 import { ContentArea } from "./ContentArea";
 import { SettingsPanel } from "./SettingsPanel";
+import { KeybindManagerPanel } from "./KeybindManagerPanel";
 import { HistoryPanel } from "./HistoryPanel";
 import { BookmarksPanel } from "./BookmarksPanel";
-import { ExtensionsPanel } from "./ExtensionsPanel";
 import { AccountPanel } from "./AccountPanel";
 import { AdminPanel } from "./AdminPanel";
 import { NotificationCenter } from "./NotificationCenter";
@@ -160,6 +160,8 @@ export const BrowserShell: React.FC = () => {
     Record<string, number>
   >({});
   const [countdownNow, setCountdownNow] = useState(() => Date.now());
+  const [settingsSearchQuery, setSettingsSearchQuery] = useState<string | null>(null);
+  const [settingsSearchVersion, setSettingsSearchVersion] = useState(0);
 
   const handlePostScreenShareFrame = useCallback(
     (requestId: string, dataUrl: string) => {
@@ -181,6 +183,22 @@ export const BrowserShell: React.FC = () => {
 
   const togglePanel = useCallback((panel: PanelType) => {
     store.setActivePanel(store.activePanel === panel ? "none" : panel);
+  }, [store]);
+
+  const openSettings = useCallback(() => {
+    setSettingsSearchQuery(null);
+    setSettingsSearchVersion((value) => value + 1);
+    store.setActivePanel(store.activePanel === "settings" ? "none" : "settings");
+  }, [store]);
+
+  const openKeybindManager = useCallback(() => {
+    store.setActivePanel("keybinds");
+  }, [store]);
+
+  const openLocationSettings = useCallback(() => {
+    setSettingsSearchQuery("exit location");
+    setSettingsSearchVersion((value) => value + 1);
+    store.setActivePanel("settings");
   }, [store]);
 
   const handleHome = useCallback(() => {
@@ -214,6 +232,12 @@ export const BrowserShell: React.FC = () => {
     await store.navigateTo(url);
     store.setActivePanel("none");
   }, [store]);
+
+  useEffect(() => {
+    if (store.activePanel !== "settings" && settingsSearchQuery !== null) {
+      setSettingsSearchQuery(null);
+    }
+  }, [settingsSearchQuery, store.activePanel]);
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
@@ -672,8 +696,12 @@ export const BrowserShell: React.FC = () => {
         <Tutorial
           settings={store.settings}
           themePresets={store.themePresets}
+          proxyLocations={store.proxyLocations}
+          transportConfig={store.transportConfig}
+          proxyLocationNotice={store.proxyLocationNotice}
           onUpdateSettings={store.updateSettings}
           onUpdateTheme={store.updateTheme}
+          onProxyLocationChange={store.updateProxyLocation}
           onRegister={store.register}
           onLoginFromSetup={store.loginFromSetupWizard}
           authError={store.authError}
@@ -771,6 +799,11 @@ export const BrowserShell: React.FC = () => {
         density={store.settings.theme.density}
         user={store.user}
         unreadMessages={unreadMessages}
+        transportConfig={store.transportConfig}
+        proxyLocations={store.proxyLocations}
+        showExitLocationBadge={store.settings.showExitLocationBadge}
+        onOpenLocationSettings={openLocationSettings}
+        onOpenSettings={openSettings}
       />
 
       {store.settings.showBookmarksBar && store.bookmarks.length > 0 && (
@@ -932,9 +965,24 @@ export const BrowserShell: React.FC = () => {
             onUpdateSettings={store.updateSettings}
             onUpdateTheme={store.updateTheme}
             themePresets={store.themePresets}
+            proxyLocations={store.proxyLocations}
+            transportConfig={store.transportConfig}
+            proxyLocationNotice={store.proxyLocationNotice}
+            onProxyLocationChange={store.updateProxyLocation}
+            onOpenShortcutManager={openKeybindManager}
+            initialSearchQuery={settingsSearchQuery}
+            searchVersion={settingsSearchVersion}
             onBack={store.canGoBackPanel ? store.goBackPanel : undefined}
             onClose={() => store.setActivePanel('none')}
             onOpenAccountDetails={() => store.setActivePanel("account")}
+          />
+        )}
+        {store.activePanel === "keybinds" && (
+          <KeybindManagerPanel
+            settings={store.settings}
+            onUpdateSettings={store.updateSettings}
+            onBack={store.canGoBackPanel ? store.goBackPanel : undefined}
+            onClose={() => store.setActivePanel("none")}
           />
         )}
         {store.activePanel === "history" && (
@@ -952,17 +1000,6 @@ export const BrowserShell: React.FC = () => {
             bookmarks={store.bookmarks}
             onNavigate={handlePanelNavigate}
             onRemove={store.removeBookmark}
-            onBack={store.canGoBackPanel ? store.goBackPanel : undefined}
-            onClose={() => store.setActivePanel("none")}
-          />
-        )}
-        {store.activePanel === "extensions" && (
-          <ExtensionsPanel
-            settings={store.settings}
-            proxyLocations={store.proxyLocations}
-            transportConfig={store.transportConfig}
-            onUpdateSettings={store.updateSettings}
-            onProxyLocationChange={store.updateProxyLocation}
             onBack={store.canGoBackPanel ? store.goBackPanel : undefined}
             onClose={() => store.setActivePanel("none")}
           />

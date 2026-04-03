@@ -1,18 +1,30 @@
-import React, { useMemo, useState } from "react";
-import { ArrowLeft, Keyboard, Palette, Search, Shield, SlidersHorizontal, X } from "lucide-react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
+import { ArrowLeft, Bell, Globe2, Keyboard, Moon, Palette, Search, Shield, SlidersHorizontal, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
-import { buildDefaultKeyboardShortcuts, primaryModifierLabel } from "@/lib/shortcuts";
-import { cn } from "@/lib/utils";
-import type { BrowserSettings, ThemePreset } from "@/types/browser";
+import type { BrowserSettings, ProxyLocationOption, ThemePreset, TransportConfig } from "@/types/browser";
 
 interface SettingsPanelProps {
   settings: BrowserSettings;
   onUpdateSettings: (s: Partial<BrowserSettings>) => void;
   onUpdateTheme: (t: Partial<BrowserSettings["theme"]>) => void;
   themePresets: ThemePreset[];
+  proxyLocations: ProxyLocationOption[];
+  transportConfig?: TransportConfig | null;
+  proxyLocationNotice?: string | null;
+  onProxyLocationChange: (locationId: string) => void;
+  onOpenShortcutManager: () => void;
+  initialSearchQuery?: string | null;
+  searchVersion?: number;
   onClose: () => void;
   onBack?: () => void;
   onOpenAccountDetails?: () => void;
@@ -37,40 +49,114 @@ function matchesQuery(query: string, ...terms: Array<string | number | boolean |
   );
 }
 
-function normalizeShortcutKey(value: string) {
-  switch (value) {
-    case " ":
-      return "Space";
-    default:
-      return value.length === 1 ? value.toUpperCase() : value;
-  }
-}
-
 export const SettingsPanel: React.FC<SettingsPanelProps> = ({
   settings,
   onUpdateSettings,
   onUpdateTheme,
   themePresets,
+  proxyLocations,
+  transportConfig,
+  proxyLocationNotice,
+  onProxyLocationChange,
+  onOpenShortcutManager,
+  initialSearchQuery,
+  searchVersion = 0,
   onClose,
   onBack,
   onOpenAccountDetails,
 }) => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [capturingShortcutId, setCapturingShortcutId] = useState<string | null>(null);
+  const searchInputRef = useRef<HTMLInputElement>(null);
   const normalizedQuery = searchQuery.trim().toLowerCase();
 
-  const filteredShortcuts = useMemo(() => {
-    if (!normalizedQuery) return settings.shortcuts;
-    return settings.shortcuts.filter(
-      (shortcut) =>
-        shortcut.label.toLowerCase().includes(normalizedQuery) ||
-        shortcut.action.toLowerCase().includes(normalizedQuery) ||
-        shortcut.keys.toLowerCase().includes(normalizedQuery),
-    );
-  }, [normalizedQuery, settings.shortcuts]);
+  useEffect(() => {
+    setSearchQuery(initialSearchQuery ?? "");
+    if (initialSearchQuery) {
+      window.requestAnimationFrame(() => {
+        searchInputRef.current?.focus();
+        searchInputRef.current?.select();
+      });
+    }
+  }, [initialSearchQuery, searchVersion]);
+
+  const hasProxyLocations = proxyLocations.length > 0;
+  const activeLocationId = transportConfig?.proxyLocationId ?? settings.proxyLocation;
+  const activeLocation = proxyLocations.find((entry) => entry.id === activeLocationId) ?? null;
+  const selectedLocation = proxyLocations.find((entry) => entry.id === settings.proxyLocation) ?? null;
+  const isCustomLocation = activeLocationId !== "us";
+  const proxyStatusText = transportConfig?.proxyUrl
+    ? isCustomLocation
+      ? `Currently using a custom exit proxy from ${activeLocation?.label ?? activeLocationId}.`
+      : `Currently using the default ${activeLocation?.label ?? "US"} exit proxy.`
+    : "Currently using the server connection directly because no working exit proxy is available.";
+
+  const themePresetNames = themePresets.map((preset) => preset.name);
 
   const settingResults = useMemo(
     () => [
+      {
+        key: "shortcutManager",
+        label: "Keyboard shortcuts",
+        description: "",
+        visible: matchesQuery(normalizedQuery, "Keyboard shortcuts", "shortcut", "shortcuts", "keybind", "keybinds", "hotkey"),
+        control: (
+          <Button type="button" variant="secondary" size="sm" onClick={onOpenShortcutManager}>
+            Open manager
+          </Button>
+        ),
+      },
+      {
+        key: "themePresetId",
+        label: "Theme preset",
+        description: "",
+        visible: matchesQuery(normalizedQuery, "Theme preset", "theme", "preset", ...themePresetNames),
+        control: (
+          <select
+            value={settings.theme.themePresetId}
+            onChange={(event) => {
+              const preset = themePresets.find((theme) => theme.id === event.target.value);
+              if (!preset) return;
+              onUpdateTheme({
+                themePresetId: preset.id,
+                accentColor: preset.accentColor,
+                backgroundUrl: preset.backgroundUrl,
+              });
+            }}
+            className="rounded-xl border border-border bg-background px-3 py-2 text-sm"
+          >
+            {themePresets.map((theme) => (
+              <option key={theme.id} value={theme.id}>
+                {theme.name}
+              </option>
+            ))}
+          </select>
+        ),
+      },
+      {
+        key: "accentColor",
+        label: "Accent color",
+        description: "",
+        visible: matchesQuery(
+          normalizedQuery,
+          "Accent color",
+          "accent",
+          "color",
+          ...ACCENT_COLORS.map((color) => color.label),
+        ),
+        control: (
+          <select
+            value={settings.theme.accentColor}
+            onChange={(event) => onUpdateTheme({ accentColor: event.target.value })}
+            className="rounded-xl border border-border bg-background px-3 py-2 text-sm"
+          >
+            {ACCENT_COLORS.map((color) => (
+              <option key={color.value} value={color.value}>
+                {color.label}
+              </option>
+            ))}
+          </select>
+        ),
+      },
       {
         key: "restoreTabs",
         label: "Restore tabs on launch",
@@ -134,7 +220,7 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
         key: "density",
         label: "Density",
         description: "",
-        visible: matchesQuery(normalizedQuery, "Density", settings.theme.density),
+        visible: matchesQuery(normalizedQuery, "Density", "compact", "default", "spacious", settings.theme.density),
         control: (
           <select
             value={settings.theme.density}
@@ -155,7 +241,14 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
         key: "tabOrientation",
         label: "Tab orientation",
         description: "",
-        visible: matchesQuery(normalizedQuery, "Tab orientation", settings.theme.tabOrientation),
+        visible: matchesQuery(
+          normalizedQuery,
+          "Tab orientation",
+          "tabs",
+          "horizontal",
+          "vertical",
+          settings.theme.tabOrientation,
+        ),
         control: (
           <select
             value={settings.theme.tabOrientation}
@@ -172,6 +265,34 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
         ),
       },
       {
+        key: "themeMode",
+        label: "Theme mode",
+        description: "",
+        visible: matchesQuery(
+          normalizedQuery,
+          "Theme mode",
+          "light",
+          "dark",
+          "midnight",
+          settings.theme.mode,
+        ),
+        control: (
+          <select
+            value={settings.theme.mode}
+            onChange={(event) =>
+              onUpdateTheme({
+                mode: event.target.value as BrowserSettings["theme"]["mode"],
+              })
+            }
+            className="rounded-xl border border-border bg-background px-3 py-2 text-sm"
+          >
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+            <option value="midnight">Midnight</option>
+          </select>
+        ),
+      },
+      {
         key: "safeBrowsing",
         label: "Safe browsing",
         description: "",
@@ -181,6 +302,34 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
             checked={settings.safeBrowsing}
             onCheckedChange={(value) => onUpdateSettings({ safeBrowsing: value })}
           />
+        ),
+      },
+      {
+        key: "tabBehavior",
+        label: "Tab behavior",
+        description: "",
+        visible: matchesQuery(
+          normalizedQuery,
+          "Tab behavior",
+          "keep loaded",
+          "unload idle",
+          "unload over limit",
+          settings.tabBehavior,
+        ),
+        control: (
+          <select
+            value={settings.tabBehavior}
+            onChange={(event) =>
+              onUpdateSettings({
+                tabBehavior: event.target.value as BrowserSettings["tabBehavior"],
+              })
+            }
+            className="rounded-xl border border-border bg-background px-3 py-2 text-sm"
+          >
+            <option value="keep-loaded">Keep Loaded</option>
+            <option value="unload-idle">Unload After 5 Minutes</option>
+            <option value="unload-over-limit">Unload After 10 Tabs</option>
+          </select>
         ),
       },
       {
@@ -196,10 +345,130 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
         ),
       },
       {
+        key: "proxyLocation",
+        label: "Exit location",
+        description: "",
+        visible: matchesQuery(
+          normalizedQuery,
+          "Exit location",
+          "proxy",
+          "location",
+          "region",
+          selectedLocation?.label,
+          activeLocation?.label,
+        ),
+        control: hasProxyLocations ? (
+          <Select value={settings.proxyLocation} onValueChange={onProxyLocationChange}>
+            <SelectTrigger className="w-52">
+              <SelectValue placeholder="Choose region" />
+            </SelectTrigger>
+            <SelectContent>
+              {proxyLocations.map((loc) => (
+                <SelectItem key={loc.id} value={loc.id}>
+                  <span className="flex items-center gap-2">
+                    <span aria-hidden>{loc.emoji}</span>
+                    <span>{loc.label}</span>
+                  </span>
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        ) : (
+          <span className="text-xs text-muted-foreground">No exit locations configured</span>
+        ),
+      },
+      {
+        key: "showExitLocationBadge",
+        label: "Show exit location while browsing",
+        description: "",
+        visible: matchesQuery(normalizedQuery, "exit location badge", "proxy badge", settings.showExitLocationBadge),
+        control: (
+          <Switch
+            checked={settings.showExitLocationBadge}
+            onCheckedChange={(value) => onUpdateSettings({ showExitLocationBadge: value })}
+          />
+        ),
+      },
+      {
+        key: "adShield",
+        label: "Ad Shield",
+        description: "",
+        visible: matchesQuery(normalizedQuery, "Ad Shield", "adshield", settings.extensions.adShield),
+        control: (
+          <Switch
+            checked={settings.extensions.adShield}
+            onCheckedChange={(value) =>
+              onUpdateSettings({
+                safeBrowsing: value,
+                extensions: { ...settings.extensions, adShield: value },
+              })
+            }
+          />
+        ),
+      },
+      {
+        key: "darkReader",
+        label: "Dark Reader",
+        description: "",
+        visible: matchesQuery(normalizedQuery, "Dark Reader", "darkreader", settings.extensions.darkReader),
+        control: (
+          <Switch
+            checked={settings.extensions.darkReader}
+            onCheckedChange={(value) =>
+              onUpdateSettings({
+                extensions: { ...settings.extensions, darkReader: value },
+              })
+            }
+          />
+        ),
+      },
+      {
+        key: "doNotTrack",
+        label: "Do Not Track",
+        description: "",
+        visible: matchesQuery(normalizedQuery, "Do Not Track", "privacy", "tracking", "dnt"),
+        control: (
+          <Switch
+            checked={settings.doNotTrack}
+            onCheckedChange={(value) => onUpdateSettings({ doNotTrack: value })}
+          />
+        ),
+      },
+      {
+        key: "pushNotifications",
+        label: "Push notifications",
+        description: "",
+        visible: matchesQuery(normalizedQuery, "Push notifications", "notifications", "alerts"),
+        control: (
+          <Switch
+            checked={settings.pushNotifications}
+            onCheckedChange={(value) => onUpdateSettings({ pushNotifications: value })}
+          />
+        ),
+      },
+      {
+        key: "notificationSound",
+        label: "Notification sound",
+        description: "",
+        visible: matchesQuery(normalizedQuery, "Notification sound", "sound", "audio", "notifications"),
+        control: (
+          <Switch
+            checked={settings.notificationSound}
+            onCheckedChange={(value) => onUpdateSettings({ notificationSound: value })}
+          />
+        ),
+      },
+      {
         key: "backgroundUrl",
         label: "Background image",
         description: "",
-        visible: matchesQuery(normalizedQuery, "Background image", "background", settings.theme.backgroundUrl),
+        visible: matchesQuery(
+          normalizedQuery,
+          "Background image",
+          "background",
+          "wallpaper",
+          settings.theme.backgroundUrl,
+        ),
         control: (
           <Input
             value={settings.theme.backgroundUrl}
@@ -210,46 +479,21 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
         ),
       },
     ].filter((item) => item.visible),
-    [normalizedQuery, onUpdateSettings, onUpdateTheme, settings],
+    [
+      activeLocation?.label,
+      hasProxyLocations,
+      normalizedQuery,
+      onProxyLocationChange,
+      onOpenShortcutManager,
+      onUpdateSettings,
+      onUpdateTheme,
+      proxyLocations,
+      selectedLocation?.label,
+      settings,
+      themePresetNames,
+      themePresets,
+    ],
   );
-
-  function updateShortcut(id: string, keys: string) {
-    onUpdateSettings({
-      shortcuts: settings.shortcuts.map((shortcut) =>
-        shortcut.id === id ? { ...shortcut, keys } : shortcut,
-      ),
-    });
-  }
-
-  function applyShortcutPreset(modifier: "Ctrl" | "Alt") {
-    onUpdateSettings({ shortcuts: buildDefaultKeyboardShortcuts(modifier) });
-  }
-
-  function resetShortcut(id: string) {
-    const fallback = settings.shortcuts.find(
-      (shortcut) => shortcut.id === id,
-    );
-    if (!fallback?.isDefault) return;
-    const defaultShortcut = buildDefaultKeyboardShortcuts().find(
-      (shortcut) => shortcut.id === id,
-    );
-    updateShortcut(id, defaultShortcut?.keys ?? fallback.keys);
-  }
-
-  function captureShortcut(event: React.KeyboardEvent<HTMLInputElement>, id: string) {
-    const ignoredKeys = ["Control", "Shift", "Alt", "Meta", "Tab"];
-    if (ignoredKeys.includes(event.key)) return;
-    event.preventDefault();
-    const keys = [
-      event.ctrlKey ? "Ctrl" : "",
-      event.shiftKey ? "Shift" : "",
-      event.altKey ? "Alt" : "",
-      event.metaKey ? "Meta" : "",
-      normalizeShortcutKey(event.key),
-    ].filter(Boolean);
-    updateShortcut(id, keys.join("+"));
-    setCapturingShortcutId(null);
-  }
 
   return (
     <div className="w-[28rem] border-l border-border bg-background flex flex-col h-full animate-panel-in">
@@ -281,9 +525,10 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
         <div className="flex items-center gap-2 bg-muted rounded-lg px-3 py-2">
           <Search className="w-3.5 h-3.5 text-muted-foreground flex-shrink-0" />
           <input
+            ref={searchInputRef}
             value={searchQuery}
             onChange={(event) => setSearchQuery(event.target.value)}
-            placeholder="Search settings or shortcuts..."
+            placeholder="Search settings..."
             className="flex-1 bg-transparent text-xs text-foreground placeholder:text-muted-foreground outline-none"
           />
         </div>
@@ -313,7 +558,7 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                 ))}
               </div>
             )}
-            {settingResults.length === 0 && filteredShortcuts.length === 0 && (
+            {settingResults.length === 0 && (
               <div className="text-xs text-muted-foreground">
                 No settings matched that search.
               </div>
@@ -430,7 +675,7 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
         <section className="rounded-2xl border border-border bg-card p-4 space-y-4">
           <div className="flex items-center gap-2 text-sm font-semibold">
             <SlidersHorizontal className="w-4 h-4 text-primary" />
-            Browser Behavior
+            Browsing
           </div>
           <ToggleRow
             title="Restore tabs on launch"
@@ -497,9 +742,88 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
 
         <section className="rounded-2xl border border-border bg-card p-4 space-y-4">
           <div className="flex items-center gap-2 text-sm font-semibold">
+            <Globe2 className="w-4 h-4 text-primary" />
+            Location & Routing
+          </div>
+          <div className="rounded-xl border border-border bg-background/60 p-4 space-y-3">
+            <div className="flex items-start gap-3">
+              <div className="h-10 w-10 shrink-0 rounded-2xl bg-primary/10 flex items-center justify-center">
+                <Globe2 className="w-5 h-5 text-primary" />
+              </div>
+              <div className="min-w-0 flex-1">
+                <div className="text-sm font-medium">Exit location</div>
+                <div className="text-xs text-muted-foreground mt-1">
+                  Choose the proxy region for browsing traffic.
+                </div>
+              </div>
+            </div>
+            {hasProxyLocations ? (
+              <>
+                <Select value={settings.proxyLocation} onValueChange={onProxyLocationChange}>
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="Choose region" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {proxyLocations.map((loc) => (
+                      <SelectItem key={loc.id} value={loc.id}>
+                        <span className="flex items-center gap-2">
+                          <span aria-hidden>{loc.emoji}</span>
+                          <span>{loc.label}</span>
+                        </span>
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                <div className="rounded-lg border border-border/70 bg-card/40 px-3 py-3 text-xs text-muted-foreground">
+                  <div className="font-medium text-foreground">{proxyStatusText}</div>
+                  <div className="mt-1">
+                    Selected: {selectedLocation?.label ?? settings.proxyLocation}
+                    {activeLocationId !== settings.proxyLocation
+                      ? ` • Active fallback: ${activeLocation?.label ?? activeLocationId}`
+                      : ""}
+                  </div>
+                </div>
+                {proxyLocationNotice ? (
+                  <div className="rounded-lg border border-emerald-500/35 bg-emerald-500/10 px-3 py-3 text-xs text-emerald-100">
+                    {proxyLocationNotice}
+                  </div>
+                ) : null}
+                {transportConfig?.proxyWarning ? (
+                  <div className="rounded-lg border border-amber-500/35 bg-amber-500/10 px-3 py-3 text-xs text-amber-100">
+                    {transportConfig.proxyWarning}
+                  </div>
+                ) : null}
+              </>
+            ) : (
+              <div className="rounded-lg border border-dashed border-amber-500/40 bg-amber-500/10 px-3 py-3 text-xs text-amber-100">
+                No exit locations are configured.
+              </div>
+            )}
+          </div>
+          <ToggleRow
+            title="Show exit location while browsing"
+            description="Display a tiny badge in the URL bar when a non-default exit region is active."
+            checked={settings.showExitLocationBadge}
+            onChange={(value) => onUpdateSettings({ showExitLocationBadge: value })}
+          />
+        </section>
+
+        <section className="rounded-2xl border border-border bg-card p-4 space-y-4">
+          <div className="flex items-center gap-2 text-sm font-semibold">
             <Shield className="w-4 h-4 text-primary" />
             Privacy & Security
           </div>
+          <ToggleRow
+            title="Ad Shield"
+            description="Safe browsing protection for risky destinations."
+            checked={settings.extensions.adShield}
+            onChange={(value) =>
+              onUpdateSettings({
+                safeBrowsing: value,
+                extensions: { ...settings.extensions, adShield: value },
+              })
+            }
+          />
           <ToggleRow
             title="Safe browsing"
             description=""
@@ -512,6 +836,13 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
             checked={settings.doNotTrack}
             onChange={(value) => onUpdateSettings({ doNotTrack: value })}
           />
+        </section>
+
+        <section className="rounded-2xl border border-border bg-card p-4 space-y-4">
+          <div className="flex items-center gap-2 text-sm font-semibold">
+            <Bell className="w-4 h-4 text-primary" />
+            Notifications
+          </div>
           <ToggleRow
             title="Push notifications"
             description=""
@@ -530,89 +861,38 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
 
         <section className="rounded-2xl border border-border bg-card p-4 space-y-4">
           <div className="flex items-center gap-2 text-sm font-semibold">
-            <Keyboard className="w-4 h-4 text-primary" />
-            Keyboard Shortcuts
+            <Moon className="w-4 h-4 text-primary" />
+            Reading & Display
           </div>
-          <div className="space-y-3">
-            <div className="rounded-xl border border-border bg-background/60 px-4 py-3 text-xs leading-relaxed text-muted-foreground">
-              Nova starts with <span className="text-foreground">{primaryModifierLabel()}</span> as the main
-              in-app shortcut key. You can switch the preset to <span className="text-foreground">Ctrl</span>{" "}
-              or <span className="text-foreground">Alt</span> below, then fine-tune any individual combo.
-            </div>
-            <div className="grid grid-cols-2 gap-2">
-              <Button type="button" variant="secondary" onClick={() => applyShortcutPreset("Ctrl")}>
-                Use Ctrl defaults
-              </Button>
-              <Button type="button" variant="secondary" onClick={() => applyShortcutPreset("Alt")}>
-                Use Alt defaults
-              </Button>
-            </div>
-            {filteredShortcuts.map((shortcut) => (
-              <div
-                key={shortcut.id}
-                className="rounded-xl border border-border bg-background/60 p-3"
-              >
-                <div className="flex items-center justify-between gap-3 mb-2">
-                  <div>
-                    <div className="text-sm font-medium">{shortcut.label}</div>
-                    <div className="text-xs text-muted-foreground">
-                      Action: {shortcut.action}
-                    </div>
-                  </div>
-                  {shortcut.isDefault && (
-                    <Button
-                      variant="secondary"
-                      size="sm"
-                      onClick={() => resetShortcut(shortcut.id)}
-                    >
-                      Reset
-                    </Button>
-                  )}
+          <ToggleRow
+            title="Dark Reader"
+            description="Darken bright pages automatically while you browse."
+            checked={settings.extensions.darkReader}
+            onChange={(value) =>
+              onUpdateSettings({
+                extensions: { ...settings.extensions, darkReader: value },
+              })
+            }
+          />
+        </section>
+
+        <section className="rounded-2xl border border-border bg-card p-4 space-y-4">
+          <div className="flex items-center gap-2 text-sm font-semibold">
+            <Keyboard className="w-4 h-4 text-primary" />
+            Keyboard & Commands
+          </div>
+          <div className="rounded-xl border border-border bg-background/60 p-4">
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <div className="text-sm font-medium">Keybind manager</div>
+                <div className="mt-1 text-xs text-muted-foreground">
+                  Manage all shortcuts in one dedicated panel instead of mixing them into Settings.
                 </div>
-                <button
-                  type="button"
-                  onMouseDown={(event) => {
-                    event.preventDefault();
-                    setCapturingShortcutId(shortcut.id);
-                  }}
-                  className={cn(
-                    "flex w-full items-center justify-between rounded-xl border px-4 py-3 text-left transition-all",
-                    capturingShortcutId === shortcut.id
-                      ? "border-primary bg-primary/10 ring-2 ring-primary/20"
-                      : "border-border bg-background/70 hover:border-primary/30",
-                  )}
-                >
-                  <div>
-                    <div className="text-xs font-medium uppercase tracking-[0.24em] text-muted-foreground">
-                      Shortcut
-                    </div>
-                    <div className="mt-1 text-sm font-semibold">
-                      {capturingShortcutId === shortcut.id ? "Press any key combo..." : shortcut.keys}
-                    </div>
-                  </div>
-                  <div className="text-[11px] text-muted-foreground">
-                    {capturingShortcutId === shortcut.id ? "Recording" : "Click to edit"}
-                  </div>
-                </button>
-                {capturingShortcutId === shortcut.id && (
-                  <Input
-                    autoFocus
-                    value={shortcut.keys}
-                    onChange={(event) => updateShortcut(shortcut.id, event.target.value)}
-                    onKeyDown={(event) => {
-                      if (event.key === "Escape") {
-                        event.preventDefault();
-                        setCapturingShortcutId(null);
-                        return;
-                      }
-                      captureShortcut(event, shortcut.id);
-                    }}
-                    placeholder={`${primaryModifierLabel()}+T`}
-                    className="mt-3"
-                  />
-                )}
               </div>
-            ))}
+              <Button type="button" variant="secondary" onClick={onOpenShortcutManager}>
+                Open
+              </Button>
+            </div>
           </div>
         </section>
       </div>

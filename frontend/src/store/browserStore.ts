@@ -213,6 +213,7 @@ const DEFAULT_SETTINGS: BrowserSettings = {
   },
   shortcuts: DEFAULT_KEYBOARD_SHORTCUTS,
   proxyLocation: "us",
+  showExitLocationBadge: true,
 };
 
 const DEFAULT_EXTRAS: BrowserExtras = {
@@ -486,6 +487,10 @@ function coerceSettings(value: unknown): BrowserSettings {
       typeof value.proxyLocation === "string" && value.proxyLocation.length > 0
         ? value.proxyLocation
         : DEFAULT_SETTINGS.proxyLocation,
+    showExitLocationBadge:
+      typeof value.showExitLocationBadge === "boolean"
+        ? value.showExitLocationBadge
+        : DEFAULT_SETTINGS.showExitLocationBadge,
   };
 }
 
@@ -678,6 +683,7 @@ export function useBrowserStore() {
   const [alerts, setAlerts] = useState<BrowserAlert[]>([]);
   const [navigationError, setNavigationError] = useState<string | null>(null);
   const [proxyLocationError, setProxyLocationError] = useState<string | null>(null);
+  const [proxyLocationNotice, setProxyLocationNotice] = useState<string | null>(null);
   const [scramjetError, setScramjetError] = useState<string | null>(null);
   const [authError, setAuthError] = useState<string | null>(null);
   const [syncPromptOpen, setSyncPromptOpen] = useState(false);
@@ -737,6 +743,7 @@ export function useBrowserStore() {
   const ticketReadOverridesRef = useRef<Record<string, number>>({});
   const lastProxyBayMessageRef = useRef<string | null>(null);
   const lastScramjetBayMessageRef = useRef<string | null>(null);
+  const proxyLocationNoticeTimerRef = useRef<number | null>(null);
   const [screenSharePrompt, setScreenSharePrompt] = useState<{
     id: string;
     adminUsername: string;
@@ -1802,6 +1809,17 @@ export function useBrowserStore() {
     setSettings((current) => ({ ...current, ...partial }));
   }
 
+  function showProxyLocationNotice(message: string) {
+    setProxyLocationNotice(message);
+    if (proxyLocationNoticeTimerRef.current !== null) {
+      window.clearTimeout(proxyLocationNoticeTimerRef.current);
+    }
+    proxyLocationNoticeTimerRef.current = window.setTimeout(() => {
+      setProxyLocationNotice(null);
+      proxyLocationNoticeTimerRef.current = null;
+    }, 5000);
+  }
+
   async function updateProxyLocation(locationId: string) {
     const merged = { ...settings, proxyLocation: locationId };
     setSettings(merged);
@@ -1813,6 +1831,23 @@ export function useBrowserStore() {
       const payload = await api<{ transport: TransportConfig }>("/api/session/transport");
       setTransportConfig(payload.transport);
       setProxyLocationError(payload.transport.proxyWarning ?? null);
+      const selectedLabel =
+        proxyLocations.find((entry) => entry.id === locationId)?.label ?? locationId.toUpperCase();
+      const activeLabel =
+        proxyLocations.find((entry) => entry.id === payload.transport.proxyLocationId)?.label ??
+        payload.transport.proxyLocationId?.toUpperCase() ??
+        selectedLabel;
+      if (!payload.transport.proxyUrl) {
+        showProxyLocationNotice(
+          `Location changed to ${selectedLabel}. No working exit proxy is available, so Nova is using the server connection directly.`,
+        );
+      } else if (payload.transport.proxyLocationId && payload.transport.proxyLocationId !== merged.proxyLocation) {
+        showProxyLocationNotice(
+          `Location set to ${selectedLabel}, but Nova had to fall back to ${activeLabel}.`,
+        );
+      } else {
+        showProxyLocationNotice(`Exit location changed to ${activeLabel}.`);
+      }
       if (payload.transport.proxyLocationId && payload.transport.proxyLocationId !== merged.proxyLocation) {
         const fallbackSettings = { ...merged, proxyLocation: payload.transport.proxyLocationId };
         setSettings(fallbackSettings);
@@ -1822,6 +1857,7 @@ export function useBrowserStore() {
         });
       }
     } catch {
+      showProxyLocationNotice("Nova couldn't confirm the location change yet. It will retry in the background.");
       // Ignore network errors; debounced persistence will retry settings.
     }
   }
@@ -2526,6 +2562,7 @@ export function useBrowserStore() {
     navigationError,
     setNavigationError,
     proxyLocationError,
+    proxyLocationNotice,
     setProxyLocationError,
     scramjetError,
     setScramjetError,

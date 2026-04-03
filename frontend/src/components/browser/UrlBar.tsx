@@ -1,11 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react';
 import {
   ArrowLeft, ArrowRight, RotateCw, Home, Shield, Star, Search,
-  Settings, Clock, BookOpen, Puzzle, User, Code, Maximize, Minimize, Bell
+  Settings, Clock, BookOpen, User, Code, Maximize, Minimize, Bell
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { fetchSearchSuggestions } from '@/lib/searchSuggestions';
-import type { BrowserTab, PanelType, Bookmark, BrowserUser } from '@/types/browser';
+import type {
+  BrowserTab,
+  PanelType,
+  Bookmark,
+  BrowserUser,
+  ProxyLocationOption,
+  TransportConfig,
+} from '@/types/browser';
 
 interface UrlBarProps {
   activeTab: BrowserTab | undefined;
@@ -27,6 +34,11 @@ interface UrlBarProps {
   density: 'compact' | 'default' | 'spacious';
   user: BrowserUser | null;
   unreadMessages: number;
+  transportConfig?: TransportConfig | null;
+  proxyLocations: ProxyLocationOption[];
+  showExitLocationBadge: boolean;
+  onOpenLocationSettings: () => void;
+  onOpenSettings: () => void;
 }
 
 const SEARCH_ENGINES: Record<string, string> = {
@@ -40,6 +52,11 @@ export const UrlBar: React.FC<UrlBarProps> = ({
   activeTab, onNavigate, onRegen, onHome, onBack, onForward, onFullscreen, onTogglePanel, activePanel,
   onAddBookmark, onInspect, canGoBack, canGoForward, bookmarks, searchEngine, searchSuggestions, density, user,
   unreadMessages,
+  transportConfig,
+  proxyLocations,
+  showExitLocationBadge,
+  onOpenLocationSettings,
+  onOpenSettings,
 }) => {
   const [input, setInput] = useState('');
   const [focused, setFocused] = useState(false);
@@ -118,6 +135,14 @@ export const UrlBar: React.FC<UrlBarProps> = ({
   const panelBtn = (panel: PanelType) => cn(iconBtn, activePanel === panel && 'text-primary bg-primary/10');
   const notificationPanel: PanelType = 'notifications';
   const notificationTitle = 'Notifications';
+  const activeLocation = proxyLocations.find((entry) => entry.id === transportConfig?.proxyLocationId) ?? null;
+  const showProxyBadge = Boolean(
+    showExitLocationBadge &&
+      transportConfig?.proxyUrl &&
+      transportConfig.proxyLocationId &&
+      transportConfig.proxyLocationId !== 'us' &&
+      activeLocation,
+  );
 
   return (
     <div className={cn('flex items-center gap-1 px-2 bg-chrome border-b border-border', h)}>
@@ -192,6 +217,19 @@ export const UrlBar: React.FC<UrlBarProps> = ({
       </div>
 
       {/* Bookmark star */}
+      {showProxyBadge && activeLocation ? (
+        <button
+          type="button"
+          onClick={onOpenLocationSettings}
+          className="ml-1 inline-flex max-w-[7.5rem] items-center gap-1 rounded-full border border-primary/25 bg-primary/10 px-2 py-1 text-[10px] font-medium text-primary transition-colors hover:bg-primary/15"
+          title={`Browsing via ${activeLocation.label}`}
+          aria-label={`Browsing via ${activeLocation.label}`}
+        >
+          <span aria-hidden>{activeLocation.emoji}</span>
+          <span className="truncate">{activeLocation.label}</span>
+        </button>
+      ) : null}
+
       <button
         className={cn(
           iconBtn,
@@ -230,10 +268,7 @@ export const UrlBar: React.FC<UrlBarProps> = ({
             )}
           </div>
         </button>
-        <button className={panelBtn('extensions')} onClick={() => onTogglePanel('extensions')} title="Utilities" aria-label="Utilities">
-          <Puzzle className="w-4 h-4" />
-        </button>
-        <button className={panelBtn('settings')} onClick={() => onTogglePanel('settings')} title="Settings" aria-label="Settings">
+        <button className={panelBtn('settings')} onClick={onOpenSettings} title="Settings" aria-label="Settings">
           <Settings className="w-4 h-4" />
         </button>
         <button className={panelBtn('account')} onClick={() => onTogglePanel('account')} title="Account" aria-label="Account">

@@ -2,39 +2,56 @@
   "locations": [
     {
       "id": "us",
-      "label": "United States",
+      "label": "United States (Default)",
       "emoji": "🇺🇸",
-      "proxies": []
+      "proxies": [
+        { "url": "http://user-sp7n8swf3r-country-us:3oUZj1jkdqFpy20S_g@isp.decodo.com:10001" },
+        { "url": "http://user-sp7n8swf3r-country-us:3oUZj1jkdqFpy20S_g@isp.decodo.com:10002" },
+        { "url": "http://user-sp7n8swf3r-country-us:3oUZj1jkdqFpy20S_g@isp.decodo.com:10003" },
+        { "url": "http://user-sp7n8swf3r-country-us:3oUZj1jkdqFpy20S_g@isp.decodo.com:10004" },
+        { "url": "http://user-sp7n8swf3r-country-us:3oUZj1jkdqFpy20S_g@isp.decodo.com:10005" },
+        { "url": "http://user-sp7n8swf3r-country-us:3oUZj1jkdqFpy20S_g@isp.decodo.com:10006" }
+      ]
     },
     {
       "id": "uk",
       "label": "United Kingdom",
       "emoji": "🇬🇧",
-      "proxies": []
+      "proxies": [
+        { "url": "http://user-sp7n8swf3r-country-gb:3oUZj1jkdqFpy20S_g@isp.decodo.com:10001" }
+      ]
     },
     {
       "id": "de",
       "label": "Germany",
       "emoji": "🇩🇪",
-      "proxies": []
+      "proxies": [
+        { "url": "http://user-sp7n8swf3r-country-de:3oUZj1jkdqFpy20S_g@isp.decodo.com:10001" }
+      ]
     },
     {
       "id": "nl",
       "label": "Netherlands",
       "emoji": "🇳🇱",
-      "proxies": []
+      "proxies": [
+        { "url": "http://user-sp7n8swf3r-country-nl:3oUZj1jkdqFpy20S_g@isp.decodo.com:10001" }
+      ]
     },
     {
       "id": "jp",
       "label": "Japan",
       "emoji": "🇯🇵",
-      "proxies": []
+      "proxies": [
+        { "url": "http://user-sp7n8swf3r-country-jp:3oUZj1jkdqFpy20S_g@isp.decodo.com:10001" }
+      ]
     },
     {
       "id": "sp",
       "label": "Singapore",
       "emoji": "🇸🇬",
-      "proxies": []
+      "proxies": [
+        { "url": "http://user-sp7n8swf3r-country-sp:3oUZj1jkdqFpy20S_g@isp.decodo.com:10001" }
+      ]
     }
   ]
 }

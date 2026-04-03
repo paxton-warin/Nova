@@ -104,10 +104,11 @@ export interface BrowserSettings {
   };
   /** Exit region for outbound proxy pool (see nova.proxies.json). */
   proxyLocation: string;
+  showExitLocationBadge: boolean;
   shortcuts: KeyboardShortcut[];
 }
 
-/** Public metadata for Utilities exit region selector (no proxy secrets). */
+/** Public metadata for the exit region selector (no proxy secrets). */
 export interface ProxyLocationOption {
   id: string;
   label: string;
@@ -373,8 +374,8 @@ export type PanelType =
   | "tickets"
   | "admin-notifications"
   | "settings"
+  | "keybinds"
   | "history"
   | "bookmarks"
-  | "extensions"
   | "account"
   | "admin";
