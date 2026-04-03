@@ -1,3 +1,5 @@
+import { resolveApiUrl } from "@/lib/api";
+
 export async function fetchSearchSuggestions(query: string) {
   const trimmed = query.trim();
   if (!trimmed) {
@@ -9,7 +11,7 @@ export async function fetchSearchSuggestions(query: string) {
 
   try {
     const response = await fetch(
-      `/api/search/suggestions?q=${encodeURIComponent(trimmed)}`,
+      resolveApiUrl(`/api/search/suggestions?q=${encodeURIComponent(trimmed)}`),
       {
         credentials: "include",
         signal: controller.signal,

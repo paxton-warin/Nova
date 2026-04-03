@@ -9,8 +9,19 @@ export class ApiError extends Error {
   }
 }
 
+/** Prefix for `/api/...` when the UI is hosted separately (e.g. S3/CloudFront). Set at build time. */
+export function resolveApiUrl(path: string): string {
+  const raw = import.meta.env.VITE_API_BASE_URL as string | undefined;
+  const base = raw?.trim().replace(/\/$/, "") ?? "";
+  if (/^https?:\/\//i.test(path)) {
+    return path;
+  }
+  const p = path.startsWith("/") ? path : `/${path}`;
+  return `${base}${p}`;
+}
+
 export async function api<T>(path: string, init?: RequestInit): Promise<T> {
-  const response = await fetch(path, {
+  const response = await fetch(resolveApiUrl(path), {
     credentials: "include",
     headers: {
       "Content-Type": "application/json",

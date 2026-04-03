@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-import { api, ApiError } from "@/lib/api";
+import { api, ApiError, resolveApiUrl } from "@/lib/api";
 import { buildDefaultKeyboardShortcuts } from "@/lib/shortcuts";
 import type {
   AdminBanRecord,
@@ -41,7 +41,7 @@ const MAX_SHORTCUT_TILES = 10;
 function faviconForUrl(url: string) {
   if (url === "newtab") return "";
   try {
-    return `/api/favicon?url=${encodeURIComponent(url)}`;
+    return resolveApiUrl(`/api/favicon?url=${encodeURIComponent(url)}`);
   } catch {
     return "";
   }
@@ -291,7 +291,7 @@ function normalizeUrlForTabSync(raw: string): string {
 
 function faviconBannerForPageUrl(url: string): string {
   try {
-    return `/api/favicon?url=${encodeURIComponent(url)}`;
+    return resolveApiUrl(`/api/favicon?url=${encodeURIComponent(url)}`);
   } catch {
     return "";
   }
@@ -535,6 +535,43 @@ function coerceTabs(value: unknown, restoreTabs: boolean): BrowserTab[] {
   });
 }
 
+function simpleUrlHash(url: string): string {
+  let h = 0;
+  for (let i = 0; i < url.length; i += 1) {
+    h = (Math.imul(31, h) + url.charCodeAt(i)) | 0;
+  }
+  return Math.abs(h).toString(36);
+}
+
+function ensureHistoryEntryIds(entries: HistoryEntry[]): HistoryEntry[] {
+  return entries.map((entry, index) =>
+    entry.id && String(entry.id).length > 0
+      ? entry
+      : {
+          ...entry,
+          id: `h-${entry.timestamp}-${simpleUrlHash(entry.url)}-${index}`,
+        },
+  );
+}
+
+/** Union session history from localStorage with live in-memory history (debounced LS can miss recent visits). */
+function mergeLocalHistoryForSync(
+  fromStorage: HistoryEntry[],
+  liveSession: HistoryEntry[],
+): HistoryEntry[] {
+  const storageNorm = ensureHistoryEntryIds(fromStorage);
+  const liveNorm = ensureHistoryEntryIds(liveSession);
+  const map = new Map<string, HistoryEntry>();
+  for (const e of storageNorm) {
+    map.set(`${e.timestamp}|${e.url}`, e);
+  }
+  for (const e of liveNorm) {
+    const key = `${e.timestamp}|${e.url}`;
+    if (!map.has(key)) map.set(key, e);
+  }
+  return Array.from(map.values()).sort((a, b) => b.timestamp - a.timestamp);
+}
+
 function coerceExtras(value: unknown): BrowserExtras {
   if (!isRecord(value)) return DEFAULT_EXTRAS;
   const bookmarks = Array.isArray(value.bookmarks)
@@ -582,7 +619,7 @@ function coerceExtras(value: unknown): BrowserExtras {
   return {
     bookmarks: migratedBookmarks,
     history: Array.isArray(value.history)
-      ? (value.history as HistoryEntry[])
+      ? ensureHistoryEntryIds(value.history as HistoryEntry[])
       : DEFAULT_EXTRAS.history,
     shortcutTiles: reorderedDefaultShortcuts,
     customAppsGames: coerceGameApps(value.customAppsGames),
@@ -658,6 +695,8 @@ export function useBrowserStore() {
   const [bookmarks, setBookmarks] =
     useState<Bookmark[]>(DEFAULT_EXTRAS.bookmarks);
   const [history, setHistory] = useState<HistoryEntry[]>([]);
+  const historyRef = useRef<HistoryEntry[]>([]);
+  historyRef.current = history;
   const [shortcuts, setShortcuts] =
     useState<Shortcut[]>(DEFAULT_SHORTCUT_TILES);
   const [preloadedGamesApps, setPreloadedGamesApps] =
@@ -964,6 +1003,7 @@ export function useBrowserStore() {
     );
     const serverExtras = coerceExtras(payload.browserState.shortcuts);
     const localState = getLocalState();
+    const historyLiveSnapshot = historyRef.current.slice();
 
     setSessionId(payload.sessionId);
     setUser(payload.user);
@@ -1005,17 +1045,18 @@ export function useBrowserStore() {
     if (!payload.user && localState?.sessionId === payload.sessionId) {
       const localSettings = coerceSettings(localState.settings);
       const localTabs = coerceTabs(localState.tabs, localSettings.restoreTabs);
+      const guestExtras = coerceExtras(localState.extras);
       setSettings(
         payload.transport.proxyLocationId
           ? { ...localSettings, proxyLocation: payload.transport.proxyLocationId }
           : localSettings,
       );
       setTabs(localTabs);
-      setBookmarks(localState.extras.bookmarks);
-      setHistory(localState.extras.history);
-      setShortcuts(localState.extras.shortcutTiles);
-      setCustomGamesApps(localState.extras.customAppsGames);
-      setShowTutorial(!localState.extras.tutorialDismissed);
+      setBookmarks(guestExtras.bookmarks);
+      setHistory(guestExtras.history);
+      setShortcuts(guestExtras.shortcutTiles);
+      setCustomGamesApps(guestExtras.customAppsGames);
+      setShowTutorial(!guestExtras.tutorialDismissed);
       setIsReady(true);
       return;
     }
@@ -1040,11 +1081,15 @@ export function useBrowserStore() {
       const localSettings = coerceSettings(localState.settings);
       const localTabs = coerceTabs(localState.tabs, localSettings.restoreTabs);
       const localExtras = coerceExtras(localState.extras);
+      const localExtrasForSync: BrowserExtras = {
+        ...localExtras,
+        history: mergeLocalHistoryForSync(localExtras.history, historyLiveSnapshot),
+      };
       if (
         JSON.stringify({
           settings: localSettings,
           tabs: localTabs,
-          extras: localExtras,
+          extras: localExtrasForSync,
         }) !==
         JSON.stringify({
           settings: serverSettings,
@@ -1060,7 +1105,7 @@ export function useBrowserStore() {
         setPendingLocalState({
           settings: localSettings,
           tabs: localTabs,
-          extras: localExtras,
+          extras: localExtrasForSync,
         });
         setSyncPromptOpen(true);
       }
@@ -2140,7 +2185,7 @@ export function useBrowserStore() {
       for (const file of files) {
         form.append("files", file);
       }
-      const response = await fetch("/api/messages/tickets", {
+      const response = await fetch(resolveApiUrl("/api/messages/tickets"), {
         method: "POST",
         credentials: "include",
         body: form,
@@ -2193,11 +2238,14 @@ export function useBrowserStore() {
       for (const file of files) {
         form.append("files", file);
       }
-      const response = await fetch(`/api/messages/tickets/${ticketId}/messages`, {
-        method: "POST",
-        credentials: "include",
-        body: form,
-      });
+      const response = await fetch(
+        resolveApiUrl(`/api/messages/tickets/${ticketId}/messages`),
+        {
+          method: "POST",
+          credentials: "include",
+          body: form,
+        },
+      );
       const text = await response.text();
       if (!response.ok) {
         let message = `Request failed (${response.status})`;

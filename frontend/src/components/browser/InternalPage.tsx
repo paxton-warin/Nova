@@ -23,6 +23,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+import { resolveApiUrl } from "@/lib/api";
 import type { GameApp } from "@/types/browser";
 
 interface InternalPageProps {
@@ -38,7 +39,7 @@ interface InternalPageProps {
 
 function defaultBannerForCatalogUrl(url: string) {
   try {
-    return `/api/favicon?url=${encodeURIComponent(url)}`;
+    return resolveApiUrl(`/api/favicon?url=${encodeURIComponent(url)}`);
   } catch {
     return "";
   }
@@ -382,7 +383,7 @@ export const InternalPage: React.FC<InternalPageProps> = ({
                         title: item.title,
                         url: item.url,
                         color: accentColor,
-                        favicon: `/api/favicon?url=${encodeURIComponent(item.url)}`,
+                        favicon: resolveApiUrl(`/api/favicon?url=${encodeURIComponent(item.url)}`),
                       })
                     }
                   >

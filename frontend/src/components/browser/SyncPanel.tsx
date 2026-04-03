@@ -122,6 +122,17 @@ function dedupeBy<T>(items: T[], keyFor: (item: T) => string) {
   return output;
 }
 
+function formatHistoryTimestamp(timestamp: number) {
+  try {
+    return new Intl.DateTimeFormat(undefined, {
+      dateStyle: "medium",
+      timeStyle: "short",
+    }).format(timestamp);
+  } catch {
+    return "";
+  }
+}
+
 function ItemSelector({
   title,
   count,
@@ -165,6 +176,10 @@ export const SyncPanel: React.FC<SyncPanelProps> = ({
   accountPasswords,
   onApply,
 }) => {
+  const sortedLocalHistory = useMemo(
+    () => [...localState.extras.history].sort((left, right) => right.timestamp - left.timestamp),
+    [localState.extras.history],
+  );
   const [tabsSource, setTabsSource] = useState<"local" | "account">("account");
   const [groupSources, setGroupSources] = useState<Record<string, "local" | "account">>(
     () => Object.fromEntries(SETTING_GROUPS.map((group) => [group.id, "account"])),
@@ -290,6 +305,10 @@ export const SyncPanel: React.FC<SyncPanelProps> = ({
       <p className="mt-2 text-sm text-muted-foreground">
         Merge this device into your account by category, then drill into the specific items you want to keep.
       </p>
+      <p className="mt-1 text-xs text-muted-foreground">
+        Account data stays in place unless you switch a section to use this device. The item lists below are local
+        items you can import into your account.
+      </p>
       {error && (
         <div className="mt-4 rounded-xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm text-destructive">
           {error}
@@ -399,7 +418,7 @@ export const SyncPanel: React.FC<SyncPanelProps> = ({
         </div>
 
         <div className="space-y-4">
-          <ItemSelector title="Bookmarks" count={localState.extras.bookmarks.length}>
+          <ItemSelector title="Local bookmarks to import" count={localState.extras.bookmarks.length}>
             {localState.extras.bookmarks.map((bookmark) => (
               <label key={bookmark.url} className="flex items-start gap-3 rounded-xl border border-border bg-card/30 px-3 py-3 text-sm">
                 <input
@@ -420,9 +439,20 @@ export const SyncPanel: React.FC<SyncPanelProps> = ({
             ))}
           </ItemSelector>
 
-          <ItemSelector title="History" count={localState.extras.history.length}>
-            {localState.extras.history.slice(0, 40).map((entry) => (
-              <label key={entry.id} className="flex items-start gap-3 rounded-xl border border-border bg-card/30 px-3 py-3 text-sm">
+          <ItemSelector title="Local history to import" count={sortedLocalHistory.length} defaultOpen>
+            {sortedLocalHistory.length === 0 ? (
+              <div className="rounded-xl border border-dashed border-border bg-card/20 px-3 py-4 text-sm text-muted-foreground">
+                No local history was found for this device. Your existing account history will still be kept.
+              </div>
+            ) : null}
+            <div className="px-1 text-xs text-muted-foreground">
+              Checked entries from this device will be added to your existing account history.
+            </div>
+            {sortedLocalHistory.slice(0, 100).map((entry, index) => (
+              <label
+                key={entry.id || `hist-${entry.timestamp}-${entry.url}-${index}`}
+                className="flex items-start gap-3 rounded-xl border border-border bg-card/30 px-3 py-3 text-sm"
+              >
                 <input
                   type="checkbox"
                   checked={Boolean(selectedHistoryIds[entry.id])}
@@ -434,14 +464,23 @@ export const SyncPanel: React.FC<SyncPanelProps> = ({
                   }
                 />
                 <div className="min-w-0">
-                  <div className="truncate font-medium">{entry.title}</div>
+                  <div className="truncate font-medium">{entry.title || entry.url}</div>
                   <div className="truncate text-xs text-muted-foreground">{entry.url}</div>
+                  <div className="mt-1 text-[11px] text-muted-foreground">
+                    {formatHistoryTimestamp(entry.timestamp)}
+                    {entry.category ? ` | ${entry.category}` : ""}
+                  </div>
                 </div>
               </label>
             ))}
+            {sortedLocalHistory.length > 100 ? (
+              <div className="px-1 text-xs text-muted-foreground">
+                Showing the newest 100 history entries in the merge wizard.
+              </div>
+            ) : null}
           </ItemSelector>
 
-          <ItemSelector title="Pinned shortcuts" count={localState.extras.shortcutTiles.length}>
+          <ItemSelector title="Local pinned shortcuts to import" count={localState.extras.shortcutTiles.length}>
             {localState.extras.shortcutTiles.map((entry) => (
               <label key={entry.id} className="flex items-start gap-3 rounded-xl border border-border bg-card/30 px-3 py-3 text-sm">
                 <input
@@ -462,7 +501,7 @@ export const SyncPanel: React.FC<SyncPanelProps> = ({
             ))}
           </ItemSelector>
 
-          <ItemSelector title="Custom apps and games" count={localState.extras.customAppsGames.length}>
+          <ItemSelector title="Local custom apps and games to import" count={localState.extras.customAppsGames.length}>
             {localState.extras.customAppsGames.map((entry) => (
               <label key={entry.id} className="flex items-start gap-3 rounded-xl border border-border bg-card/30 px-3 py-3 text-sm">
                 <input

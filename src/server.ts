@@ -104,6 +104,33 @@ const app = express();
 if (env.TRUST_PROXY > 0) {
   app.set("trust proxy", env.TRUST_PROXY);
 }
+
+if (env.CORS_ALLOW_ORIGINS.length > 0) {
+  app.use((req, res, next) => {
+    const origin = req.headers.origin;
+    const allowed =
+      typeof origin === "string" && env.CORS_ALLOW_ORIGINS.includes(origin);
+    if (allowed) {
+      res.setHeader("Access-Control-Allow-Origin", origin);
+      res.setHeader("Access-Control-Allow-Credentials", "true");
+      const acrh = req.headers["access-control-request-headers"];
+      res.setHeader(
+        "Access-Control-Allow-Headers",
+        typeof acrh === "string" ? acrh : "Content-Type, Authorization",
+      );
+      res.setHeader(
+        "Access-Control-Allow-Methods",
+        "GET,POST,PUT,PATCH,DELETE,OPTIONS",
+      );
+    }
+    if (req.method === "OPTIONS") {
+      res.status(allowed ? 204 : 403).end();
+      return;
+    }
+    next();
+  });
+}
+
 const server = http.createServer(app);
 const uploadsRoot = path.join(rootDir, "data", "uploads");
 fs.mkdirSync(uploadsRoot, { recursive: true });
@@ -723,7 +750,7 @@ app.use(
     saveUninitialized: true,
     proxy: true,
     cookie: {
-      sameSite: "lax",
+      sameSite: env.SESSION_COOKIE_SAMESITE,
       secure: env.SESSION_COOKIE_SECURE,
       httpOnly: true,
       maxAge: 1000 * 60 * 60 * 24 * 30,
@@ -2569,8 +2596,16 @@ if (fs.existsSync(frontendDistDir)) {
   });
 }
 
+function isWispUpgradePath(rawUrl: string | undefined): boolean {
+  if (!rawUrl) return false;
+  const pathOnly = rawUrl.split("?")[0]?.split("#")[0] ?? "";
+  const configured = env.WISP_PATH.startsWith("/") ? env.WISP_PATH : `/${env.WISP_PATH}`;
+  const base = configured.replace(/\/+$/, "") || "/";
+  return pathOnly === base || pathOnly.startsWith(`${base}/`);
+}
+
 server.on("upgrade", (req, socket, head) => {
-  if (req.url?.endsWith(env.WISP_PATH)) {
+  if (isWispUpgradePath(req.url)) {
     wisp.routeRequest(req, socket, head);
     return;
   }
@@ -3649,9 +3684,21 @@ function decryptValue(value: string) {
   return Buffer.concat([decipher.update(encrypted), decipher.final()]).toString("utf8");
 }
 
+function getPublicHostHeader(req: Request) {
+  const value = req.get("x-public-host")?.trim();
+  if (!value) return null;
+  return /^[a-z0-9.-]+(?::\d+)?$/i.test(value) ? value : null;
+}
+
+function getPublicProtoHeader(req: Request) {
+  const value = req.get("x-public-proto")?.trim().toLowerCase();
+  return value === "http" || value === "https" ? value : null;
+}
+
 function getWispUrl(req: Request) {
-  const protocol = req.protocol === "https" ? "wss" : "ws";
-  return `${protocol}://${req.get("host")}${env.WISP_PATH}`;
+  const protocol = (getPublicProtoHeader(req) ?? req.protocol) === "https" ? "wss" : "ws";
+  const host = getPublicHostHeader(req) ?? req.get("host");
+  return `${protocol}://${host}${env.WISP_PATH}`;
 }
 
 function parseJson<T>(value: string, schema: z.ZodType<T>, fallback: T) {
