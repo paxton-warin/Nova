@@ -61,6 +61,13 @@ type CatalogConfig = {
 type BrowserSettings = Record<string, unknown>;
 type ShortcutMap = Record<string, unknown>;
 type BrowserTab = Record<string, unknown>;
+type SseClient = {
+  id: string;
+  res: Response;
+  sessionId: string;
+  userId: string | null;
+  isAdmin: boolean;
+};
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, "..");
@@ -103,6 +110,52 @@ const SqliteStore = SqliteStoreFactory(session);
 const app = express();
 if (env.TRUST_PROXY > 0) {
   app.set("trust proxy", env.TRUST_PROXY);
+}
+
+function writeSseEvent(res: Response, event: string, data: unknown) {
+  res.write(`event: ${event}\n`);
+  res.write(`data: ${JSON.stringify(data)}\n\n`);
+}
+
+function broadcastSse(
+  event: string,
+  data: unknown,
+  predicate?: (client: SseClient) => boolean,
+) {
+  for (const client of sseClients.values()) {
+    if (predicate && !predicate(client)) {
+      continue;
+    }
+    writeSseEvent(client.res, event, data);
+  }
+}
+
+function broadcastAdminDataUpdated() {
+  broadcastSse("admin-data-updated", { at: Date.now() }, (client) => client.isAdmin);
+}
+
+function broadcastAlertsUpdated(targetUserId: string | null = null) {
+  broadcastSse(
+    "alerts-updated",
+    { at: Date.now() },
+    targetUserId ? (client) => client.userId === targetUserId : undefined,
+  );
+}
+
+function broadcastInboxUpdated(userId: string | null) {
+  if (!userId) {
+    return;
+  }
+  broadcastSse("inbox-updated", { at: Date.now() }, (client) => client.userId === userId);
+}
+
+function broadcastSessionStatusUpdated(sessionId: string, userId: string | null = null) {
+  broadcastSse("session-status-updated", { at: Date.now() }, (client) => {
+    if (client.sessionId === sessionId) {
+      return true;
+    }
+    return userId !== null && client.userId === userId;
+  });
 }
 
 if (env.CORS_ALLOW_ORIGINS.length > 0) {
@@ -148,11 +201,9 @@ const ticketUpload = multer({
   limits: { fileSize: 5 * 1024 * 1024, files: 5 },
 });
 
-const screenShareFrames = new Map<string, { dataUrl: string; updatedAt: number }>();
-const screenShareLastFrameAt = new Map<string, number>();
-const SCREEN_SHARE_MAX_MS = 10 * 60 * 1000;
 const PROXY_LATENCY_TTL_MS = 10 * 60 * 1000;
 const proxyLatencyCache = new Map<string, { ms: number | null; at: number; ok: boolean }>();
+const sseClients = new Map<string, SseClient>();
 
 const faviconCache = new Map<
   string,
@@ -261,14 +312,6 @@ const createTicketSchema = z.object({
 
 const createTicketMessageSchema = z.object({
   body: z.string().min(1).max(4000),
-});
-
-const screenShareRespondSchema = z.object({
-  accept: z.boolean(),
-});
-
-const screenShareFrameSchema = z.object({
-  image: z.string().min(1).max(2_500_000),
 });
 
 const GLOBAL_ALERT_WINDOW_MS = 24 * 60 * 60 * 1000;
@@ -807,6 +850,36 @@ app.use((req, _res, next) => {
   next();
 });
 
+app.get("/api/events", (req, res) => {
+  const user = req.session.userId ? getUserById(req.session.userId) : null;
+  const clientId = nanoid();
+  const client: SseClient = {
+    id: clientId,
+    res,
+    sessionId: req.sessionID,
+    userId: user?.id ?? null,
+    isAdmin: user?.role === "admin" || user?.role === "master_admin",
+  };
+
+  res.setHeader("Content-Type", "text/event-stream");
+  res.setHeader("Cache-Control", "no-cache, no-transform");
+  res.setHeader("Connection", "keep-alive");
+  res.setHeader("X-Accel-Buffering", "no");
+  res.flushHeaders();
+  res.write(": connected\n\n");
+
+  sseClients.set(clientId, client);
+
+  const keepAlive = setInterval(() => {
+    res.write(": keepalive\n\n");
+  }, 25_000);
+
+  req.on("close", () => {
+    clearInterval(keepAlive);
+    sseClients.delete(clientId);
+  });
+});
+
 function sendHealth(res: Response) {
   res.json({ ok: true, service: "nova-browser" });
 }
@@ -949,164 +1022,6 @@ app.get("/api/session/transport", (req, res) => {
     settingsRecord.proxyLocation,
   );
   res.json({ transport: buildTransportPayload(req, resolvedProxy) });
-});
-
-app.post("/api/admin/sessions/:sessionId/screen-share", requireAdmin, (req, res) => {
-  const sessionId = req.params.sessionId;
-  const exists = db.prepare("SELECT session_id FROM session_state WHERE session_id = ?").get(sessionId);
-  if (!exists) {
-    res.status(404).json({ error: "Session not found." });
-    return;
-  }
-  const requestId = nanoid();
-  const now = Date.now();
-  db.prepare(`
-    INSERT INTO screen_share_requests (
-      id, target_session_id, admin_user_id, status, created_at, expires_at
-    ) VALUES (?, ?, ?, 'pending', ?, ?)
-  `).run(requestId, sessionId, req.session.userId!, now, now + SCREEN_SHARE_MAX_MS);
-  res.json({ requestId, expiresAt: now + SCREEN_SHARE_MAX_MS });
-});
-
-app.get("/api/session/screen-share", (req, res) => {
-  const now = Date.now();
-  const row = db
-    .prepare(
-      `
-    SELECT
-      r.id,
-      r.status,
-      r.created_at,
-      r.expires_at,
-      r.admin_user_id
-    FROM screen_share_requests r
-    WHERE r.target_session_id = ?
-      AND r.expires_at > ?
-      AND r.status IN ('pending', 'streaming')
-    ORDER BY r.created_at DESC
-    LIMIT 1
-  `,
-    )
-    .get(req.sessionID, now) as
-    | {
-        id: string;
-        status: string;
-        created_at: number;
-        expires_at: number;
-        admin_user_id: string;
-      }
-    | undefined;
-  if (!row) {
-    res.json({ request: null });
-    return;
-  }
-  const admin = getUserById(row.admin_user_id);
-  res.json({
-    request: {
-      id: row.id,
-      status: row.status,
-      createdAt: row.created_at,
-      expiresAt: row.expires_at,
-      adminUsername: admin?.username ?? "Admin",
-    },
-  });
-});
-
-app.post("/api/session/screen-share/:requestId/respond", (req, res) => {
-  const parsed = screenShareRespondSchema.parse(req.body);
-  const row = db.prepare("SELECT * FROM screen_share_requests WHERE id = ?").get(req.params.requestId) as
-    | {
-        id: string;
-        target_session_id: string;
-        status: string;
-        expires_at: number;
-      }
-    | undefined;
-  if (!row || row.target_session_id !== req.sessionID) {
-    res.status(403).json({ error: "Invalid request." });
-    return;
-  }
-  if (Date.now() > row.expires_at) {
-    res.status(410).json({ error: "Request expired." });
-    return;
-  }
-  if (row.status !== "pending") {
-    res.json({ ok: true });
-    return;
-  }
-  const now = Date.now();
-  if (!parsed.accept) {
-    db.prepare(
-      `UPDATE screen_share_requests SET status = 'declined', declined_at = ?, ended_at = ? WHERE id = ?`,
-    ).run(now, now, row.id);
-    screenShareFrames.delete(row.id);
-    res.json({ ok: true });
-    return;
-  }
-  db.prepare(`UPDATE screen_share_requests SET status = 'streaming' WHERE id = ?`).run(row.id);
-  res.json({ ok: true });
-});
-
-app.post("/api/session/screen-share/:requestId/frame", (req, res) => {
-  const parsed = screenShareFrameSchema.parse(req.body);
-  const row = db.prepare("SELECT * FROM screen_share_requests WHERE id = ?").get(req.params.requestId) as
-    | {
-        id: string;
-        target_session_id: string;
-        status: string;
-        expires_at: number;
-      }
-    | undefined;
-  if (!row || row.target_session_id !== req.sessionID) {
-    res.status(403).json({ error: "Invalid request." });
-    return;
-  }
-  if (Date.now() > row.expires_at) {
-    res.status(410).json({ error: "Request expired." });
-    return;
-  }
-  if (row.status !== "streaming") {
-    res.status(409).json({ error: "Accept the request before sending frames." });
-    return;
-  }
-  const last = screenShareLastFrameAt.get(row.id) ?? 0;
-  if (Date.now() - last < 400) {
-    res.status(429).json({ error: "Too many frames." });
-    return;
-  }
-  screenShareLastFrameAt.set(row.id, Date.now());
-  screenShareFrames.set(row.id, { dataUrl: parsed.image, updatedAt: Date.now() });
-  res.json({ ok: true });
-});
-
-app.get("/api/admin/screen-share/:requestId", requireAdmin, (req, res) => {
-  const row = db.prepare("SELECT * FROM screen_share_requests WHERE id = ?").get(req.params.requestId) as
-    | { id: string; status: string }
-    | undefined;
-  if (!row) {
-    res.status(404).json({ error: "Not found." });
-    return;
-  }
-  const frame = screenShareFrames.get(String(req.params.requestId));
-  res.json({
-    status: row.status,
-    frame: frame ? { dataUrl: frame.dataUrl, updatedAt: frame.updatedAt } : null,
-  });
-});
-
-app.post("/api/admin/screen-share/:requestId/end", requireAdmin, (req, res) => {
-  const row = db.prepare("SELECT id FROM screen_share_requests WHERE id = ?").get(req.params.requestId) as
-    | { id: string }
-    | undefined;
-  if (!row) {
-    res.status(404).json({ error: "Not found." });
-    return;
-  }
-  const now = Date.now();
-  db.prepare(`UPDATE screen_share_requests SET status = 'ended', ended_at = ? WHERE id = ?`).run(now, row.id);
-  screenShareFrames.delete(row.id);
-  screenShareLastFrameAt.delete(row.id);
-  res.json({ ok: true });
 });
 
 app.post("/api/auth/register", asyncRoute(async (req, res) => {
@@ -1482,6 +1397,7 @@ app.post("/api/messages/notifications/:id/state", (req, res) => {
       read_at = excluded.read_at
   `).run(nanoid(), req.params.id, ownerKey, parsed.read ? Date.now() : null);
 
+  broadcastAlertsUpdated(req.session.userId ?? null);
   res.json({ ok: true });
 });
 
@@ -1596,6 +1512,8 @@ app.post(
       );
     }
 
+    broadcastInboxUpdated(req.session.userId);
+    broadcastAdminDataUpdated();
     res.status(201).json({ ok: true });
   },
 );
@@ -1702,6 +1620,8 @@ app.post(
     WHERE id = ?
   `).run(now, isAdmin ? 1 : 0, now, isAdmin ? 1 : 0, now, ticket.id);
 
+    broadcastInboxUpdated(ticket.owner_user_id);
+    broadcastAdminDataUpdated();
     res.json({ ok: true });
   },
 );
@@ -1766,6 +1686,8 @@ app.post("/api/messages/tickets/:ticketId/close", (req, res) => {
       now,
     );
   })();
+  broadcastInboxUpdated(ticket.owner_user_id);
+  broadcastAdminDataUpdated();
   res.json({ ok: true });
 });
 
@@ -1801,6 +1723,7 @@ app.post("/api/messages/inbox/mark-all-read", (req, res) => {
   for (const row of rows) {
     upsert.run(nanoid(), row.id, ownerKey, now);
   }
+  broadcastAlertsUpdated(userId);
   res.json({ ok: true });
 });
 
@@ -1832,6 +1755,8 @@ app.post("/api/messages/tickets/:ticketId/read", (req, res) => {
     WHERE id = ?
   `).run(isAdmin ? 1 : 0, Date.now(), isAdmin ? 1 : 0, Date.now(), ticket.id);
 
+  broadcastInboxUpdated(ticket.owner_user_id);
+  broadcastAdminDataUpdated();
   res.json({ ok: true });
 });
 
@@ -2065,6 +1990,7 @@ app.post("/api/admin/blocked-sites", requireAdmin, (req, res) => {
     createdByUserId: req.session.userId!,
   });
 
+  broadcastAdminDataUpdated();
   res.status(201).json({ ok: true });
 });
 
@@ -2098,6 +2024,7 @@ app.post("/api/admin/blocked-sites/import", requireAdmin, (req, res) => {
 
   transaction(uniquePatterns);
 
+  broadcastAdminDataUpdated();
   res.status(201).json({ ok: true, imported: uniquePatterns.length });
 });
 
@@ -2129,11 +2056,13 @@ app.patch("/api/admin/blocked-sites/:id", requireAdmin, (req, res) => {
     parsed.isEnabled === undefined ? Number(current.is_enabled ?? 1) : (parsed.isEnabled ? 1 : 0),
     req.params.id,
   );
+  broadcastAdminDataUpdated();
   res.json({ ok: true });
 });
 
 app.delete("/api/admin/blocked-sites/:id", requireAdmin, (req, res) => {
   db.prepare("DELETE FROM blocked_sites WHERE id = ?").run(req.params.id);
+  broadcastAdminDataUpdated();
   res.json({ ok: true });
 });
 
@@ -2172,6 +2101,7 @@ app.post("/api/admin/notifications/:notificationId/read", requireAdmin, (req, re
       WHERE notification_id = ? AND user_id = ?
     `).run(notificationId, req.session.userId);
   }
+  broadcastAdminDataUpdated();
   res.json({ ok: true });
 });
 
@@ -2210,12 +2140,22 @@ app.get("/api/admin/bans", requireAdmin, (req, res) => {
 
 app.post("/api/admin/bans/:banId/revoke", requireAdmin, (req, res) => {
   const banId = String(req.params.banId);
-  const row = db.prepare("SELECT id FROM bans WHERE id = ? AND revoked_at IS NULL").get(banId);
+  const row = db.prepare(`
+    SELECT id, target_user_id, target_session_id
+    FROM bans
+    WHERE id = ? AND revoked_at IS NULL
+  `).get(banId) as
+    | { id: string; target_user_id: string | null; target_session_id: string | null }
+    | undefined;
   if (!row) {
     res.status(404).json({ error: "Active ban not found." });
     return;
   }
   db.prepare("UPDATE bans SET revoked_at = ? WHERE id = ?").run(Date.now(), banId);
+  if (row.target_session_id) {
+    broadcastSessionStatusUpdated(row.target_session_id, row.target_user_id);
+  }
+  broadcastAdminDataUpdated();
   res.json({ ok: true });
 });
 
@@ -2350,11 +2290,15 @@ app.post("/api/admin/alerts", requireAdmin, (req, res) => {
     deliverUntilAt,
   );
 
+  broadcastAlertsUpdated(parsed.targetUserId ?? null);
+  broadcastAdminDataUpdated();
   res.status(201).json({ ok: true });
 });
 
 app.delete("/api/admin/alerts/:id", requireAdmin, (req, res) => {
   db.prepare("UPDATE alerts SET active = 0 WHERE id = ?").run(req.params.id);
+  broadcastAlertsUpdated();
+  broadcastAdminDataUpdated();
   res.json({ ok: true });
 });
 
@@ -2405,6 +2349,10 @@ app.post("/api/admin/users/:userId/ban", requireAdmin, (req, res) => {
     }
   }
 
+  if (targetSessionId) {
+    broadcastSessionStatusUpdated(targetSessionId, targetUser.id);
+  }
+  broadcastAdminDataUpdated();
   res.json({ ok: true });
 });
 
@@ -2440,6 +2388,8 @@ app.post("/api/admin/sessions/:sessionId/ban", requireAdmin, (req, res) => {
     ) VALUES (?, 'session', NULL, ?, ?, ?, ?, ?)
   `).run(nanoid(), sessionId, parsed.reason, req.session.userId, expiresAt, Date.now());
 
+  broadcastSessionStatusUpdated(sessionId, sessionRow?.user_id ?? null);
+  broadcastAdminDataUpdated();
   res.json({ ok: true });
 });
 
@@ -2479,6 +2429,7 @@ app.post("/api/admin/users/:userId/role", requireAdmin, (req, res) => {
     targetUser.id,
   );
 
+  broadcastAdminDataUpdated();
   res.json({ ok: true });
 });
 
@@ -2498,6 +2449,7 @@ app.post("/api/admin/users/:userId/reset-password", requireAdmin, asyncRoute(asy
     targetUser.id,
   );
 
+  broadcastAdminDataUpdated();
   res.json({ ok: true });
 }));
 
@@ -2532,6 +2484,7 @@ app.post("/api/admin/users/:userId/reset-totp", requireAdmin, asyncRoute(async (
     `).run(encryptValue(secret.base32), Date.now(), targetUser.id);
 
     const qr = await QRCode.toDataURL(totp.toString());
+    broadcastAdminDataUpdated();
     res.json({
       ok: true,
       base32: secret.base32,
@@ -2548,6 +2501,7 @@ app.post("/api/admin/users/:userId/reset-totp", requireAdmin, asyncRoute(async (
     WHERE id = ?
   `).run(Date.now(), targetUser.id);
 
+  broadcastAdminDataUpdated();
   res.json({ ok: true });
 }));
 
@@ -2574,6 +2528,7 @@ app.post("/api/admin/users/:userId/username", requireAdmin, (req, res) => {
     targetUser.id,
   );
 
+  broadcastAdminDataUpdated();
   res.json({ ok: true });
 });
 
@@ -2610,6 +2565,7 @@ app.delete("/api/admin/users/:userId", requireAdmin, (req, res) => {
   });
   deleteTx();
 
+  broadcastAdminDataUpdated();
   res.json({ ok: true });
 });
 
@@ -2655,17 +2611,6 @@ server.listen(env.PORT, "0.0.0.0", () => {
   console.log(`Nova backend listening on http://0.0.0.0:${env.PORT}`);
   void refreshAllProxyLatencies();
   setInterval(() => void refreshAllProxyLatencies(), PROXY_LATENCY_TTL_MS);
-  setInterval(() => {
-    const now = Date.now();
-    const expired = db
-      .prepare(`SELECT id FROM screen_share_requests WHERE expires_at < ?`)
-      .all(now) as Array<{ id: string }>;
-    for (const row of expired) {
-      screenShareFrames.delete(row.id);
-      screenShareLastFrameAt.delete(row.id);
-    }
-    db.prepare(`DELETE FROM screen_share_requests WHERE expires_at < ?`).run(now);
-  }, 60_000);
 });
 
 function createSchema() {
@@ -2819,16 +2764,6 @@ function createSchema() {
       created_at INTEGER NOT NULL
     );
 
-    CREATE TABLE IF NOT EXISTS screen_share_requests (
-      id TEXT PRIMARY KEY,
-      target_session_id TEXT NOT NULL,
-      admin_user_id TEXT NOT NULL,
-      status TEXT NOT NULL,
-      created_at INTEGER NOT NULL,
-      expires_at INTEGER NOT NULL,
-      ended_at INTEGER,
-      declined_at INTEGER
-    );
   `);
 
   const alertColumns = db.prepare("PRAGMA table_info(alerts)").all() as Array<{ name: string }>;

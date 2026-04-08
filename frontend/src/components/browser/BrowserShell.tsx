@@ -129,7 +129,6 @@ export const BrowserShell: React.FC = () => {
   const transportConfig = store.transportConfig;
   const refreshAdminData = store.refreshAdminData;
   const setScramjetError = store.setScramjetError;
-  const postScreenShareFrame = store.postScreenShareFrame;
   const alertList = store.alerts;
   const showTutorial = store.showTutorial;
   const dismissTutorial = store.dismissTutorial;
@@ -162,13 +161,6 @@ export const BrowserShell: React.FC = () => {
   const [countdownNow, setCountdownNow] = useState(() => Date.now());
   const [settingsSearchQuery, setSettingsSearchQuery] = useState<string | null>(null);
   const [settingsSearchVersion, setSettingsSearchVersion] = useState(0);
-
-  const handlePostScreenShareFrame = useCallback(
-    (requestId: string, dataUrl: string) => {
-      void postScreenShareFrame(requestId, dataUrl);
-    },
-    [postScreenShareFrame],
-  );
 
   const handleFullscreenTab = useCallback(() => {
     const target = tabFullscreenHostRef.current ?? contentAreaRef.current;
@@ -751,34 +743,6 @@ export const BrowserShell: React.FC = () => {
         />
       )}
 
-      {store.screenSharePrompt && (
-        <div className="fixed left-1/2 top-24 z-[270] w-full max-w-lg -translate-x-1/2 px-4">
-          <div className="rounded-2xl border border-primary/40 bg-card/95 px-4 py-3 shadow-2xl backdrop-blur">
-            <div className="text-sm font-semibold text-foreground">Screen view requested</div>
-            <p className="mt-1 text-xs text-muted-foreground">
-              Administrator <span className="text-foreground">{store.screenSharePrompt.adminUsername}</span>{" "}
-              asked to view this browser window. Only the visible tab area is captured as a snapshot.
-            </p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              <button
-                type="button"
-                className="rounded-lg bg-primary px-3 py-1.5 text-xs font-medium text-primary-foreground"
-                onClick={() => void store.respondScreenShare(true)}
-              >
-                Allow
-              </button>
-              <button
-                type="button"
-                className="rounded-lg border border-border px-3 py-1.5 text-xs text-muted-foreground"
-                onClick={() => void store.respondScreenShare(false)}
-              >
-                Decline
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
       <UrlBar
         activeTab={store.activeTab}
         onNavigate={store.navigateTo}
@@ -954,8 +918,6 @@ export const BrowserShell: React.FC = () => {
             });
           }}
           onPasswordCapture={() => {}}
-          screenShareCaptureId={store.screenShareCaptureId}
-          onPostScreenShareFrame={handlePostScreenShareFrame}
           onInspectErudaFailed={store.notifyInspectFailure}
         />
 

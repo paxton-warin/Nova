@@ -45,8 +45,6 @@ interface ContentAreaProps {
     message: string;
     url: string;
   }) => void;
-  screenShareCaptureId: string | null;
-  onPostScreenShareFrame: (requestId: string, dataUrl: string) => void;
   onInspectErudaFailed?: (message: string) => void;
   onRegisterTabFullscreenHost?: (element: HTMLDivElement | null) => void;
   onOpenTickets?: () => void;
@@ -119,8 +117,6 @@ export const ContentArea = forwardRef<HTMLDivElement, ContentAreaProps>(function
   onFrameFullscreenRequest,
   onPasswordCapture,
   onFrameWebsiteMessage,
-  screenShareCaptureId,
-  onPostScreenShareFrame,
   onInspectErudaFailed,
   onRegisterTabFullscreenHost,
   onOpenTickets,
@@ -246,8 +242,6 @@ export const ContentArea = forwardRef<HTMLDivElement, ContentAreaProps>(function
               onFrameFullscreenRequest={onFrameFullscreenRequest}
               onPasswordCapture={onPasswordCapture}
               onFrameWebsiteMessage={onFrameWebsiteMessage}
-              screenShareCaptureId={screenShareCaptureId}
-              onPostScreenShareFrame={onPostScreenShareFrame}
               onInspectErudaFailed={onInspectErudaFailed}
               onRegisterTabFullscreenHost={onRegisterTabFullscreenHost}
             />
@@ -283,8 +277,6 @@ interface ProxyTabFrameProps {
     message: string;
     url: string;
   }) => void;
-  screenShareCaptureId: string | null;
-  onPostScreenShareFrame: (requestId: string, dataUrl: string) => void;
   onInspectErudaFailed?: (message: string) => void;
   onRegisterTabFullscreenHost?: (element: HTMLDivElement | null) => void;
 }
@@ -308,14 +300,10 @@ const ProxyTabFrame: React.FC<ProxyTabFrameProps> = ({
   onFrameFullscreenRequest,
   onPasswordCapture,
   onFrameWebsiteMessage,
-  screenShareCaptureId,
-  onPostScreenShareFrame,
   onInspectErudaFailed,
   onRegisterTabFullscreenHost,
 }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const postScreenShareFrameRef = useRef(onPostScreenShareFrame);
-  postScreenShareFrameRef.current = onPostScreenShareFrame;
   const cleanupBridgeRef = useRef<(() => void) | null>(null);
   const bridgedDocumentRef = useRef<Document | null>(null);
   const erudaEnabledRef = useRef(erudaEnabled);
@@ -1089,37 +1077,6 @@ function normalizeFrameCompareUrl(value: string) {
       }
     });
   }, [inspectRequestToken]);
-
-  useEffect(() => {
-    if (!screenShareCaptureId || !isActive || tab.url === "newtab") return;
-    let cancelled = false;
-    const run = async () => {
-      if (cancelled) return;
-      const frame = frameRef.current?.frame;
-      const doc = frame?.contentDocument;
-      if (!doc?.body) return;
-      try {
-        const { default: html2canvas } = await import("html2canvas");
-        const canvas = await html2canvas(doc.body, {
-          scale: 0.55,
-          useCORS: true,
-          allowTaint: true,
-          logging: false,
-          ignoreElements: (node) => node instanceof HTMLIFrameElement,
-        });
-        const dataUrl = canvas.toDataURL("image/jpeg", 0.68);
-        if (dataUrl.length < 1500) return;
-        await postScreenShareFrameRef.current(screenShareCaptureId, dataUrl);
-      } catch {
-        // Ignore capture errors (cross-origin or heavy pages).
-      }
-    };
-    const interval = window.setInterval(() => void run(), 1400);
-    return () => {
-      cancelled = true;
-      window.clearInterval(interval);
-    };
-  }, [screenShareCaptureId, isActive, tab.id, tab.url]);
 
   const bindFrameHost = useCallback(
     (node: HTMLDivElement | null) => {

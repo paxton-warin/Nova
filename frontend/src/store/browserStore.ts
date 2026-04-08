@@ -740,15 +740,17 @@ export function useBrowserStore() {
   const [selectedAdminTicketId, setSelectedAdminTicketId] = useState<string | null>(null);
   const [adminSection, setAdminSection] = useState<"overview" | "logs" | "people" | "sessions" | "tickets" | "filters">("overview");
   const [adminSearchQuery, setAdminSearchQuery] = useState("");
+  const adminRefreshOptionsRef = useRef<{
+    filter?: string;
+    timeframe?: "24h" | "7d" | "30d";
+  }>({
+    filter: "all",
+    timeframe: "24h",
+  });
   const ticketReadOverridesRef = useRef<Record<string, number>>({});
   const lastProxyBayMessageRef = useRef<string | null>(null);
   const lastScramjetBayMessageRef = useRef<string | null>(null);
   const proxyLocationNoticeTimerRef = useRef<number | null>(null);
-  const [screenSharePrompt, setScreenSharePrompt] = useState<{
-    id: string;
-    adminUsername: string;
-  } | null>(null);
-  const [screenShareCaptureId, setScreenShareCaptureId] = useState<string | null>(null);
   const [inspectNotice, setInspectNotice] = useState<string | null>(null);
   const [setupAwaitingLogin, setSetupAwaitingLogin] = useState(false);
   const setupAwaitingLoginRef = useRef(false);
@@ -865,6 +867,38 @@ export function useBrowserStore() {
     setActivePanel("admin");
   }
 
+  const refreshAlerts = useCallback(async () => {
+    try {
+      const payload = await api<{ alerts: BrowserAlert[] }>("/api/alerts");
+      setAlerts(payload.alerts);
+    } catch {
+      // Ignore transient alert refresh failures.
+    }
+  }, []);
+
+  const refreshSessionStatus = useCallback(async () => {
+    try {
+      const payload = await api<{ banned: BrowserBan | null }>("/api/session/status");
+      setBanned(payload.banned);
+    } catch {
+      // Ignore transient session-status refresh failures.
+    }
+  }, []);
+
+  const refreshInbox = useCallback(async () => {
+    try {
+      const payload = await api<{
+        notifications: InboxNotification[];
+        tickets: SupportTicket[];
+      }>("/api/messages/inbox");
+      setInboxNotifications(payload.notifications);
+      setSupportTickets(applySupportTicketReadOverrides(payload.tickets));
+    } catch {
+      setInboxNotifications([]);
+      setSupportTickets([]);
+    }
+  }, []);
+
   useEffect(() => {
     void loadBootstrap();
   }, []);
@@ -876,85 +910,8 @@ export function useBrowserStore() {
 
   useEffect(() => {
     if (!isReady) return;
-    const interval = window.setInterval(() => {
-      void api<{ alerts: BrowserAlert[] }>("/api/alerts")
-        .then((payload) => setAlerts(payload.alerts))
-        .catch(() => {});
-    }, 15000);
-    return () => window.clearInterval(interval);
-  }, [isReady]);
-
-  useEffect(() => {
-    if (!isReady) return;
     void refreshInbox();
-    const interval = window.setInterval(() => {
-      void refreshInbox();
-    }, 12000);
-    return () => window.clearInterval(interval);
-  }, [isReady, user?.id]);
-
-  useEffect(() => {
-    if (!isReady) return;
-    const interval = window.setInterval(() => {
-      void (async () => {
-        try {
-          const payload = await api<{
-            request: {
-              id: string;
-              status: string;
-              adminUsername: string;
-            } | null;
-          }>("/api/session/screen-share");
-          const request = payload.request;
-          if (!request) {
-            setScreenSharePrompt(null);
-            setScreenShareCaptureId(null);
-            return;
-          }
-          if (request.status === "pending") {
-            setScreenSharePrompt({
-              id: request.id,
-              adminUsername: request.adminUsername,
-            });
-            setScreenShareCaptureId((current) =>
-              current === request.id ? current : null,
-            );
-          } else if (request.status === "streaming") {
-            setScreenSharePrompt(null);
-            setScreenShareCaptureId(request.id);
-          }
-        } catch {
-          // ignore
-        }
-      })();
-    }, 2000);
-    return () => window.clearInterval(interval);
-  }, [isReady]);
-
-  useEffect(() => {
-    if (!isReady) return;
-    const poll = () => {
-      void api<{ banned: BrowserBan | null }>("/api/session/status")
-        .then((payload) => {
-          setBanned(payload.banned);
-        })
-        .catch(() => {});
-    };
-    const handleVisibilityRefresh = () => {
-      if (document.visibilityState === "visible") {
-        poll();
-      }
-    };
-    poll();
-    const interval = window.setInterval(poll, 2_000);
-    window.addEventListener("focus", poll);
-    document.addEventListener("visibilitychange", handleVisibilityRefresh);
-    return () => {
-      window.clearInterval(interval);
-      window.removeEventListener("focus", poll);
-      document.removeEventListener("visibilitychange", handleVisibilityRefresh);
-    };
-  }, [isReady]);
+  }, [isReady, user?.id, refreshInbox]);
 
   useEffect(() => {
     if (!isReady) return;
@@ -2162,20 +2119,6 @@ export function useBrowserStore() {
     await refreshPasswords();
   }
 
-  async function refreshInbox() {
-    try {
-      const payload = await api<{
-        notifications: InboxNotification[];
-        tickets: SupportTicket[];
-      }>("/api/messages/inbox");
-      setInboxNotifications(payload.notifications);
-      setSupportTickets(applySupportTicketReadOverrides(payload.tickets));
-    } catch {
-      setInboxNotifications([]);
-      setSupportTickets([]);
-    }
-  }
-
   async function setNotificationRead(id: string, read: boolean) {
     await api(`/api/messages/notifications/${id}/state`, {
       method: "POST",
@@ -2305,26 +2248,6 @@ export function useBrowserStore() {
     }
   }
 
-  async function respondScreenShare(accept: boolean) {
-    if (!screenSharePrompt) return;
-    const id = screenSharePrompt.id;
-    await api(`/api/session/screen-share/${id}/respond`, {
-      method: "POST",
-      body: JSON.stringify({ accept }),
-    });
-    if (accept) {
-      setScreenShareCaptureId(id);
-    }
-    setScreenSharePrompt(null);
-  }
-
-  async function postScreenShareFrame(requestId: string, image: string) {
-    await api(`/api/session/screen-share/${requestId}/frame`, {
-      method: "POST",
-      body: JSON.stringify({ image }),
-    });
-  }
-
   async function markSupportTicketRead(ticketId: string) {
     await api(`/api/messages/tickets/${ticketId}/read`, { method: "POST" });
     const readAt = Date.now();
@@ -2355,6 +2278,7 @@ export function useBrowserStore() {
       const filter = typeof options === "string" ? options : options.filter ?? "all";
       const timeframe =
         typeof options === "string" ? "24h" : options.timeframe ?? "24h";
+      adminRefreshOptionsRef.current = { filter, timeframe };
       const results = await Promise.allSettled([
         api<{ users: AdminUser[] }>("/api/admin/users"),
         api<{ sessions: AdminSession[] }>("/api/admin/sessions"),
@@ -2393,6 +2317,50 @@ export function useBrowserStore() {
     },
     [],
   );
+
+  useEffect(() => {
+    if (!isReady) return;
+
+    const source = new EventSource(resolveApiUrl("/api/events"), {
+      withCredentials: true,
+    });
+
+    source.onopen = () => {
+      void refreshSessionStatus();
+      void refreshAlerts();
+      void refreshInbox();
+      if (user?.isAdmin && activePanel === "admin") {
+        void refreshAdminData(adminRefreshOptionsRef.current);
+      }
+    };
+
+    source.addEventListener("session-status-updated", () => {
+      void refreshSessionStatus();
+    });
+    source.addEventListener("alerts-updated", () => {
+      void refreshAlerts();
+    });
+    source.addEventListener("inbox-updated", () => {
+      void refreshInbox();
+    });
+    source.addEventListener("admin-data-updated", () => {
+      if (user?.isAdmin && activePanel === "admin") {
+        void refreshAdminData(adminRefreshOptionsRef.current);
+      }
+    });
+
+    return () => {
+      source.close();
+    };
+  }, [
+    activePanel,
+    isReady,
+    refreshAdminData,
+    refreshAlerts,
+    refreshInbox,
+    refreshSessionStatus,
+    user?.isAdmin,
+  ]);
 
   async function sendAlert(
     title: string,
@@ -2604,16 +2572,12 @@ export function useBrowserStore() {
     selectedAdminTicketId,
     adminSection,
     adminSearchQuery,
-    screenSharePrompt,
-    screenShareCaptureId,
     inspectNotice,
     clearInspectNotice,
     notifyInspectFailure,
     tutorialJumpToReview,
     clearTutorialJumpToReview,
     beginSetupLogin,
-    respondScreenShare,
-    postScreenShareFrame,
     addTab,
     closeTab,
     restoreLastClosedTab,

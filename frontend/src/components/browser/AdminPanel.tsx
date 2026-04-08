@@ -302,13 +302,6 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
   }, [onSelectedTicketChange, selectedTicketId]);
 
   useEffect(() => {
-    const interval = window.setInterval(() => {
-      void onRefresh({ filter: categoryFilter, timeframe });
-    }, 5000);
-    return () => window.clearInterval(interval);
-  }, [categoryFilter, onRefresh, timeframe]);
-
-  useEffect(() => {
     setPeoplePage(1);
     setSessionsPage(1);
     setLogsPage(1);
