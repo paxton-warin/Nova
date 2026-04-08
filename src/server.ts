@@ -811,6 +811,10 @@ function sendHealth(res: Response) {
   res.json({ ok: true, service: "nova-browser" });
 }
 
+app.get("/healthz", (_req, res) => {
+  res.status(200).type("text/plain").send("ok");
+});
+
 app.get("/health", (_req, res) => {
   sendHealth(res);
 });
